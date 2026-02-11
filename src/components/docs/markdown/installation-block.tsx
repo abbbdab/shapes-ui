@@ -11,10 +11,10 @@ interface InstallationBlockProps {
 }
 
 const PACKAGE_MANAGERS = [
-  { id: "npx", label: "npx", command: (name: string) => `npx shapes add ${name}` },
-  { id: "bun", label: "bun", command: (name: string) => `bunx shapes add ${name}` },
-  { id: "pnpm", label: "pnpm", command: (name: string) => `pnpm dlx shapes add ${name}` },
-  { id: "yarn", label: "yarn", command: (name: string) => `yarn dlx shapes add ${name}` },
+  { id: "npx", label: "npx", command: (name: string) => `npx shapes-ui add ${name}` },
+  { id: "bun", label: "bun", command: (name: string) => `bunx shapes-ui add ${name}` },
+  { id: "pnpm", label: "pnpm", command: (name: string) => `pnpm dlx shapes-ui add ${name}` },
+  { id: "yarn", label: "yarn", command: (name: string) => `yarn dlx shapes-ui add ${name}` },
 ];
 
 export function InstallationBlock({ name }: InstallationBlockProps) {
@@ -24,7 +24,7 @@ export function InstallationBlock({ name }: InstallationBlockProps) {
 
   const currentCommand = React.useMemo(() => {
     const pm = PACKAGE_MANAGERS.find((p) => p.id === activeTab);
-    return pm ? pm.command(name) : `npx shapes add ${name}`;
+    return pm ? pm.command(name) : `npx shapes-ui add ${name}`;
   }, [activeTab, name]);
 
   React.useEffect(() => {

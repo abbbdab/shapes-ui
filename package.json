@@ -2,7 +2,7 @@
   "name": "shapes-ui",
   "version": "0.0.0",
   "bin": {
-    "shapes": "./dist/cli.js"
+    "shapes-ui": "./dist/cli.js"
   },
   "type": "module",
   "scripts": {
