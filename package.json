@@ -4,6 +4,9 @@
   "bin": {
     "shapes-ui": "./dist/cli.js"
   },
+  "publishConfig": {
+    "access": "public"
+  },
   "type": "module",
   "scripts": {
     "dev": "vite dev --port 3000",
