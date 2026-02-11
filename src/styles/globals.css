@@ -1,0 +1,66 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Space+Grotesk:wght@300..700&display=swap");
+
+@import "./styles.css";
+
+:root {
+  --shiki-light-bg: transparent;
+  --shiki-dark-bg: transparent;
+}
+
+.shiki,
+.shiki code,
+.shiki pre {
+  background-color: transparent !important;
+}
+
+.shiki {
+  margin: 0;
+  overflow-x: auto;
+}
+
+.shiki,
+.shiki span {
+  color: var(--shiki-light);
+}
+
+.dark .shiki,
+.dark .shiki span {
+  color: var(--shiki-dark);
+}
+
+.line {
+  display: inline-block;
+  min-width: 100%;
+}
+
+.line-number {
+  display: inline-block;
+  width: 1.5rem;
+  margin-right: 1rem;
+  text-align: right;
+  color: var(--muted-foreground);
+  user-select: none;
+  opacity: 0.5;
+}
+
+/* Right-to-left opacity mask for images and svgs */
+.mask-rtl {
+  -webkit-mask-image: linear-gradient(
+    to left,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(0, 0, 0, 1) 15%,
+    rgba(0, 0, 0, 0.85) 45%,
+    rgba(0, 0, 0, 0.45) 70%,
+    rgba(0, 0, 0, 0.1) 85%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  mask-image: linear-gradient(
+    to left,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(0, 0, 0, 1) 15%,
+    rgba(0, 0, 0, 0.85) 45%,
+    rgba(0, 0, 0, 0.45) 70%,
+    rgba(0, 0, 0, 0.1) 85%,
+    rgba(0, 0, 0, 0) 100%
+  );
+}
