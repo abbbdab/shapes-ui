@@ -1,5 +1,11 @@
 # shapes-ui
 
+## 0.1.1
+
+### Patch Changes
+
+- 42852ef: added mising dep
+
 ## 0.1.0
 
 ### Minor Changes
