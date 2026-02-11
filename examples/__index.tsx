@@ -111,6 +111,32 @@ export const examples: ExampleRegistry = {
       },
     ],
   },
+  badge: {
+    title: "Badge",
+    code: lazy(() => import("../src/components/ui/badge").then(m => ({ default: m.Badge || m.default }))),
+    examples: [
+      {
+        name: "badge-variants",
+        title: "Variants",
+        code: lazy(() => import("./badge-variants")),
+      },
+      {
+        name: "badge-status-icon",
+        title: "Status Icon",
+        code: lazy(() => import("./badge-status-icon")),
+      },
+      {
+        name: "badge-status",
+        title: "Status",
+        code: lazy(() => import("./badge-status")),
+      },
+      {
+        name: "badge-demo",
+        title: "Demo",
+        code: lazy(() => import("./badge-demo")),
+      },
+    ],
+  },
   button: {
     title: "Button",
     code: lazy(() => import("../src/components/ui/button").then(m => ({ default: m.Button || m.default }))),
