@@ -1,5 +1,11 @@
 # shapes-ui
 
+## 0.1.2
+
+### Patch Changes
+
+- f753ba1: Fixed cli dependencies which were bundled with wrong strategy
+
 ## 0.1.1
 
 ### Patch Changes
