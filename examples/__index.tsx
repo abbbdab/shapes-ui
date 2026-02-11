@@ -96,4 +96,65 @@ export const examples: ExampleRegistry = {
       },
     ],
   },
+  button: {
+    title: "Button",
+    code: lazy(() => import("../src/components/ui/button").then(m => ({ default: m.Button || m.default }))),
+    examples: [
+      {
+        name: "button-warning",
+        title: "Warning",
+        code: lazy(() => import("./button-warning")),
+      },
+      {
+        name: "button-success",
+        title: "Success",
+        code: lazy(() => import("./button-success")),
+      },
+      {
+        name: "button-sizes",
+        title: "Sizes",
+        code: lazy(() => import("./button-sizes")),
+      },
+      {
+        name: "button-outline",
+        title: "Outline",
+        code: lazy(() => import("./button-outline")),
+      },
+      {
+        name: "button-loading",
+        title: "Loading",
+        code: lazy(() => import("./button-loading")),
+      },
+      {
+        name: "button-link",
+        title: "Link",
+        code: lazy(() => import("./button-link")),
+      },
+      {
+        name: "button-info",
+        title: "Info",
+        code: lazy(() => import("./button-info")),
+      },
+      {
+        name: "button-ghost",
+        title: "Ghost",
+        code: lazy(() => import("./button-ghost")),
+      },
+      {
+        name: "button-destructive",
+        title: "Destructive",
+        code: lazy(() => import("./button-destructive")),
+      },
+      {
+        name: "button-demo",
+        title: "Demo",
+        code: lazy(() => import("./button-demo")),
+      },
+      {
+        name: "button-default",
+        title: "Default",
+        code: lazy(() => import("./button-default")),
+      },
+    ],
+  },
 };
