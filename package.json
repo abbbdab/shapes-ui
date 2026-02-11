@@ -1,6 +1,6 @@
 {
   "name": "shapes-ui",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "bin": {
     "shapes-ui": "./dist/cli.js"
   },
