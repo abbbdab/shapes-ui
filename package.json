@@ -9,6 +9,7 @@
     "dev": "vite dev --port 3000",
     "build": "vite build",
     "build:cli": "tsup",
+    "release": "pnpm build:cli && changeset publish",
     "preview": "vite preview",
     "test": "vitest run",
     "gen:examples": "tsx ./scripts/generate-examples.mts",
