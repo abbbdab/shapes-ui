@@ -1,5 +1,11 @@
 # shapes-ui
 
+## 0.1.3
+
+### Patch Changes
+
+- 843d016: Added npm oidc for automated publishing
+
 ## 0.1.2
 
 ### Patch Changes
