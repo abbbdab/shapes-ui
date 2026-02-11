@@ -75,6 +75,21 @@ export const examples: ExampleRegistry = {
         code: lazy(() => import("./alert-info")),
       },
       {
+        name: "alert-dialog-icon",
+        title: "Dialog Icon",
+        code: lazy(() => import("./alert-dialog-icon")),
+      },
+      {
+        name: "alert-dialog-destructive",
+        title: "Dialog Destructive",
+        code: lazy(() => import("./alert-dialog-destructive")),
+      },
+      {
+        name: "alert-dialog-demo",
+        title: "Dialog Demo",
+        code: lazy(() => import("./alert-dialog-demo")),
+      },
+      {
         name: "alert-destructive",
         title: "Destructive",
         code: lazy(() => import("./alert-destructive")),
