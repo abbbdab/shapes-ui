@@ -12,6 +12,8 @@
     "release": "pnpm build:cli && changeset publish",
     "preview": "vite preview",
     "test": "vitest run",
+    "deploy": "npm run build && wrangler deploy",
+    "cf-typegen": "wrangler types",
     "gen:examples": "tsx ./scripts/generate-examples.mts",
     "gen:registry": "tsx ./scripts/generate-registry.mts",
     "lint": "oxlint",
@@ -43,6 +45,7 @@
   "devDependencies": {
     "@changesets/cli": "^2.29.8",
     "@clack/prompts": "^1.0.0",
+    "@cloudflare/vite-plugin": "^1.24.0",
     "@content-collections/core": "^0.13.1",
     "@content-collections/mdx": "^0.2.2",
     "@content-collections/vite": "^0.2.8",
