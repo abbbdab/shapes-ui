@@ -1,5 +1,11 @@
 # shapes-ui
 
+## 0.1.4
+
+### Patch Changes
+
+- 56b186b: Updated node version in workflow file
+
 ## 0.1.3
 
 ### Patch Changes
