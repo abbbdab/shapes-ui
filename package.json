@@ -1,11 +1,16 @@
 {
   "name": "shapes-ui",
   "version": "0.1.2",
-  "bin": {
-    "shapes-ui": "./dist/cli.js"
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/abbbdab/shapes-ui.git"
   },
   "publishConfig": {
-    "access": "public"
+    "access": "public",
+    "provenance": true
+  },
+  "bin": {
+    "shapes-ui": "./dist/cli.js"
   },
   "type": "module",
   "scripts": {
