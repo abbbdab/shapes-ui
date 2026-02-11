@@ -32,7 +32,7 @@ export function RenderPreview({ name }: { name: string }) {
     if (!example) return;
     let isActive = true;
 
-    const rawExamples = import.meta.glob("/shapes/examples/*.tsx", {
+    const rawExamples = import.meta.glob("/examples/**/*.tsx", {
       query: "?raw",
       import: "default",
     });
