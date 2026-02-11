@@ -45,4 +45,55 @@ export const examples: ExampleRegistry = {
       },
     ],
   },
+  alert: {
+    title: "Alert",
+    code: lazy(() => import("../src/components/ui/alert").then(m => ({ default: m.Alert || m.default }))),
+    examples: [
+      {
+        name: "alert-warning",
+        title: "Warning",
+        code: lazy(() => import("./alert-warning")),
+      },
+      {
+        name: "alert-title",
+        title: "Title",
+        code: lazy(() => import("./alert-title")),
+      },
+      {
+        name: "alert-success",
+        title: "Success",
+        code: lazy(() => import("./alert-success")),
+      },
+      {
+        name: "alert-link",
+        title: "Link",
+        code: lazy(() => import("./alert-link")),
+      },
+      {
+        name: "alert-info",
+        title: "Info",
+        code: lazy(() => import("./alert-info")),
+      },
+      {
+        name: "alert-destructive",
+        title: "Destructive",
+        code: lazy(() => import("./alert-destructive")),
+      },
+      {
+        name: "alert-description",
+        title: "Description",
+        code: lazy(() => import("./alert-description")),
+      },
+      {
+        name: "alert-demo",
+        title: "Demo",
+        code: lazy(() => import("./alert-demo")),
+      },
+      {
+        name: "alert-action",
+        title: "Action",
+        code: lazy(() => import("./alert-action")),
+      },
+    ],
+  },
 };
