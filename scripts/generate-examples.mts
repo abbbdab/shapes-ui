@@ -20,8 +20,8 @@ function toTitle(input: string) {
 
 const dirEntries = await fs.readdir(examplesDir, { withFileTypes: true });
 const exampleFiles = dirEntries
-  .filter((entry) => entry.isFile() && entry.name.endsWith(".tsx") && entry.name !== "__index.tsx")
-  .map((entry) => entry.name);
+  .filter((entry: fs.Dirent) => entry.isFile() && entry.name.endsWith(".tsx") && entry.name !== "__index.tsx")
+  .map((entry: fs.Dirent) => entry.name);
 
 const registry = new Map<
   string,
