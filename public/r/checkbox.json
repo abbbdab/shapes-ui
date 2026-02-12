@@ -1,0 +1,16 @@
+{
+  "name": "checkbox",
+  "type": "registry:ui",
+  "dependencies": [
+    "@base-ui/react",
+    "lucide-react"
+  ],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "checkbox.tsx",
+      "content": "\"use client\";\n\nimport { Checkbox as CheckboxPrimitive } from \"@base-ui/react/checkbox\";\nimport { CheckIcon, MinusIcon } from \"lucide-react\";\n\nimport { cn } from \"@/lib/utils\";\n\nfunction Checkbox({ className, ...props }: CheckboxPrimitive.Root.Props) {\n  return (\n    <CheckboxPrimitive.Root\n      data-slot=\"checkbox\"\n      className={cn(\n        \"peer inline-flex size-4 max-w-4 shrink-0 items-center justify-center rounded border border-input bg-background transition-colors group-data-invalid/field:border-destructive focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 focus-visible:outline-none group-data-invalid/field:focus-visible:border-destructive group-data-invalid/field:focus-visible:ring-destructive/20 disabled:cursor-not-allowed disabled:opacity-50 data-checked:border-primary data-checked:bg-primary data-checked:text-primary-foreground data-indeterminate:border-primary data-indeterminate:bg-primary data-indeterminate:text-primary-foreground dark:group-data-invalid/field:border-destructive/50 dark:group-data-invalid/field:focus-visible:ring-destructive/40\",\n        className,\n      )}\n      {...props}\n    >\n      <CheckboxPrimitive.Indicator\n        data-slot=\"checkbox-indicator\"\n        className={cn(\n          \"group/indicator flex items-center justify-center text-current opacity-0 transition-opacity data-checked:opacity-100 data-indeterminate:opacity-100\",\n          className,\n        )}\n        {...props}\n      >\n        <CheckIcon className=\"size-3.5 group-data-indeterminate/indicator:hidden\" />\n        <MinusIcon className=\"hidden size-3.5 group-data-indeterminate/indicator:block\" />\n      </CheckboxPrimitive.Indicator>\n    </CheckboxPrimitive.Root>\n  );\n}\n\nexport { Checkbox };\n",
+      "type": "registry:ui"
+    }
+  ]
+}
