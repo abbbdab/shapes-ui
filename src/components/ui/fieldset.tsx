@@ -4,7 +4,7 @@ import { Fieldset as FieldsetPrimitive } from "@base-ui/react/fieldset";
 
 import { cn } from "@/lib/utils";
 
-function FieldsetRoot({ className, ...props }: FieldsetPrimitive.Root.Props) {
+function Fieldset({ className, ...props }: FieldsetPrimitive.Root.Props) {
   return (
     <FieldsetPrimitive.Root
       data-slot="fieldset-root"
@@ -24,4 +24,4 @@ function FieldsetLegend({ className, ...props }: FieldsetPrimitive.Legend.Props)
   );
 }
 
-export { FieldsetRoot, FieldsetLegend };
+export { Fieldset, FieldsetLegend };
