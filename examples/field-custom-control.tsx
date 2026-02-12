@@ -1,8 +1,8 @@
-import { FieldRoot, FieldLabel, FieldDescription } from "@/components/ui/field";
+import { Field, FieldLabel, FieldDescription } from "@/components/ui/field";
 
 export default function FieldCustomControl() {
   return (
-    <FieldRoot name="color" className="max-w-md">
+    <Field name="color" className="max-w-md">
       <FieldLabel>Favorite Color</FieldLabel>
       <select className="flex h-9 w-full rounded-lg border border-input bg-background px-3 py-2 text-sm transition-colors focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 focus-visible:outline-none">
         <option value="">Select a color</option>
@@ -12,6 +12,6 @@ export default function FieldCustomControl() {
         <option value="yellow">Yellow</option>
       </select>
       <FieldDescription>Select your favorite color from the dropdown.</FieldDescription>
-    </FieldRoot>
+    </Field>
   );
 }

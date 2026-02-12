@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import { FieldRoot, FieldLabel, FieldControl, FieldDescription } from "@/components/ui/field";
+import { Field, FieldLabel, FieldControl, FieldDescription } from "@/components/ui/field";
 
 export default function FieldValidation() {
   const [email, setEmail] = useState("");
@@ -14,7 +14,12 @@ export default function FieldValidation() {
   };
 
   return (
-    <FieldRoot name="email" validate={validateEmail} validationMode="onChange" className="max-w-md">
+    <Field
+      name="email"
+      validate={(val) => validateEmail(val as string)}
+      validationMode="onChange"
+      className="max-w-lg"
+    >
       <FieldLabel>Email</FieldLabel>
       <FieldControl
         type="email"
@@ -23,6 +28,6 @@ export default function FieldValidation() {
         onChange={(e) => setEmail(e.target.value)}
       />
       <FieldDescription>Enter your email address</FieldDescription>
-    </FieldRoot>
+    </Field>
   );
 }

@@ -1,53 +1,53 @@
-import { FieldRoot, FieldLabel, FieldControl, FieldDescription } from "@/components/ui/field";
-import { FieldsetRoot, FieldsetLegend } from "@/components/ui/fieldset";
+import { Field, FieldLabel, FieldControl, FieldDescription } from "@/components/ui/field";
+import { Fieldset, FieldsetLegend } from "@/components/ui/fieldset";
 
 export default function FieldsetNested() {
   return (
     <div className="max-w-2xl space-y-6">
-      <FieldsetRoot>
+      <Fieldset>
         <FieldsetLegend>Personal Information</FieldsetLegend>
         <div className="space-y-4">
           <div className="grid grid-cols-2 gap-4">
-            <FieldRoot name="firstName">
+            <Field name="firstName">
               <FieldLabel>First Name</FieldLabel>
               <FieldControl type="text" placeholder="John" />
-            </FieldRoot>
-            <FieldRoot name="lastName">
+            </Field>
+            <Field name="lastName">
               <FieldLabel>Last Name</FieldLabel>
               <FieldControl type="text" placeholder="Doe" />
-            </FieldRoot>
+            </Field>
           </div>
-          <FieldRoot name="email">
+          <Field name="email">
             <FieldLabel>Email</FieldLabel>
             <FieldControl type="email" placeholder="john.doe@example.com" />
             <FieldDescription>We'll never share your email with anyone else.</FieldDescription>
-          </FieldRoot>
+          </Field>
         </div>
-      </FieldsetRoot>
+      </Fieldset>
 
-      <FieldsetRoot>
+      <Fieldset>
         <FieldsetLegend>Shipping Address</FieldsetLegend>
         <div className="space-y-4">
-          <FieldRoot name="street">
+          <Field name="street">
             <FieldLabel>Street Address</FieldLabel>
             <FieldControl type="text" placeholder="123 Main St" />
-          </FieldRoot>
+          </Field>
           <div className="grid grid-cols-3 gap-4">
-            <FieldRoot name="city">
+            <Field name="city">
               <FieldLabel>City</FieldLabel>
               <FieldControl type="text" placeholder="New York" />
-            </FieldRoot>
-            <FieldRoot name="state">
+            </Field>
+            <Field name="state">
               <FieldLabel>State</FieldLabel>
               <FieldControl type="text" placeholder="NY" />
-            </FieldRoot>
-            <FieldRoot name="zip">
+            </Field>
+            <Field name="zip">
               <FieldLabel>ZIP Code</FieldLabel>
               <FieldControl type="text" placeholder="10001" />
-            </FieldRoot>
+            </Field>
           </div>
         </div>
-      </FieldsetRoot>
+      </Fieldset>
     </div>
   );
 }
