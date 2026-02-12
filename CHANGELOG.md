@@ -1,5 +1,21 @@
 # shapes-ui
 
+## 0.2.0
+
+### Minor Changes
+
+- 7fba187: added checkbox component
+- 0357963: Added field and fieldset component
+- de3beca: Added card component
+- 76202d0: Added input, input group and textarea component
+- de072d0: Added button group and separator component
+- 7af2c52: Added collapsible component
+
+### Patch Changes
+
+- cc9c158: Updated composition of field component
+- 94297b0: Updated button group code
+
 ## 0.1.4
 
 ### Patch Changes
