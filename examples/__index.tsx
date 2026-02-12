@@ -276,6 +276,17 @@ export const examples: ExampleRegistry = {
       },
     ],
   },
+  dialog: {
+    title: "Dialog",
+    code: lazy(() => import("../src/components/ui/dialog").then(m => ({ default: m.Dialog || m.default }))),
+    examples: [
+      {
+        name: "dialog-demo",
+        title: "Demo",
+        code: lazy(() => import("./dialog-demo")),
+      },
+    ],
+  },
   field: {
     title: "Field",
     code: lazy(() => import("../src/components/ui/field").then(m => ({ default: m.Field || m.default }))),
