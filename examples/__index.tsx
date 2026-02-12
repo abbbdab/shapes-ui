@@ -218,4 +218,15 @@ export const examples: ExampleRegistry = {
       },
     ],
   },
+  card: {
+    title: "Card",
+    code: lazy(() => import("../src/components/ui/card").then(m => ({ default: m.Card || m.default }))),
+    examples: [
+      {
+        name: "card-demo",
+        title: "Demo",
+        code: lazy(() => import("./card-demo")),
+      },
+    ],
+  },
 };
