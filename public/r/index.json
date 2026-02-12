@@ -6,5 +6,7 @@
   "button-group",
   "button",
   "card",
+  "field",
+  "fieldset",
   "separator"
 ]

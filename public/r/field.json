@@ -1,0 +1,15 @@
+{
+  "name": "field",
+  "type": "registry:ui",
+  "dependencies": [
+    "@base-ui/react"
+  ],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "field.tsx",
+      "content": "\"use client\";\n\nimport { Field as FieldPrimitive } from \"@base-ui/react/field\";\n\nimport { cn } from \"@/lib/utils\";\n\nfunction FieldRoot({ className, ...props }: FieldPrimitive.Root.Props) {\n  return (\n    <FieldPrimitive.Root\n      data-slot=\"field-root\"\n      className={cn(\"group/field flex flex-col gap-1.5\", className)}\n      {...props}\n    />\n  );\n}\n\nfunction FieldLabel({ className, ...props }: FieldPrimitive.Label.Props) {\n  return (\n    <FieldPrimitive.Label\n      data-slot=\"field-label\"\n      className={cn(\n        \"text-sm leading-none font-medium peer-disabled:cursor-not-allowed peer-disabled:opacity-50\",\n        className,\n      )}\n      {...props}\n    />\n  );\n}\n\nfunction FieldControl({ className, ...props }: FieldPrimitive.Control.Props) {\n  return (\n    <FieldPrimitive.Control\n      data-slot=\"field-control\"\n      className={cn(\n        \"flex h-9 w-full rounded-lg border border-input bg-background px-3 py-2 text-sm transition-colors\",\n        \"placeholder:text-muted-foreground\",\n        \"focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 focus-visible:outline-none\",\n        \"disabled:cursor-not-allowed disabled:opacity-50\",\n        \"group-data-invalid/field:border-destructive group-data-invalid/field:focus-visible:border-destructive group-data-invalid/field:focus-visible:ring-destructive/20 dark:group-data-invalid/field:border-destructive/50 dark:group-data-invalid/field:focus-visible:ring-destructive/40\",\n        className,\n      )}\n      {...props}\n    />\n  );\n}\n\nfunction FieldDescription({ className, ...props }: FieldPrimitive.Description.Props) {\n  return (\n    <FieldPrimitive.Description\n      data-slot=\"field-description\"\n      className={cn(\"text-xs text-muted-foreground\", className)}\n      {...props}\n    />\n  );\n}\n\nfunction FieldError({ className, ...props }: FieldPrimitive.Error.Props) {\n  return (\n    <FieldPrimitive.Error\n      data-slot=\"field-error\"\n      className={cn(\"text-sm text-destructive\", className)}\n      {...props}\n    />\n  );\n}\n\nfunction FieldItem({ className, ...props }: FieldPrimitive.Item.Props) {\n  return (\n    <FieldPrimitive.Item\n      data-slot=\"field-item\"\n      className={cn(\"flex items-center gap-2\", className)}\n      {...props}\n    />\n  );\n}\n\nfunction FieldValidity({ ...props }: FieldPrimitive.Validity.Props) {\n  return <FieldPrimitive.Validity {...props} />;\n}\n\nexport {\n  FieldRoot,\n  FieldLabel,\n  FieldControl,\n  FieldDescription,\n  FieldError,\n  FieldItem,\n  FieldValidity,\n};\n",
+      "type": "registry:ui"
+    }
+  ]
+}
