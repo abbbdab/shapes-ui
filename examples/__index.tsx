@@ -265,6 +265,17 @@ export const examples: ExampleRegistry = {
       },
     ],
   },
+  collapsible: {
+    title: "Collapsible",
+    code: lazy(() => import("../src/components/ui/collapsible").then(m => ({ default: m.Collapsible || m.default }))),
+    examples: [
+      {
+        name: "collapsible-demo",
+        title: "Demo",
+        code: lazy(() => import("./collapsible-demo")),
+      },
+    ],
+  },
   field: {
     title: "Field",
     code: lazy(() => import("../src/components/ui/field").then(m => ({ default: m.Field || m.default }))),
