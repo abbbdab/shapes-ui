@@ -8,7 +8,7 @@
   "files": [
     {
       "path": "fieldset.tsx",
-      "content": "\"use client\";\n\nimport { Fieldset as FieldsetPrimitive } from \"@base-ui/react/fieldset\";\n\nimport { cn } from \"@/lib/utils\";\n\nfunction FieldsetRoot({ className, ...props }: FieldsetPrimitive.Root.Props) {\n  return (\n    <FieldsetPrimitive.Root\n      data-slot=\"fieldset-root\"\n      className={cn(\"space-y-4\", className)}\n      {...props}\n    />\n  );\n}\n\nfunction FieldsetLegend({ className, ...props }: FieldsetPrimitive.Legend.Props) {\n  return (\n    <FieldsetPrimitive.Legend\n      data-slot=\"fieldset-legend\"\n      className={cn(\"text-base leading-none font-semibold tracking-tight\", className)}\n      {...props}\n    />\n  );\n}\n\nexport { FieldsetRoot, FieldsetLegend };\n",
+      "content": "\"use client\";\n\nimport { Fieldset as FieldsetPrimitive } from \"@base-ui/react/fieldset\";\n\nimport { cn } from \"@/lib/utils\";\n\nfunction Fieldset({ className, ...props }: FieldsetPrimitive.Root.Props) {\n  return (\n    <FieldsetPrimitive.Root\n      data-slot=\"fieldset-root\"\n      className={cn(\"space-y-4\", className)}\n      {...props}\n    />\n  );\n}\n\nfunction FieldsetLegend({ className, ...props }: FieldsetPrimitive.Legend.Props) {\n  return (\n    <FieldsetPrimitive.Legend\n      data-slot=\"fieldset-legend\"\n      className={cn(\"text-base leading-none font-semibold tracking-tight\", className)}\n      {...props}\n    />\n  );\n}\n\nexport { Fieldset, FieldsetLegend };\n",
       "type": "registry:ui"
     }
   ]

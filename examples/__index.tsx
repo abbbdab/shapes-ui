@@ -16,9 +16,7 @@ type Example = {
 export const examples: ExampleRegistry = {
   accordion: {
     title: "Accordion",
-    code: lazy(() =>
-      import("../src/components/ui/accordion").then((m) => ({ default: m.Accordion || m.default })),
-    ),
+    code: lazy(() => import("../src/components/ui/accordion").then(m => ({ default: m.Accordion || m.default }))),
     examples: [
       {
         name: "accordion-surface",
@@ -49,9 +47,7 @@ export const examples: ExampleRegistry = {
   },
   alert: {
     title: "Alert",
-    code: lazy(() =>
-      import("../src/components/ui/alert").then((m) => ({ default: m.Alert || m.default })),
-    ),
+    code: lazy(() => import("../src/components/ui/alert").then(m => ({ default: m.Alert || m.default }))),
     examples: [
       {
         name: "alert-warning",
@@ -117,9 +113,7 @@ export const examples: ExampleRegistry = {
   },
   badge: {
     title: "Badge",
-    code: lazy(() =>
-      import("../src/components/ui/badge").then((m) => ({ default: m.Badge || m.default })),
-    ),
+    code: lazy(() => import("../src/components/ui/badge").then(m => ({ default: m.Badge || m.default }))),
     examples: [
       {
         name: "badge-variants",
@@ -145,9 +139,7 @@ export const examples: ExampleRegistry = {
   },
   button: {
     title: "Button",
-    code: lazy(() =>
-      import("../src/components/ui/button").then((m) => ({ default: m.Button || m.default })),
-    ),
+    code: lazy(() => import("../src/components/ui/button").then(m => ({ default: m.Button || m.default }))),
     examples: [
       {
         name: "button-warning",
@@ -228,9 +220,7 @@ export const examples: ExampleRegistry = {
   },
   card: {
     title: "Card",
-    code: lazy(() =>
-      import("../src/components/ui/card").then((m) => ({ default: m.Card || m.default })),
-    ),
+    code: lazy(() => import("../src/components/ui/card").then(m => ({ default: m.Card || m.default }))),
     examples: [
       {
         name: "card-demo",
@@ -239,11 +229,45 @@ export const examples: ExampleRegistry = {
       },
     ],
   },
+  checkbox: {
+    title: "Checkbox",
+    code: lazy(() => import("../src/components/ui/checkbox").then(m => ({ default: m.Checkbox || m.default }))),
+    examples: [
+      {
+        name: "checkbox-with-text",
+        title: "With Text",
+        code: lazy(() => import("./checkbox-with-text")),
+      },
+      {
+        name: "checkbox-with-field",
+        title: "With Field",
+        code: lazy(() => import("./checkbox-with-field")),
+      },
+      {
+        name: "checkbox-indeterminate",
+        title: "Indeterminate",
+        code: lazy(() => import("./checkbox-indeterminate")),
+      },
+      {
+        name: "checkbox-form",
+        title: "Form",
+        code: lazy(() => import("./checkbox-form")),
+      },
+      {
+        name: "checkbox-disabled",
+        title: "Disabled",
+        code: lazy(() => import("./checkbox-disabled")),
+      },
+      {
+        name: "checkbox-demo",
+        title: "Demo",
+        code: lazy(() => import("./checkbox-demo")),
+      },
+    ],
+  },
   field: {
     title: "Field",
-    code: lazy(() =>
-      import("../src/components/ui/field").then((m) => ({ default: m.Field || m.default })),
-    ),
+    code: lazy(() => import("../src/components/ui/field").then(m => ({ default: m.Field || m.default }))),
     examples: [
       {
         name: "field-validation",
@@ -274,9 +298,7 @@ export const examples: ExampleRegistry = {
   },
   fieldset: {
     title: "Fieldset",
-    code: lazy(() =>
-      import("../src/components/ui/fieldset").then((m) => ({ default: m.Fieldset || m.default })),
-    ),
+    code: lazy(() => import("../src/components/ui/fieldset").then(m => ({ default: m.Fieldset || m.default }))),
     examples: [
       {
         name: "fieldset-nested",
