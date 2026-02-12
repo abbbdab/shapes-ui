@@ -126,7 +126,7 @@ export function RenderPreview({ name }: { name: string }) {
 
       <Tabs.Panel
         value={"preview"}
-        className={"flex h-90 items-center justify-center overflow-x-auto border p-4 "}
+        className={"flex h-fit min-h-90 items-center justify-center overflow-x-auto border p-4 "}
       >
         <Suspense fallback={<SuspenseFallback />}>
           <ExampleComponent />

@@ -16,7 +16,9 @@ type Example = {
 export const examples: ExampleRegistry = {
   accordion: {
     title: "Accordion",
-    code: lazy(() => import("../src/components/ui/accordion").then(m => ({ default: m.Accordion || m.default }))),
+    code: lazy(() =>
+      import("../src/components/ui/accordion").then((m) => ({ default: m.Accordion || m.default })),
+    ),
     examples: [
       {
         name: "accordion-surface",
@@ -47,7 +49,9 @@ export const examples: ExampleRegistry = {
   },
   alert: {
     title: "Alert",
-    code: lazy(() => import("../src/components/ui/alert").then(m => ({ default: m.Alert || m.default }))),
+    code: lazy(() =>
+      import("../src/components/ui/alert").then((m) => ({ default: m.Alert || m.default })),
+    ),
     examples: [
       {
         name: "alert-warning",
@@ -113,7 +117,9 @@ export const examples: ExampleRegistry = {
   },
   badge: {
     title: "Badge",
-    code: lazy(() => import("../src/components/ui/badge").then(m => ({ default: m.Badge || m.default }))),
+    code: lazy(() =>
+      import("../src/components/ui/badge").then((m) => ({ default: m.Badge || m.default })),
+    ),
     examples: [
       {
         name: "badge-variants",
@@ -139,7 +145,9 @@ export const examples: ExampleRegistry = {
   },
   button: {
     title: "Button",
-    code: lazy(() => import("../src/components/ui/button").then(m => ({ default: m.Button || m.default }))),
+    code: lazy(() =>
+      import("../src/components/ui/button").then((m) => ({ default: m.Button || m.default })),
+    ),
     examples: [
       {
         name: "button-warning",
@@ -220,12 +228,65 @@ export const examples: ExampleRegistry = {
   },
   card: {
     title: "Card",
-    code: lazy(() => import("../src/components/ui/card").then(m => ({ default: m.Card || m.default }))),
+    code: lazy(() =>
+      import("../src/components/ui/card").then((m) => ({ default: m.Card || m.default })),
+    ),
     examples: [
       {
         name: "card-demo",
         title: "Demo",
         code: lazy(() => import("./card-demo")),
+      },
+    ],
+  },
+  field: {
+    title: "Field",
+    code: lazy(() =>
+      import("../src/components/ui/field").then((m) => ({ default: m.Field || m.default })),
+    ),
+    examples: [
+      {
+        name: "field-validation",
+        title: "Validation",
+        code: lazy(() => import("./field-validation")),
+      },
+      {
+        name: "field-description",
+        title: "Description",
+        code: lazy(() => import("./field-description")),
+      },
+      {
+        name: "field-demo",
+        title: "Demo",
+        code: lazy(() => import("./field-demo")),
+      },
+      {
+        name: "field-custom-control",
+        title: "Custom Control",
+        code: lazy(() => import("./field-custom-control")),
+      },
+      {
+        name: "field-composition",
+        title: "Composition",
+        code: lazy(() => import("./field-composition")),
+      },
+    ],
+  },
+  fieldset: {
+    title: "Fieldset",
+    code: lazy(() =>
+      import("../src/components/ui/fieldset").then((m) => ({ default: m.Fieldset || m.default })),
+    ),
+    examples: [
+      {
+        name: "fieldset-nested",
+        title: "Nested",
+        code: lazy(() => import("./fieldset-nested")),
+      },
+      {
+        name: "fieldset-demo",
+        title: "Demo",
+        code: lazy(() => import("./fieldset-demo")),
       },
     ],
   },
