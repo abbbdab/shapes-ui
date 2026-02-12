@@ -1,5 +1,11 @@
 # shapes-ui
 
+## 0.3.0
+
+### Minor Changes
+
+- 230f6ad: Added Dialog component
+
 ## 0.2.0
 
 ### Minor Changes
