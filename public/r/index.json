@@ -3,5 +3,7 @@
   "alert-dialog",
   "alert",
   "badge",
-  "button"
+  "button-group",
+  "button",
+  "separator"
 ]

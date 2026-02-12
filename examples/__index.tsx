@@ -177,6 +177,26 @@ export const examples: ExampleRegistry = {
         code: lazy(() => import("./button-info")),
       },
       {
+        name: "button-group-vertical",
+        title: "Group Vertical",
+        code: lazy(() => import("./button-group-vertical")),
+      },
+      {
+        name: "button-group-separator",
+        title: "Group Separator",
+        code: lazy(() => import("./button-group-separator")),
+      },
+      {
+        name: "button-group-icons",
+        title: "Group Icons",
+        code: lazy(() => import("./button-group-icons")),
+      },
+      {
+        name: "button-group-demo",
+        title: "Group Demo",
+        code: lazy(() => import("./button-group-demo")),
+      },
+      {
         name: "button-ghost",
         title: "Ghost",
         code: lazy(() => import("./button-ghost")),
