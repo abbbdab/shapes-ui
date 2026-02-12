@@ -323,4 +323,90 @@ export const examples: ExampleRegistry = {
       },
     ],
   },
+  input: {
+    title: "Input",
+    code: lazy(() => import("../src/components/ui/input").then(m => ({ default: m.Input || m.default }))),
+    examples: [
+      {
+        name: "input-required",
+        title: "Required",
+        code: lazy(() => import("./input-required")),
+      },
+      {
+        name: "input-password",
+        title: "Password",
+        code: lazy(() => import("./input-password")),
+      },
+      {
+        name: "input-label",
+        title: "Label",
+        code: lazy(() => import("./input-label")),
+      },
+      {
+        name: "input-invalid",
+        title: "Invalid",
+        code: lazy(() => import("./input-invalid")),
+      },
+      {
+        name: "input-group-with-prefix",
+        title: "Group With Prefix",
+        code: lazy(() => import("./input-group-with-prefix")),
+      },
+      {
+        name: "input-group-with-button",
+        title: "Group With Button",
+        code: lazy(() => import("./input-group-with-button")),
+      },
+      {
+        name: "input-group-status",
+        title: "Group Status",
+        code: lazy(() => import("./input-group-status")),
+      },
+      {
+        name: "input-group-phone",
+        title: "Group Phone",
+        code: lazy(() => import("./input-group-phone")),
+      },
+      {
+        name: "input-group-password",
+        title: "Group Password",
+        code: lazy(() => import("./input-group-password")),
+      },
+      {
+        name: "input-group-email",
+        title: "Group Email",
+        code: lazy(() => import("./input-group-email")),
+      },
+      {
+        name: "input-group-demo",
+        title: "Group Demo",
+        code: lazy(() => import("./input-group-demo")),
+      },
+      {
+        name: "input-group-copy",
+        title: "Group Copy",
+        code: lazy(() => import("./input-group-copy")),
+      },
+      {
+        name: "input-group-actions",
+        title: "Group Actions",
+        code: lazy(() => import("./input-group-actions")),
+      },
+      {
+        name: "input-file",
+        title: "File",
+        code: lazy(() => import("./input-file")),
+      },
+      {
+        name: "input-disabled",
+        title: "Disabled",
+        code: lazy(() => import("./input-disabled")),
+      },
+      {
+        name: "input-demo",
+        title: "Demo",
+        code: lazy(() => import("./input-demo")),
+      },
+    ],
+  },
 };

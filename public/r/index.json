@@ -10,5 +10,8 @@
   "collapsible",
   "field",
   "fieldset",
-  "separator"
+  "input-group",
+  "input",
+  "separator",
+  "textarea"
 ]
