@@ -1,0 +1,15 @@
+{
+  "name": "scroll-area",
+  "type": "registry:ui",
+  "dependencies": [
+    "@base-ui/react"
+  ],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "scroll-area.tsx",
+      "content": "\"use client\";\n\nimport { cn } from \"@/lib/utils\";\nimport * as ScrollAreaPrimitive from \"@base-ui/react/scroll-area\";\n\nfunction ScrollArea({\n  className,\n  ...props\n}: ScrollAreaPrimitive.ScrollAreaRootProps) {\n  return (\n    <ScrollAreaPrimitive.ScrollArea.Root\n      className={cn(\"relative\", className)}\n      {...props}\n    >\n      <ScrollAreaViewPort>\n        <ScrollAreaContent>{props.children}</ScrollAreaContent>\n      </ScrollAreaViewPort>\n      <ScrollAreaScrollbar>\n        <ScrollAreaThumb />\n      </ScrollAreaScrollbar>\n    </ScrollAreaPrimitive.ScrollArea.Root>\n  );\n}\n\nfunction ScrollAreaViewPort({\n  className,\n  ...props\n}: ScrollAreaPrimitive.ScrollAreaViewportProps) {\n  return (\n    <ScrollAreaPrimitive.ScrollArea.Viewport\n      className={cn(\"h-full overflow-auto\", className)}\n      {...props}\n    />\n  );\n}\n\nfunction ScrollAreaContent({\n  className,\n  ...props\n}: ScrollAreaPrimitive.ScrollAreaContentProps) {\n  return (\n    <ScrollAreaPrimitive.ScrollArea.Content\n      className={cn(\"\", className)}\n      {...props}\n    />\n  );\n}\n\nfunction ScrollAreaScrollbar({\n  className,\n  ...props\n}: ScrollAreaPrimitive.ScrollAreaScrollbarProps) {\n  return (\n    <ScrollAreaPrimitive.ScrollArea.Scrollbar\n      className={cn(\n        \"pointer-events-none -mx-2 flex w-1 justify-center rounded bg-primary/15 opacity-0 transition-opacity duration-150 ease-in before:absolute before:content-[''] data-[hovering]:pointer-events-auto data-[hovering]:opacity-100 data-[orientation=vertical]:before:h-full data-[orientation=vertical]:before:w-5 data-[scrolling]:pointer-events-auto data-[scrolling]:opacity-100\",\n        className,\n      )}\n      {...props}\n    />\n  );\n}\n\nfunction ScrollAreaThumb({\n  className,\n  ...props\n}: ScrollAreaPrimitive.ScrollAreaThumbProps) {\n  return (\n    <ScrollAreaPrimitive.ScrollArea.Thumb\n      className={cn(\"h-full w-full bg-accent-foreground/30\", className)}\n      {...props}\n    />\n  );\n}\n\nfunction ScrollAreaCorner({\n  className,\n  ...props\n}: ScrollAreaPrimitive.ScrollAreaCornerProps) {\n  return (\n    <ScrollAreaPrimitive.ScrollArea.Corner\n      className={cn(className)}\n      {...props}\n    />\n  );\n}\n\nexport {\n  ScrollArea,\n  ScrollAreaViewPort,\n  ScrollAreaContent,\n  ScrollAreaScrollbar,\n  ScrollAreaThumb,\n  ScrollAreaCorner,\n};\n",
+      "type": "registry:ui"
+    }
+  ]
+}

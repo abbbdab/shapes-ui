@@ -111,28 +111,6 @@ export const examples: ExampleRegistry = {
       },
     ],
   },
-  autocomplete: {
-    title: "Autocomplete",
-    code: lazy(() => import("../src/components/ui/autocomplete").then(m => ({ default: m.Autocomplete || m.default }))),
-    examples: [
-      {
-        name: "autocomplete-demo",
-        title: "Demo",
-        code: lazy(() => import("./autocomplete-demo")),
-      },
-    ],
-  },
-  avatar: {
-    title: "Avatar",
-    code: lazy(() => import("../src/components/ui/avatar").then(m => ({ default: m.Avatar || m.default }))),
-    examples: [
-      {
-        name: "avatar-demo",
-        title: "Demo",
-        code: lazy(() => import("./avatar-demo")),
-      },
-    ],
-  },
   badge: {
     title: "Badge",
     code: lazy(() => import("../src/components/ui/badge").then(m => ({ default: m.Badge || m.default }))),
@@ -409,116 +387,6 @@ export const examples: ExampleRegistry = {
       },
     ],
   },
-  form: {
-    title: "Form",
-    code: lazy(() => import("../src/components/ui/form").then(m => ({ default: m.Form || m.default }))),
-    examples: [
-      {
-        name: "form-demo",
-        title: "Demo",
-        code: lazy(() => import("./form-demo")),
-      },
-    ],
-  },
-  menu: {
-    title: "Menu",
-    code: lazy(() => import("../src/components/ui/menu").then(m => ({ default: m.Menu || m.default }))),
-    examples: [
-      {
-        name: "menu-demo",
-        title: "Demo",
-        code: lazy(() => import("./menu-demo")),
-      },
-    ],
-  },
-  menubar: {
-    title: "Menubar",
-    code: lazy(() => import("../src/components/ui/menubar").then(m => ({ default: m.Menubar || m.default }))),
-    examples: [
-      {
-        name: "menubar-demo",
-        title: "Demo",
-        code: lazy(() => import("./menubar-demo")),
-      },
-    ],
-  },
-  meter: {
-    title: "Meter",
-    code: lazy(() => import("../src/components/ui/meter").then(m => ({ default: m.Meter || m.default }))),
-    examples: [
-      {
-        name: "meter-demo",
-        title: "Demo",
-        code: lazy(() => import("./meter-demo")),
-      },
-    ],
-  },
-  "navigation-menu": {
-    title: "Navigation Menu",
-    code: lazy(() => import("../src/components/ui/navigation-menu").then(m => ({ default: m.NavigationMenu || m.default }))),
-    examples: [
-      {
-        name: "navigation-menu-demo",
-        title: "Demo",
-        code: lazy(() => import("./navigation-menu-demo")),
-      },
-    ],
-  },
-  "number-field": {
-    title: "Number Field",
-    code: lazy(() => import("../src/components/ui/number-field").then(m => ({ default: m.NumberField || m.default }))),
-    examples: [
-      {
-        name: "number-field-demo",
-        title: "Demo",
-        code: lazy(() => import("./number-field-demo")),
-      },
-    ],
-  },
-  popover: {
-    title: "Popover",
-    code: lazy(() => import("../src/components/ui/popover").then(m => ({ default: m.Popover || m.default }))),
-    examples: [
-      {
-        name: "popover-demo",
-        title: "Demo",
-        code: lazy(() => import("./popover-demo")),
-      },
-    ],
-  },
-  "preview-card": {
-    title: "Preview Card",
-    code: lazy(() => import("../src/components/ui/preview-card").then(m => ({ default: m.PreviewCard || m.default }))),
-    examples: [
-      {
-        name: "preview-card-demo",
-        title: "Demo",
-        code: lazy(() => import("./preview-card-demo")),
-      },
-    ],
-  },
-  progress: {
-    title: "Progress",
-    code: lazy(() => import("../src/components/ui/progress").then(m => ({ default: m.Progress || m.default }))),
-    examples: [
-      {
-        name: "progress-demo",
-        title: "Demo",
-        code: lazy(() => import("./progress-demo")),
-      },
-    ],
-  },
-  radio: {
-    title: "Radio",
-    code: lazy(() => import("../src/components/ui/radio").then(m => ({ default: m.Radio || m.default }))),
-    examples: [
-      {
-        name: "radio-demo",
-        title: "Demo",
-        code: lazy(() => import("./radio-demo")),
-      },
-    ],
-  },
   input: {
     title: "Input",
     code: lazy(() => import("../src/components/ui/input").then(m => ({ default: m.Input || m.default }))),
@@ -602,6 +470,17 @@ export const examples: ExampleRegistry = {
         name: "input-demo",
         title: "Demo",
         code: lazy(() => import("./input-demo")),
+      },
+    ],
+  },
+  scroll: {
+    title: "Scroll",
+    code: lazy(() => import("./scroll-area-demo").then(m => ({ default: m.Scroll || m.default }))),
+    examples: [
+      {
+        name: "scroll-area-demo",
+        title: "Area Demo",
+        code: lazy(() => import("./scroll-area-demo")),
       },
     ],
   },
