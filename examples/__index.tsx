@@ -309,6 +309,37 @@ export const examples: ExampleRegistry = {
       },
     ],
   },
+  drawer: {
+    title: "Drawer",
+    code: lazy(() => import("../src/components/ui/drawer").then(m => ({ default: m.Drawer || m.default }))),
+    examples: [
+      {
+        name: "drawer-snap-points",
+        title: "Snap Points",
+        code: lazy(() => import("./drawer-snap-points")),
+      },
+      {
+        name: "drawer-positions",
+        title: "Positions",
+        code: lazy(() => import("./drawer-positions")),
+      },
+      {
+        name: "drawer-indent",
+        title: "Indent",
+        code: lazy(() => import("./drawer-indent")),
+      },
+      {
+        name: "drawer-demo",
+        title: "Demo",
+        code: lazy(() => import("./drawer-demo")),
+      },
+      {
+        name: "drawer-controlled",
+        title: "Controlled",
+        code: lazy(() => import("./drawer-controlled")),
+      },
+    ],
+  },
   field: {
     title: "Field",
     code: lazy(() => import("../src/components/ui/field").then(m => ({ default: m.Field || m.default }))),
