@@ -287,6 +287,17 @@ export const examples: ExampleRegistry = {
       },
     ],
   },
+  context: {
+    title: "Context",
+    code: lazy(() => import("./context-menu-demo").then(m => ({ default: m.Context || m.default }))),
+    examples: [
+      {
+        name: "context-menu-demo",
+        title: "Menu Demo",
+        code: lazy(() => import("./context-menu-demo")),
+      },
+    ],
+  },
   dialog: {
     title: "Dialog",
     code: lazy(() => import("../src/components/ui/dialog").then(m => ({ default: m.Dialog || m.default }))),
