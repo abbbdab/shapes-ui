@@ -420,6 +420,39 @@ export const examples: ExampleRegistry = {
       },
     ],
   },
+  menu: {
+    title: "Menu",
+    code: lazy(() => import("../src/components/ui/menu").then(m => ({ default: m.Menu || m.default }))),
+    examples: [
+      {
+        name: "menu-demo",
+        title: "Demo",
+        code: lazy(() => import("./menu-demo")),
+      },
+    ],
+  },
+  menubar: {
+    title: "Menubar",
+    code: lazy(() => import("../src/components/ui/menubar").then(m => ({ default: m.Menubar || m.default }))),
+    examples: [
+      {
+        name: "menubar-demo",
+        title: "Demo",
+        code: lazy(() => import("./menubar-demo")),
+      },
+    ],
+  },
+  meter: {
+    title: "Meter",
+    code: lazy(() => import("../src/components/ui/meter").then(m => ({ default: m.Meter || m.default }))),
+    examples: [
+      {
+        name: "meter-demo",
+        title: "Demo",
+        code: lazy(() => import("./meter-demo")),
+      },
+    ],
+  },
   input: {
     title: "Input",
     code: lazy(() => import("../src/components/ui/input").then(m => ({ default: m.Input || m.default }))),
