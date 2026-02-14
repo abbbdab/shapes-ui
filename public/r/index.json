@@ -11,6 +11,7 @@
   "combobox",
   "context-menu",
   "dialog",
+  "drawer",
   "field",
   "fieldset",
   "input-group",
