@@ -276,6 +276,17 @@ export const examples: ExampleRegistry = {
       },
     ],
   },
+  combobox: {
+    title: "Combobox",
+    code: lazy(() => import("../src/components/ui/combobox").then(m => ({ default: m.Combobox || m.default }))),
+    examples: [
+      {
+        name: "combobox-demo",
+        title: "Demo",
+        code: lazy(() => import("./combobox-demo")),
+      },
+    ],
+  },
   dialog: {
     title: "Dialog",
     code: lazy(() => import("../src/components/ui/dialog").then(m => ({ default: m.Dialog || m.default }))),
