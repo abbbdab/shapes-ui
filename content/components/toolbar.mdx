@@ -1,0 +1,157 @@
+export const metadata = {
+  title: "Toolbar",
+  description: "A collection of buttons and controls organized in a horizontal bar.",
+};
+
+export default ({ children }) => <>{children}</>;
+
+# Toolbar
+
+A toolbar component that groups a set of buttons and controls in a horizontal bar. Useful for text editors, form tools, and application command bars.
+
+## Features
+
+- **Organized Layout**: Buttons and controls arranged in a horizontal bar
+- **Groups**: Organize related controls together
+- **Separators**: Visual dividers between control groups
+- **Multiple Control Types**: Supports buttons, links, inputs, and custom components
+- **Accessible**: Keyboard navigation and ARIA support
+
+## Usage
+
+<RenderPreview example="toolbar-demo" />
+
+## Installation
+
+<InstallationBlock component="toolbar" />
+
+## Components
+
+The toolbar consists of several sub-components:
+
+- `Toolbar`: The main container for all toolbar controls
+- `ToolbarGroup`: Groups related controls together
+- `ToolbarButton`: A button within the toolbar
+- `ToolbarLink`: A link within the toolbar
+- `ToolbarInput`: An input field within the toolbar
+- `ToolbarSeparator`: A visual divider between groups
+
+## Props
+
+### Toolbar
+
+The main container component. Accepts standard div props.
+
+### ToolbarGroup
+
+Groups related controls. Accepts standard div props.
+
+### ToolbarButton
+
+A button in the toolbar. Accepts standard button props plus:
+
+- `aria-label`: Label for screen readers
+- `onClick`: Click handler
+- `disabled`: Disable the button
+
+### ToolbarSeparator
+
+A visual divider. Accepts standard div props.
+
+## Examples
+
+### Basic Toolbar
+
+```tsx
+import { Toolbar, ToolbarButton, ToolbarGroup, ToolbarSeparator } from "@/components/ui/toolbar";
+import { Bold, Italic, Underline } from "lucide-react";
+
+export function BasicToolbar() {
+  return (
+    <Toolbar>
+      <ToolbarGroup>
+        <ToolbarButton aria-label="Bold">
+          <Bold className="size-4" />
+        </ToolbarButton>
+        <ToolbarButton aria-label="Italic">
+          <Italic className="size-4" />
+        </ToolbarButton>
+        <ToolbarButton aria-label="Underline">
+          <Underline className="size-4" />
+        </ToolbarButton>
+      </ToolbarGroup>
+    </Toolbar>
+  );
+}
+```
+
+### With Separators
+
+```tsx
+import { Toolbar, ToolbarButton, ToolbarGroup, ToolbarSeparator } from "@/components/ui/toolbar";
+import { Bold, Italic, List, Quote } from "lucide-react";
+
+export function ToolbarWithSeparators() {
+  return (
+    <Toolbar>
+      <ToolbarGroup>
+        <ToolbarButton aria-label="Bold">
+          <Bold className="size-4" />
+        </ToolbarButton>
+        <ToolbarButton aria-label="Italic">
+          <Italic className="size-4" />
+        </ToolbarButton>
+      </ToolbarGroup>
+
+      <ToolbarSeparator />
+
+      <ToolbarGroup>
+        <ToolbarButton aria-label="List">
+          <List className="size-4" />
+        </ToolbarButton>
+        <ToolbarButton aria-label="Quote">
+          <Quote className="size-4" />
+        </ToolbarButton>
+      </ToolbarGroup>
+    </Toolbar>
+  );
+}
+```
+
+### With Input
+
+```tsx
+import { Toolbar, ToolbarInput, ToolbarButton, ToolbarGroup } from "@/components/ui/toolbar";
+import { Search } from "lucide-react";
+
+export function ToolbarWithSearch() {
+  return (
+    <Toolbar>
+      <ToolbarGroup>
+        <ToolbarInput placeholder="Search..." className="h-7" />
+        <ToolbarButton aria-label="Search">
+          <Search className="size-4" />
+        </ToolbarButton>
+      </ToolbarGroup>
+    </Toolbar>
+  );
+}
+```
+
+## Styling
+
+The toolbar uses Tailwind CSS utilities for layout and styling. Default styling includes:
+
+- Horizontal flex layout with gap between items
+- Muted background color
+- Border and padding for definition
+- Separators with semi-transparent color
+
+Customize by passing custom `className` props or overriding in your CSS.
+
+## Accessibility
+
+- Semantic HTML structure
+- ARIA labels for button controls
+- Keyboard navigation support
+- Focus indicators for keyboard users
