@@ -486,6 +486,39 @@ export const examples: ExampleRegistry = {
       },
     ],
   },
+  "preview-card": {
+    title: "Preview Card",
+    code: lazy(() => import("../src/components/ui/preview-card").then(m => ({ default: m.PreviewCard || m.default }))),
+    examples: [
+      {
+        name: "preview-card-demo",
+        title: "Demo",
+        code: lazy(() => import("./preview-card-demo")),
+      },
+    ],
+  },
+  progress: {
+    title: "Progress",
+    code: lazy(() => import("../src/components/ui/progress").then(m => ({ default: m.Progress || m.default }))),
+    examples: [
+      {
+        name: "progress-demo",
+        title: "Demo",
+        code: lazy(() => import("./progress-demo")),
+      },
+    ],
+  },
+  radio: {
+    title: "Radio",
+    code: lazy(() => import("../src/components/ui/radio").then(m => ({ default: m.Radio || m.default }))),
+    examples: [
+      {
+        name: "radio-demo",
+        title: "Demo",
+        code: lazy(() => import("./radio-demo")),
+      },
+    ],
+  },
   input: {
     title: "Input",
     code: lazy(() => import("../src/components/ui/input").then(m => ({ default: m.Input || m.default }))),
