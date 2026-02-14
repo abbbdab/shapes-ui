@@ -453,6 +453,39 @@ export const examples: ExampleRegistry = {
       },
     ],
   },
+  "navigation-menu": {
+    title: "Navigation Menu",
+    code: lazy(() => import("../src/components/ui/navigation-menu").then(m => ({ default: m.NavigationMenu || m.default }))),
+    examples: [
+      {
+        name: "navigation-menu-demo",
+        title: "Demo",
+        code: lazy(() => import("./navigation-menu-demo")),
+      },
+    ],
+  },
+  "number-field": {
+    title: "Number Field",
+    code: lazy(() => import("../src/components/ui/number-field").then(m => ({ default: m.NumberField || m.default }))),
+    examples: [
+      {
+        name: "number-field-demo",
+        title: "Demo",
+        code: lazy(() => import("./number-field-demo")),
+      },
+    ],
+  },
+  popover: {
+    title: "Popover",
+    code: lazy(() => import("../src/components/ui/popover").then(m => ({ default: m.Popover || m.default }))),
+    examples: [
+      {
+        name: "popover-demo",
+        title: "Demo",
+        code: lazy(() => import("./popover-demo")),
+      },
+    ],
+  },
   input: {
     title: "Input",
     code: lazy(() => import("../src/components/ui/input").then(m => ({ default: m.Input || m.default }))),
