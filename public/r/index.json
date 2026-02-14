@@ -16,6 +16,7 @@
   "fieldset",
   "input-group",
   "input",
+  "scroll-area",
   "separator",
   "textarea"
 ]

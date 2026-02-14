@@ -1,59 +1,39 @@
 "use client";
 
+import { ScrollArea as ScrollAreaPrimitive } from "@base-ui/react/scroll-area";
+
 import { cn } from "@/lib/utils";
-import * as ScrollAreaPrimitive from "@base-ui/react/scroll-area";
 
 function ScrollArea({
   className,
+  children,
   ...props
-}: ScrollAreaPrimitive.ScrollAreaRootProps) {
+}: ScrollAreaPrimitive.Root.Props & { children?: React.ReactNode }) {
   return (
-    <ScrollAreaPrimitive.ScrollArea.Root
-      className={cn("relative", className)}
-      {...props}
-    >
-      <ScrollAreaViewPort>
-        <ScrollAreaContent>{props.children}</ScrollAreaContent>
-      </ScrollAreaViewPort>
+    <ScrollAreaPrimitive.Root className={cn("relative", className)} {...props}>
+      <ScrollAreaPrimitive.Viewport className="h-full w-full">
+        <ScrollAreaPrimitive.Content>{children}</ScrollAreaPrimitive.Content>
+      </ScrollAreaPrimitive.Viewport>
       <ScrollAreaScrollbar>
         <ScrollAreaThumb />
       </ScrollAreaScrollbar>
-    </ScrollAreaPrimitive.ScrollArea.Root>
+    </ScrollAreaPrimitive.Root>
   );
 }
 
-function ScrollAreaViewPort({
-  className,
-  ...props
-}: ScrollAreaPrimitive.ScrollAreaViewportProps) {
-  return (
-    <ScrollAreaPrimitive.ScrollArea.Viewport
-      className={cn("h-full overflow-auto", className)}
-      {...props}
-    />
-  );
+function ScrollAreaViewPort({ className, ...props }: ScrollAreaPrimitive.Viewport.Props) {
+  return <ScrollAreaPrimitive.Viewport className={cn("h-full w-full", className)} {...props} />;
 }
 
-function ScrollAreaContent({
-  className,
-  ...props
-}: ScrollAreaPrimitive.ScrollAreaContentProps) {
-  return (
-    <ScrollAreaPrimitive.ScrollArea.Content
-      className={cn("", className)}
-      {...props}
-    />
-  );
+function ScrollAreaContent({ className, ...props }: ScrollAreaPrimitive.Content.Props) {
+  return <ScrollAreaPrimitive.Content className={cn("", className)} {...props} />;
 }
 
-function ScrollAreaScrollbar({
-  className,
-  ...props
-}: ScrollAreaPrimitive.ScrollAreaScrollbarProps) {
+function ScrollAreaScrollbar({ className, ...props }: ScrollAreaPrimitive.Scrollbar.Props) {
   return (
-    <ScrollAreaPrimitive.ScrollArea.Scrollbar
+    <ScrollAreaPrimitive.Scrollbar
       className={cn(
-        "pointer-events-none -mx-2 flex w-1 justify-center rounded bg-primary/15 opacity-0 transition-opacity duration-150 ease-in before:absolute before:content-[''] data-[hovering]:pointer-events-auto data-[hovering]:opacity-100 data-[orientation=vertical]:before:h-full data-[orientation=vertical]:before:w-5 data-[scrolling]:pointer-events-auto data-[scrolling]:opacity-100",
+        "pointer-events-none m-2 flex w-1 justify-center rounded bg-muted opacity-0 transition-opacity before:absolute before:h-full before:w-5 before:content-[''] data-hovering:pointer-events-auto data-hovering:opacity-100 data-scrolling:pointer-events-auto data-scrolling:opacity-100 data-scrolling:duration-0",
         className,
       )}
       {...props}
@@ -61,28 +41,17 @@ function ScrollAreaScrollbar({
   );
 }
 
-function ScrollAreaThumb({
-  className,
-  ...props
-}: ScrollAreaPrimitive.ScrollAreaThumbProps) {
+function ScrollAreaThumb({ className, ...props }: ScrollAreaPrimitive.Thumb.Props) {
   return (
-    <ScrollAreaPrimitive.ScrollArea.Thumb
-      className={cn("h-full w-full bg-accent-foreground/30", className)}
+    <ScrollAreaPrimitive.Thumb
+      className={cn("w-full rounded bg-muted-foreground/40", className)}
       {...props}
     />
   );
 }
 
-function ScrollAreaCorner({
-  className,
-  ...props
-}: ScrollAreaPrimitive.ScrollAreaCornerProps) {
-  return (
-    <ScrollAreaPrimitive.ScrollArea.Corner
-      className={cn(className)}
-      {...props}
-    />
-  );
+function ScrollAreaCorner({ className, ...props }: ScrollAreaPrimitive.Corner.Props) {
+  return <ScrollAreaPrimitive.Corner className={cn(className)} {...props} />;
 }
 
 export {

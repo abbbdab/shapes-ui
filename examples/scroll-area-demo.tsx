@@ -1,1 +1,19 @@
-import { ScrollArea } from \"@/components/ui/scroll-area\";\n\nexport default function ScrollAreaDemo() {\n  const items = Array.from({ length: 20 }, (_, i) => `Item ${i + 1}`);\n\n  return (\n    <ScrollArea className=\"w-64 h-48 border rounded\">\n      <div className=\"p-4\">\n        {items.map((item) => (\n          <div key={item} className=\"text-sm py-2 border-b last:border-0\">\n            {item}\n          </div>\n        ))}\n      </div>\n    </ScrollArea>\n  );\n}\n
+import { ScrollArea } from "@/components/ui/scroll-area";
+
+export default function ScrollAreaDemo() {
+  return (
+    <div>
+      <ScrollArea className={" h-80 rounded-lg border bg-muted py-2"}>
+        <div className=" space-y-4 px-4">
+          {Array.from({ length: 10 }).map((_, i) => (
+            <div key={i} className={"my-2 rounded-lg border bg-card p-4 text-sm"}>
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Libero voluptates debitis
+              eos voluptatum vitae vero. Inventore enim corporis officia, optio eos excepturi cumque
+              soluta numquam quis hic nobis magnam cum!
+            </div>
+          ))}
+        </div>
+      </ScrollArea>
+    </div>
+  );
+}
