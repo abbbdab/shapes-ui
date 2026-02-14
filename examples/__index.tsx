@@ -111,6 +111,28 @@ export const examples: ExampleRegistry = {
       },
     ],
   },
+  autocomplete: {
+    title: "Autocomplete",
+    code: lazy(() => import("../src/components/ui/autocomplete").then(m => ({ default: m.Autocomplete || m.default }))),
+    examples: [
+      {
+        name: "autocomplete-demo",
+        title: "Demo",
+        code: lazy(() => import("./autocomplete-demo")),
+      },
+    ],
+  },
+  avatar: {
+    title: "Avatar",
+    code: lazy(() => import("../src/components/ui/avatar").then(m => ({ default: m.Avatar || m.default }))),
+    examples: [
+      {
+        name: "avatar-demo",
+        title: "Demo",
+        code: lazy(() => import("./avatar-demo")),
+      },
+    ],
+  },
   badge: {
     title: "Badge",
     code: lazy(() => import("../src/components/ui/badge").then(m => ({ default: m.Badge || m.default }))),
@@ -384,6 +406,17 @@ export const examples: ExampleRegistry = {
         name: "fieldset-demo",
         title: "Demo",
         code: lazy(() => import("./fieldset-demo")),
+      },
+    ],
+  },
+  form: {
+    title: "Form",
+    code: lazy(() => import("../src/components/ui/form").then(m => ({ default: m.Form || m.default }))),
+    examples: [
+      {
+        name: "form-demo",
+        title: "Demo",
+        code: lazy(() => import("./form-demo")),
       },
     ],
   },
