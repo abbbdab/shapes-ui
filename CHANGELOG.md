@@ -1,5 +1,11 @@
 # shapes-ui
 
+## 0.4.1
+
+### Patch Changes
+
+- 803ab28: Updated menu component stylings and examples
+
 ## 0.4.0
 
 ### Minor Changes
