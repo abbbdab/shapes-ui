@@ -1,0 +1,16 @@
+{
+  "name": "navigation-menu",
+  "type": "registry:ui",
+  "dependencies": [
+    "@base-ui/react",
+    "lucide-react"
+  ],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "navigation-menu.tsx",
+      "content": "\"use client\";\n\nimport { NavigationMenu as NavigationMenuPrimitive } from \"@base-ui/react/navigation-menu\";\nimport { ChevronDownIcon } from \"lucide-react\";\nimport type React from \"react\";\n\nimport { cn } from \"@/lib/utils\";\n\nfunction NavigationMenu(props: NavigationMenuPrimitive.Root.Props) {\n  return <NavigationMenuPrimitive.Root {...props} />;\n}\n\nfunction NavigationMenuList({\n  className,\n  ...props\n}: React.ComponentProps<typeof NavigationMenuPrimitive.List>) {\n  return (\n    <NavigationMenuPrimitive.List\n      className={cn(\"flex items-center gap-0.5\", className)}\n      {...props}\n    />\n  );\n}\n\nfunction NavigationMenuItem({\n  className,\n  ...props\n}: React.ComponentProps<typeof NavigationMenuPrimitive.Item>) {\n  return <NavigationMenuPrimitive.Item className={cn(className)} {...props} />;\n}\n\nfunction NavigationMenuTrigger({\n  className,\n  children,\n  ...props\n}: NavigationMenuPrimitive.Trigger.Props) {\n  return (\n    <NavigationMenuPrimitive.Trigger\n      className={cn(\"group h-full px-3 py-1.5 text-sm font-medium hover:bg-accent/60\", className)}\n      {...props}\n    >\n      {children}\n      <ChevronDownIcon className=\"ml-1 inline-block size-3 transition-all ease-in group-data-popup-open:rotate-180\" />\n    </NavigationMenuPrimitive.Trigger>\n  );\n}\n\nfunction NavigationMenuContent(props: NavigationMenuPrimitive.Content.Props) {\n  return <NavigationMenuPrimitive.Content {...props} />;\n}\n\nfunction NavigationMenuLink(props: NavigationMenuPrimitive.Link.Props) {\n  return <NavigationMenuPrimitive.Link {...props} />;\n}\n\nfunction NavigationMenuPopup({\n  align = \"start\",\n  alignOffset,\n  side = \"bottom\",\n  sideOffset = 8,\n  className,\n  renderViewport = true,\n  children,\n  ...props\n}: NavigationMenuPrimitive.Popup.Props &\n  Pick<\n    NavigationMenuPrimitive.Positioner.Props,\n    \"sideOffset\" | \"alignOffset\" | \"align\" | \"side\"\n  > & {\n    renderViewport?: boolean;\n  }) {\n  return (\n    <NavigationMenuPrimitive.Portal keepMounted>\n      <NavigationMenuPrimitive.Positioner\n        align={align}\n        alignOffset={alignOffset}\n        side={side}\n        sideOffset={sideOffset}\n      >\n        <NavigationMenuPrimitive.Popup\n          className={cn(\"bg-popup p-2 shadow outline outline-border\", className)}\n          {...props}\n        >\n          {children}\n          {renderViewport && <NavigationMenuViewPort />}\n        </NavigationMenuPrimitive.Popup>\n      </NavigationMenuPrimitive.Positioner>\n    </NavigationMenuPrimitive.Portal>\n  );\n}\n\nfunction NavigationMenuViewPort(props: NavigationMenuPrimitive.Viewport.Props) {\n  return <NavigationMenuPrimitive.Viewport {...props} />;\n}\n\nexport {\n  NavigationMenu,\n  NavigationMenuList,\n  NavigationMenuItem,\n  NavigationMenuTrigger,\n  NavigationMenuContent,\n  NavigationMenuLink,\n  NavigationMenuPopup,\n  NavigationMenuViewPort,\n};\n",
+      "type": "registry:ui"
+    }
+  ]
+}

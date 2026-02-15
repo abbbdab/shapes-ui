@@ -14,11 +14,9 @@ type Example = {
 };
 
 export const examples: ExampleRegistry = {
-  accordion: {
+  "accordion": {
     title: "Accordion",
-    code: lazy(() =>
-      import("../src/components/ui/accordion").then((m) => ({ default: m.Accordion })),
-    ),
+    code: lazy(() => import("../src/components/ui/accordion").then(m => ({ default: m.Accordion }))),
     examples: [
       {
         name: "accordion-surface",
@@ -47,9 +45,9 @@ export const examples: ExampleRegistry = {
       },
     ],
   },
-  alert: {
+  "alert": {
     title: "Alert",
-    code: lazy(() => import("../src/components/ui/alert").then((m) => ({ default: m.Alert }))),
+    code: lazy(() => import("../src/components/ui/alert").then(m => ({ default: m.Alert }))),
     examples: [
       {
         name: "alert-warning",
@@ -100,9 +98,7 @@ export const examples: ExampleRegistry = {
   },
   "alert-dialog": {
     title: "Alert Dialog",
-    code: lazy(() =>
-      import("../src/components/ui/alert-dialog").then((m) => ({ default: m.AlertDialog })),
-    ),
+    code: lazy(() => import("../src/components/ui/alert-dialog").then(m => ({ default: m.AlertDialog }))),
     examples: [
       {
         name: "alert-dialog-icon",
@@ -121,11 +117,9 @@ export const examples: ExampleRegistry = {
       },
     ],
   },
-  autocomplete: {
+  "autocomplete": {
     title: "Autocomplete",
-    code: lazy(() =>
-      import("../src/components/ui/autocomplete").then((m) => ({ default: m.Autocomplete })),
-    ),
+    code: lazy(() => import("../src/components/ui/autocomplete").then(m => ({ default: m.Autocomplete }))),
     examples: [
       {
         name: "autocomplete-demo",
@@ -134,9 +128,9 @@ export const examples: ExampleRegistry = {
       },
     ],
   },
-  avatar: {
+  "avatar": {
     title: "Avatar",
-    code: lazy(() => import("../src/components/ui/avatar").then((m) => ({ default: m.Avatar }))),
+    code: lazy(() => import("../src/components/ui/avatar").then(m => ({ default: m.Avatar }))),
     examples: [
       {
         name: "avatar-demo",
@@ -145,9 +139,9 @@ export const examples: ExampleRegistry = {
       },
     ],
   },
-  badge: {
+  "badge": {
     title: "Badge",
-    code: lazy(() => import("../src/components/ui/badge").then((m) => ({ default: m.Badge }))),
+    code: lazy(() => import("../src/components/ui/badge").then(m => ({ default: m.Badge }))),
     examples: [
       {
         name: "badge-variants",
@@ -171,9 +165,9 @@ export const examples: ExampleRegistry = {
       },
     ],
   },
-  button: {
+  "button": {
     title: "Button",
-    code: lazy(() => import("../src/components/ui/button").then((m) => ({ default: m.Button }))),
+    code: lazy(() => import("../src/components/ui/button").then(m => ({ default: m.Button }))),
     examples: [
       {
         name: "button-warning",
@@ -234,9 +228,7 @@ export const examples: ExampleRegistry = {
   },
   "button-group": {
     title: "Button Group",
-    code: lazy(() =>
-      import("../src/components/ui/button-group").then((m) => ({ default: m.ButtonGroup })),
-    ),
+    code: lazy(() => import("../src/components/ui/button-group").then(m => ({ default: m.ButtonGroup }))),
     examples: [
       {
         name: "button-group-vertical",
@@ -260,9 +252,9 @@ export const examples: ExampleRegistry = {
       },
     ],
   },
-  card: {
+  "card": {
     title: "Card",
-    code: lazy(() => import("../src/components/ui/card").then((m) => ({ default: m.Card }))),
+    code: lazy(() => import("../src/components/ui/card").then(m => ({ default: m.Card }))),
     examples: [
       {
         name: "card-demo",
@@ -271,11 +263,9 @@ export const examples: ExampleRegistry = {
       },
     ],
   },
-  checkbox: {
+  "checkbox": {
     title: "Checkbox",
-    code: lazy(() =>
-      import("../src/components/ui/checkbox").then((m) => ({ default: m.Checkbox })),
-    ),
+    code: lazy(() => import("../src/components/ui/checkbox").then(m => ({ default: m.Checkbox }))),
     examples: [
       {
         name: "checkbox-with-text",
@@ -309,11 +299,9 @@ export const examples: ExampleRegistry = {
       },
     ],
   },
-  collapsible: {
+  "collapsible": {
     title: "Collapsible",
-    code: lazy(() =>
-      import("../src/components/ui/collapsible").then((m) => ({ default: m.Collapsible })),
-    ),
+    code: lazy(() => import("../src/components/ui/collapsible").then(m => ({ default: m.Collapsible }))),
     examples: [
       {
         name: "collapsible-demo",
@@ -322,11 +310,9 @@ export const examples: ExampleRegistry = {
       },
     ],
   },
-  combobox: {
+  "combobox": {
     title: "Combobox",
-    code: lazy(() =>
-      import("../src/components/ui/combobox").then((m) => ({ default: m.Combobox })),
-    ),
+    code: lazy(() => import("../src/components/ui/combobox").then(m => ({ default: m.Combobox }))),
     examples: [
       {
         name: "combobox-demo",
@@ -337,9 +323,7 @@ export const examples: ExampleRegistry = {
   },
   "context-menu": {
     title: "Context Menu",
-    code: lazy(() =>
-      import("../src/components/ui/context-menu").then((m) => ({ default: m.ContextMenu })),
-    ),
+    code: lazy(() => import("../src/components/ui/context-menu").then(m => ({ default: m.ContextMenu }))),
     examples: [
       {
         name: "context-menu-demo",
@@ -348,9 +332,9 @@ export const examples: ExampleRegistry = {
       },
     ],
   },
-  dialog: {
+  "dialog": {
     title: "Dialog",
-    code: lazy(() => import("../src/components/ui/dialog").then((m) => ({ default: m.Dialog }))),
+    code: lazy(() => import("../src/components/ui/dialog").then(m => ({ default: m.Dialog }))),
     examples: [
       {
         name: "dialog-demo",
@@ -359,9 +343,9 @@ export const examples: ExampleRegistry = {
       },
     ],
   },
-  drawer: {
+  "drawer": {
     title: "Drawer",
-    code: lazy(() => import("../src/components/ui/drawer").then((m) => ({ default: m.Drawer }))),
+    code: lazy(() => import("../src/components/ui/drawer").then(m => ({ default: m.Drawer }))),
     examples: [
       {
         name: "drawer-snap-points",
@@ -390,9 +374,9 @@ export const examples: ExampleRegistry = {
       },
     ],
   },
-  field: {
+  "field": {
     title: "Field",
-    code: lazy(() => import("../src/components/ui/field").then((m) => ({ default: m.Field }))),
+    code: lazy(() => import("../src/components/ui/field").then(m => ({ default: m.Field }))),
     examples: [
       {
         name: "field-validation",
@@ -421,11 +405,9 @@ export const examples: ExampleRegistry = {
       },
     ],
   },
-  fieldset: {
+  "fieldset": {
     title: "Fieldset",
-    code: lazy(() =>
-      import("../src/components/ui/fieldset").then((m) => ({ default: m.Fieldset })),
-    ),
+    code: lazy(() => import("../src/components/ui/fieldset").then(m => ({ default: m.Fieldset }))),
     examples: [
       {
         name: "fieldset-nested",
@@ -439,9 +421,9 @@ export const examples: ExampleRegistry = {
       },
     ],
   },
-  form: {
+  "form": {
     title: "Form",
-    code: lazy(() => import("../src/components/ui/form").then((m) => ({ default: m.Form }))),
+    code: lazy(() => import("../src/components/ui/form").then(m => ({ default: m.Form }))),
     examples: [
       {
         name: "form-demo",
@@ -450,9 +432,9 @@ export const examples: ExampleRegistry = {
       },
     ],
   },
-  input: {
+  "input": {
     title: "Input",
-    code: lazy(() => import("../src/components/ui/input").then((m) => ({ default: m.Input }))),
+    code: lazy(() => import("../src/components/ui/input").then(m => ({ default: m.Input }))),
     examples: [
       {
         name: "input-required",
@@ -493,9 +475,7 @@ export const examples: ExampleRegistry = {
   },
   "input-group": {
     title: "Input Group",
-    code: lazy(() =>
-      import("../src/components/ui/input-group").then((m) => ({ default: m.InputGroup })),
-    ),
+    code: lazy(() => import("../src/components/ui/input-group").then(m => ({ default: m.InputGroup }))),
     examples: [
       {
         name: "input-group-with-prefix",
@@ -544,20 +524,50 @@ export const examples: ExampleRegistry = {
       },
     ],
   },
-  menu: {
+  "menu": {
     title: "Menu",
-    code: lazy(() => import("../src/components/ui/menu").then((m) => ({ default: m.Menu }))),
+    code: lazy(() => import("../src/components/ui/menu").then(m => ({ default: m.Menu }))),
     examples: [
+      {
+        name: "menu-submenu",
+        title: "Submenu",
+        code: lazy(() => import("./menu-submenu")),
+      },
+      {
+        name: "menu-radio",
+        title: "Radio",
+        code: lazy(() => import("./menu-radio")),
+      },
+      {
+        name: "menu-group",
+        title: "Group",
+        code: lazy(() => import("./menu-group")),
+      },
       {
         name: "menu-demo",
         title: "Demo",
         code: lazy(() => import("./menu-demo")),
       },
+      {
+        name: "menu-checkbox",
+        title: "Checkbox",
+        code: lazy(() => import("./menu-checkbox")),
+      },
+      {
+        name: "menu-align",
+        title: "Align",
+        code: lazy(() => import("./menu-align")),
+      },
+      {
+        name: "menu-advanced",
+        title: "Advanced",
+        code: lazy(() => import("./menu-advanced")),
+      },
     ],
   },
-  menubar: {
+  "menubar": {
     title: "Menubar",
-    code: lazy(() => import("../src/components/ui/menubar").then((m) => ({ default: m.Menubar }))),
+    code: lazy(() => import("../src/components/ui/menubar").then(m => ({ default: m.Menubar }))),
     examples: [
       {
         name: "menubar-demo",
@@ -566,9 +576,9 @@ export const examples: ExampleRegistry = {
       },
     ],
   },
-  meter: {
+  "meter": {
     title: "Meter",
-    code: lazy(() => import("../src/components/ui/meter").then((m) => ({ default: m.Meter }))),
+    code: lazy(() => import("../src/components/ui/meter").then(m => ({ default: m.Meter }))),
     examples: [
       {
         name: "meter-demo",
@@ -579,9 +589,7 @@ export const examples: ExampleRegistry = {
   },
   "navigation-menu": {
     title: "Navigation Menu",
-    code: lazy(() =>
-      import("../src/components/ui/navigation-menu").then((m) => ({ default: m.NavigationMenu })),
-    ),
+    code: lazy(() => import("../src/components/ui/navigation-menu").then(m => ({ default: m.NavigationMenu }))),
     examples: [
       {
         name: "navigation-menu-demo",
@@ -592,9 +600,7 @@ export const examples: ExampleRegistry = {
   },
   "number-field": {
     title: "Number Field",
-    code: lazy(() =>
-      import("../src/components/ui/number-field").then((m) => ({ default: m.NumberField })),
-    ),
+    code: lazy(() => import("../src/components/ui/number-field").then(m => ({ default: m.NumberField }))),
     examples: [
       {
         name: "number-field-demo",
@@ -603,9 +609,9 @@ export const examples: ExampleRegistry = {
       },
     ],
   },
-  popover: {
+  "popover": {
     title: "Popover",
-    code: lazy(() => import("../src/components/ui/popover").then((m) => ({ default: m.Popover }))),
+    code: lazy(() => import("../src/components/ui/popover").then(m => ({ default: m.Popover }))),
     examples: [
       {
         name: "popover-demo",
@@ -616,9 +622,7 @@ export const examples: ExampleRegistry = {
   },
   "preview-card": {
     title: "Preview Card",
-    code: lazy(() =>
-      import("../src/components/ui/preview-card").then((m) => ({ default: m.PreviewCard })),
-    ),
+    code: lazy(() => import("../src/components/ui/preview-card").then(m => ({ default: m.PreviewCard }))),
     examples: [
       {
         name: "preview-card-demo",
@@ -627,11 +631,9 @@ export const examples: ExampleRegistry = {
       },
     ],
   },
-  progress: {
+  "progress": {
     title: "Progress",
-    code: lazy(() =>
-      import("../src/components/ui/progress").then((m) => ({ default: m.Progress })),
-    ),
+    code: lazy(() => import("../src/components/ui/progress").then(m => ({ default: m.Progress }))),
     examples: [
       {
         name: "progress-demo",
@@ -640,9 +642,9 @@ export const examples: ExampleRegistry = {
       },
     ],
   },
-  radio: {
+  "radio": {
     title: "Radio",
-    code: lazy(() => import("../src/components/ui/radio").then((m) => ({ default: m.Radio }))),
+    code: lazy(() => import("../src/components/ui/radio").then(m => ({ default: m.Radio }))),
     examples: [
       {
         name: "radio-demo",
@@ -653,9 +655,7 @@ export const examples: ExampleRegistry = {
   },
   "scroll-area": {
     title: "Scroll Area",
-    code: lazy(() =>
-      import("../src/components/ui/scroll-area").then((m) => ({ default: m.ScrollArea })),
-    ),
+    code: lazy(() => import("../src/components/ui/scroll-area").then(m => ({ default: m.ScrollArea }))),
     examples: [
       {
         name: "scroll-area-demo",
@@ -664,9 +664,9 @@ export const examples: ExampleRegistry = {
       },
     ],
   },
-  select: {
+  "select": {
     title: "Select",
-    code: lazy(() => import("../src/components/ui/select").then((m) => ({ default: m.Select }))),
+    code: lazy(() => import("../src/components/ui/select").then(m => ({ default: m.Select }))),
     examples: [
       {
         name: "select-demo",
@@ -675,9 +675,9 @@ export const examples: ExampleRegistry = {
       },
     ],
   },
-  slider: {
+  "slider": {
     title: "Slider",
-    code: lazy(() => import("../src/components/ui/slider").then((m) => ({ default: m.Slider }))),
+    code: lazy(() => import("../src/components/ui/slider").then(m => ({ default: m.Slider }))),
     examples: [
       {
         name: "slider-demo",
@@ -686,9 +686,9 @@ export const examples: ExampleRegistry = {
       },
     ],
   },
-  switch: {
+  "switch": {
     title: "Switch",
-    code: lazy(() => import("../src/components/ui/switch").then((m) => ({ default: m.Switch }))),
+    code: lazy(() => import("../src/components/ui/switch").then(m => ({ default: m.Switch }))),
     examples: [
       {
         name: "switch-demo",
@@ -697,9 +697,9 @@ export const examples: ExampleRegistry = {
       },
     ],
   },
-  tabs: {
+  "tabs": {
     title: "Tabs",
-    code: lazy(() => import("../src/components/ui/tabs").then((m) => ({ default: m.Tabs }))),
+    code: lazy(() => import("../src/components/ui/tabs").then(m => ({ default: m.Tabs }))),
     examples: [
       {
         name: "tabs-demo",
@@ -708,9 +708,9 @@ export const examples: ExampleRegistry = {
       },
     ],
   },
-  toast: {
+  "toast": {
     title: "Toast",
-    code: lazy(() => import("../src/components/ui/toast").then((m) => ({ default: m.Toast }))),
+    code: lazy(() => import("../src/components/ui/toast").then(m => ({ default: m.Toast }))),
     examples: [
       {
         name: "toast-demo",
@@ -719,9 +719,9 @@ export const examples: ExampleRegistry = {
       },
     ],
   },
-  toggle: {
+  "toggle": {
     title: "Toggle",
-    code: lazy(() => import("../src/components/ui/toggle").then((m) => ({ default: m.Toggle }))),
+    code: lazy(() => import("../src/components/ui/toggle").then(m => ({ default: m.Toggle }))),
     examples: [
       {
         name: "toggle-demo",
@@ -730,9 +730,9 @@ export const examples: ExampleRegistry = {
       },
     ],
   },
-  toolbar: {
+  "toolbar": {
     title: "Toolbar",
-    code: lazy(() => import("../src/components/ui/toolbar").then((m) => ({ default: m.Toolbar }))),
+    code: lazy(() => import("../src/components/ui/toolbar").then(m => ({ default: m.Toolbar }))),
     examples: [
       {
         name: "toolbar-demo",

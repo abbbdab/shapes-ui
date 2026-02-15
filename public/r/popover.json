@@ -1,0 +1,15 @@
+{
+  "name": "popover",
+  "type": "registry:ui",
+  "dependencies": [
+    "@base-ui/react"
+  ],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "popover.tsx",
+      "content": "\"use client\";\n\nimport { Popover as PopoverPrimitive } from \"@base-ui/react/popover\";\n\nimport { cn } from \"@/lib/utils\";\n\nfunction Popover({ ...props }: PopoverPrimitive.Root.Props) {\n  return <PopoverPrimitive.Root {...props} />;\n}\n\nfunction PopoverTrigger({ ...props }: PopoverPrimitive.Trigger.Props) {\n  return <PopoverPrimitive.Trigger {...props} />;\n}\n\nfunction PopoverPopup({\n  className,\n  align = \"center\",\n  alignOffset = 0,\n  side = \"bottom\",\n  sideOffset = 8,\n  ...props\n}: PopoverPrimitive.Popup.Props &\n  Pick<PopoverPrimitive.Positioner.Props, \"align\" | \"alignOffset\" | \"side\" | \"sideOffset\">) {\n  return (\n    <PopoverPrimitive.Portal>\n      <PopoverPrimitive.Positioner\n        align={align}\n        alignOffset={alignOffset}\n        side={side}\n        sideOffset={sideOffset}\n        className=\"isolate z-50\"\n      >\n        <PopoverPrimitive.Popup\n          className={cn(\n            \"text-popover-foreground z-50 flex w-72 flex-col gap-2.5 bg-popup p-4 text-sm ring-1 ring-foreground/10 outline-hidden duration-100 data-closed:animate-out data-closed:fade-out-0 data-closed:zoom-out-95 data-open:animate-in data-open:fade-in-0 data-open:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=inline-end]:slide-in-from-left-2 data-[side=inline-start]:slide-in-from-right-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2\",\n            className,\n          )}\n          {...props}\n        />\n      </PopoverPrimitive.Positioner>\n    </PopoverPrimitive.Portal>\n  );\n}\n\nfunction PopoverTitle({ className, ...props }: PopoverPrimitive.Title.Props) {\n  return <PopoverPrimitive.Title className={cn(\"font-medium\", className)} {...props} />;\n}\n\nfunction PopoverDescription({ className, ...props }: PopoverPrimitive.Description.Props) {\n  return (\n    <PopoverPrimitive.Description className={cn(\"text-muted-foreground\", className)} {...props} />\n  );\n}\n\nfunction PopoverClose({ className, ...props }: PopoverPrimitive.Close.Props) {\n  return <PopoverPrimitive.Close className={cn(\"text-sm\", className)} {...props} />;\n}\n\nexport { Popover, PopoverPopup, PopoverDescription, PopoverClose, PopoverTitle, PopoverTrigger };\n",
+      "type": "registry:ui"
+    }
+  ]
+}

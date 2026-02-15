@@ -1,0 +1,16 @@
+{
+  "name": "radio",
+  "type": "registry:ui",
+  "dependencies": [
+    "@base-ui/react",
+    "lucide-react"
+  ],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "radio.tsx",
+      "content": "\"use client\";\n\nimport { Radio as RadioPrimitive } from \"@base-ui/react/radio\";\nimport { RadioGroup as RadioGroupPrimitive } from \"@base-ui/react/radio-group\";\nimport { CircleIcon } from \"lucide-react\";\n\nimport { cn } from \"@/lib/utils\";\n\nfunction Radio({ children, className, ...props }: RadioPrimitive.Root.Props) {\n  return (\n    <label\n      className={cn(\"group flex items-center gap-2 text-sm text-foreground\", className)}\n      htmlFor={props.id}\n    >\n      <RadioPrimitive.Root\n        className={\n          \"flex size-4 items-center justify-center border border-input bg-transparent outline outline-input transition duration-50 ease-in group-hover:bg-accent/80\"\n        }\n        {...props}\n      >\n        <RadioPrimitive.Indicator\n          className={\"flex items-center justify-center data-checked:bg-primary\"}\n        >\n          <CircleIcon className=\"size-2 bg-primary\" />\n        </RadioPrimitive.Indicator>\n      </RadioPrimitive.Root>\n      {children}\n    </label>\n  );\n}\n\nfunction RadioGroup({ className, ...props }: RadioGroupPrimitive.Props) {\n  return <RadioGroupPrimitive className={cn(\"flex flex-col gap-1\", className)} {...props} />;\n}\n\nexport { Radio, RadioGroup };\n",
+      "type": "registry:ui"
+    }
+  ]
+}

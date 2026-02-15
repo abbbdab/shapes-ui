@@ -1,0 +1,15 @@
+{
+  "name": "progress",
+  "type": "registry:ui",
+  "dependencies": [
+    "@base-ui/react"
+  ],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "progress.tsx",
+      "content": "\"use client\";\n\nimport { Progress as ProgressPrimitive } from \"@base-ui/react/progress\";\n\nimport { cn } from \"@/lib/utils\";\n\nfunction Progress({\n  label,\n  showValue,\n  className,\n  ...props\n}: ProgressPrimitive.Root.Props & {\n  label?: string;\n  showValue?: boolean;\n}) {\n  return (\n    <ProgressPrimitive.Root className={cn(\"grid grid-cols-2 gap-2\", className)} {...props}>\n      {label && <ProgressLabel>{label}</ProgressLabel>}\n      {showValue && <ProgressValue />}\n      <ProgressTrack>\n        <ProgressIndicator />\n      </ProgressTrack>\n    </ProgressPrimitive.Root>\n  );\n}\n\nfunction ProgressLabel({ className, ...props }: ProgressPrimitive.Label.Props) {\n  return (\n    <ProgressPrimitive.Label\n      className={cn(\"text-sm font-medium text-foreground\", className)}\n      {...props}\n    />\n  );\n}\n\nfunction ProgressValue({ className, ...props }: ProgressPrimitive.Value.Props) {\n  return (\n    <ProgressPrimitive.Value\n      className={cn(\"text-right text-sm text-foreground\", className)}\n      {...props}\n    />\n  );\n}\n\nfunction ProgressTrack({ className, ...props }: ProgressPrimitive.Track.Props) {\n  return (\n    <ProgressPrimitive.Track\n      className={cn(\"col-span-2 block h-2 overflow-hidden bg-muted\", className)}\n      {...props}\n    />\n  );\n}\n\nfunction ProgressIndicator({ className, ...props }: ProgressPrimitive.Indicator.Props) {\n  return <ProgressPrimitive.Indicator className={cn(\"h-2 bg-primary\", className)} {...props} />;\n}\n\nexport { Progress, ProgressLabel, ProgressValue, ProgressTrack, ProgressIndicator };\n",
+      "type": "registry:ui"
+    }
+  ]
+}

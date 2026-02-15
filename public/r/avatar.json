@@ -1,0 +1,15 @@
+{
+  "name": "avatar",
+  "type": "registry:ui",
+  "dependencies": [
+    "@base-ui/react"
+  ],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "avatar.tsx",
+      "content": "\"use client\";\n\nimport { Avatar as AvatarPrimitive } from \"@base-ui/react/avatar\";\n\nimport { cn } from \"@/lib/utils\";\n\nfunction Avatar({\n  className,\n  size,\n  ...props\n}: AvatarPrimitive.Root.Props & {\n  size?: \"default\" | \"sm\" | \"lg\";\n}) {\n  return (\n    <AvatarPrimitive.Root\n      data-size={size}\n      className={cn(\n        \"group/avatar relative flex size-8 shrink-0 overflow-hidden rounded-full select-none after:absolute after:inset-0 after:border after:border-border after:mix-blend-darken data-[size=lg]:size-10 data-[size=sm]:size-6 dark:after:mix-blend-lighten\",\n        className,\n      )}\n      {...props}\n    />\n  );\n}\n\nfunction AvatarImage({ className, ...props }: AvatarPrimitive.Image.Props) {\n  return (\n    <AvatarPrimitive.Image\n      className={cn(\"aspect-square size-full object-cover\", className)}\n      {...props}\n    />\n  );\n}\n\nfunction AvatarFallback({ className, ...props }: AvatarPrimitive.Fallback.Props) {\n  return (\n    <AvatarPrimitive.Fallback\n      className={cn(\n        \"flex size-full items-center justify-center bg-muted text-sm text-muted-foreground group-data-[size=sm]/avatar:text-xs\",\n        className,\n      )}\n      {...props}\n    />\n  );\n}\n\nexport { Avatar, AvatarImage, AvatarFallback };\n",
+      "type": "registry:ui"
+    }
+  ]
+}
