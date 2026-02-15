@@ -1,0 +1,16 @@
+{
+  "name": "toast",
+  "type": "registry:ui",
+  "dependencies": [
+    "@base-ui/react",
+    "lucide-react"
+  ],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "toast.tsx",
+      "content": "\"use client\";\n\nimport { Toast as ToastPrimitive } from \"@base-ui/react/toast\";\nimport { AlertCircle, CheckCircle2 } from \"lucide-react\";\n\nimport { cn } from \"@/lib/utils\";\n\ntype ToastTypes = \"default\" | \"success\" | \"error\";\n\nconst globalToastManager = ToastPrimitive.createToastManager();\nexport const toast = globalToastManager;\n\nexport function ToastProvider({ children }: { children: React.ReactNode }) {\n  return (\n    <ToastPrimitive.Provider toastManager={globalToastManager} limit={5} timeout={5000}>\n      {children}\n      <ToastPrimitive.Portal>\n        <ToastPrimitive.Viewport className=\"fixed right-4 bottom-4 z-50 flex flex-col gap-2\">\n          <ToastViewportConsumer />\n        </ToastPrimitive.Viewport>\n      </ToastPrimitive.Portal>\n    </ToastPrimitive.Provider>\n  );\n}\n\nfunction ToastViewportConsumer() {\n  const { toasts } = ToastPrimitive.useToastManager();\n  return (\n    <>\n      {toasts.map((toast) => (\n        <Toast key={toast.id} toast={toast} />\n      ))}\n    </>\n  );\n}\n\nfunction Toast({ className, toast, ...props }: ToastPrimitive.Root.Props) {\n  let icon;\n\n  switch (toast.type as ToastTypes) {\n    case \"success\":\n      icon = <CheckCircle2 className=\"h-4 w-4 text-green-600\" />;\n      break;\n    case \"error\":\n      icon = <AlertCircle className=\"h-4 w-4 text-red-600\" />;\n      break;\n    default:\n      icon = null;\n      break;\n  }\n\n  return (\n    <ToastPrimitive.Root\n      toast={toast}\n      className={cn(\n        \"flex w-80 items-center gap-3 rounded-lg border bg-popup p-4 shadow-md\",\n        className,\n      )}\n      {...props}\n    >\n      {icon && <div>{icon}</div>}\n      <div className=\"flex flex-1 flex-col\">\n        {toast.title && (\n          <ToastPrimitive.Title className=\"text-sm font-medium\">{toast.title}</ToastPrimitive.Title>\n        )}\n        {toast.description && (\n          <ToastPrimitive.Description className=\"text-sm text-muted-foreground\">\n            {toast.description}\n          </ToastPrimitive.Description>\n        )}\n      </div>\n    </ToastPrimitive.Root>\n  );\n}\n\nexport { ToastProvider as Toast };\n",
+      "type": "registry:ui"
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "name": "toolbar",
+  "type": "registry:ui",
+  "dependencies": [
+    "@base-ui/react"
+  ],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "toolbar.tsx",
+      "content": "\"use client\";\n\nimport { Toolbar as ToolbarPrimitive } from \"@base-ui/react\";\n\nimport { cn } from \"@/lib/utils\";\n\nfunction Toolbar({ className, ...props }: ToolbarPrimitive.Root.Props) {\n  return (\n    <ToolbarPrimitive.Root\n      className={cn(\"flex h-9 items-center justify-evenly gap-1  border bg-muted p-1\", className)}\n      {...props}\n    />\n  );\n}\n\nfunction ToolbarButton({ className, ...props }: ToolbarPrimitive.Button.Props) {\n  return <ToolbarPrimitive.Button className={cn(className)} {...props} />;\n}\n\nfunction ToolbarLink({ className, ...props }: ToolbarPrimitive.Link.Props) {\n  return <ToolbarPrimitive.Link className={cn(className)} {...props} />;\n}\n\nfunction ToolbarInput({ className, ...props }: ToolbarPrimitive.Input.Props) {\n  return <ToolbarPrimitive.Input className={cn(className)} {...props} />;\n}\n\nfunction ToolbarGroup({ className, ...props }: ToolbarPrimitive.Group.Props) {\n  return <ToolbarPrimitive.Group className={cn(className)} {...props} />;\n}\n\nfunction ToolbarSeparator({ className, ...props }: ToolbarPrimitive.Separator.Props) {\n  return (\n    <ToolbarPrimitive.Separator\n      className={cn(\n        \"shrink-0 bg-primary/40 data-[orientation=horizontal]:h-px data-[orientation=horizontal]:w-full data-[orientation=vertical]:w-px data-[orientation=vertical]:self-stretch\",\n        className,\n      )}\n      {...props}\n    />\n  );\n}\n\nexport { Toolbar, ToolbarButton, ToolbarLink, ToolbarInput, ToolbarGroup, ToolbarSeparator };\n",
+      "type": "registry:ui"
+    }
+  ]
+}

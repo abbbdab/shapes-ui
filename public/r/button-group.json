@@ -1,8 +1,12 @@
 {
   "name": "button-group",
   "type": "registry:ui",
-  "dependencies": ["class-variance-authority"],
-  "registryDependencies": ["separator"],
+  "dependencies": [
+    "class-variance-authority"
+  ],
+  "registryDependencies": [
+    "separator"
+  ],
   "files": [
     {
       "path": "button-group.tsx",

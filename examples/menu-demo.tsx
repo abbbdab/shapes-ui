@@ -1,32 +1,63 @@
-import { useState } from "react";
+import { BellRingIcon, CreditCardIcon, LogOutIcon, TargetIcon, UserPenIcon } from "lucide-react";
 
+import { Avatar, AvatarFallback } from "@/components/ui/avatar";
+import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
   Menu,
   MenuTrigger,
   MenuPopup,
-  MenuItem,
+  MenuGroup,
+  MenuLabel,
   MenuSeparator,
-  MenuCheckboxItem,
+  MenuItem,
 } from "@/components/ui/menu";
 
 export default function MenuDemo() {
-  const [checked, setChecked] = useState(false);
-
   return (
     <Menu>
-      <MenuTrigger asChild>
+      <MenuTrigger>
         <Button variant="outline">Open Menu</Button>
       </MenuTrigger>
       <MenuPopup>
-        <MenuItem>New Tab</MenuItem>
-        <MenuItem>New Window</MenuItem>
+        <div className="flex items-center justify-between gap-2 p-3">
+          <Avatar size="sm">
+            <AvatarFallback>TA</AvatarFallback>
+          </Avatar>
+          <div className="flex flex-col">
+            <p className="text-sm font-medium">Tim Apple</p>
+            <p className="text-xs text-muted-foreground">tim.apple@example.com</p>
+          </div>
+        </div>
         <MenuSeparator />
-        <MenuCheckboxItem checked={checked} onCheckedChange={setChecked}>
-          Dark Mode
-        </MenuCheckboxItem>
+        <MenuGroup>
+          <MenuLabel>My account</MenuLabel>
+          <MenuItem>
+            <TargetIcon />
+            Set status
+          </MenuItem>
+          <MenuSeparator />
+          <MenuItem>
+            <UserPenIcon />
+            Profile
+          </MenuItem>
+          <MenuItem>
+            <BellRingIcon />
+            Notifications{" "}
+            <Badge variant={"info"} className="ml-auto">
+              2
+            </Badge>
+          </MenuItem>
+          <MenuItem>
+            <CreditCardIcon />
+            Subscription settings
+          </MenuItem>
+        </MenuGroup>
         <MenuSeparator />
-        <MenuItem variant="destructive">Close All Tabs</MenuItem>
+        <MenuItem>
+          <LogOutIcon />
+          Sign out
+        </MenuItem>
       </MenuPopup>
     </Menu>
   );

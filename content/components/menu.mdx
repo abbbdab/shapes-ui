@@ -12,6 +12,33 @@ description: Dropdown menu component with support for items, groups, separators,
 
 ## Examples
 
-### Demo
+### Sides and alignments
 
-<RenderPreview name="menu-demo" />
+Side and alignment of the menu can be configured using the `side` and `align` props on the `MenuPopup` component.
+
+<RenderPreview name="menu-align" />
+
+### Groups
+
+Use `MenuGroup` and `MenuLabel` to visually group related menu items (for example — account actions vs. file actions).
+
+<RenderPreview name="menu-group" />
+
+### Submenus
+
+Nest `MenuSub` with `MenuSubTrigger` to create hierarchical menus and "open recent"‑style lists.
+
+<RenderPreview name="menu-submenu" />
+
+### Checkbox & radio items
+
+Use `MenuCheckboxItem` for independent toggles and `MenuRadioGroup`/`MenuRadioItem` for exclusive selections inside a menu.
+
+<RenderPreview name="menu-checkbox" />
+<RenderPreview name="menu-radio" />
+
+### Advanced
+
+A combined example showing groups, a submenu, checkbox items and radio items together.
+
+<RenderPreview name="menu-advanced" />

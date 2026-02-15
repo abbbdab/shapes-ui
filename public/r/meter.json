@@ -1,0 +1,15 @@
+{
+  "name": "meter",
+  "type": "registry:ui",
+  "dependencies": [
+    "@base-ui/react"
+  ],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "meter.tsx",
+      "content": "\"use client\";\n\nimport { Meter as MeterPrimitive } from \"@base-ui/react/meter\";\n\nimport { cn } from \"@/lib/utils\";\n\nfunction Meter({\n  label,\n  showLabel,\n  showValue,\n  className,\n  ...props\n}: MeterPrimitive.Root.Props & {\n  showValue?: boolean;\n  showLabel?: boolean;\n  label?: string;\n}) {\n  return (\n    <MeterPrimitive.Root className={cn(\"grid w-80 grid-cols-2 gap-1\", className)} {...props}>\n      {showLabel && label && <MeterLabel>{label}</MeterLabel>}\n      {showValue && <MeterValue />}\n      <MeterTrack>\n        <MeterIndicator />\n      </MeterTrack>\n    </MeterPrimitive.Root>\n  );\n}\n\nfunction MeterLabel({ className, ...props }: MeterPrimitive.Label.Props) {\n  return (\n    <MeterPrimitive.Label className={cn(\"text-xs font-bold text-primary\", className)} {...props} />\n  );\n}\n\nfunction MeterValue({ className, ...props }: MeterPrimitive.Value.Props) {\n  return (\n    <MeterPrimitive.Value className={cn(\"text-right text-xs text-primary\", className)} {...props} />\n  );\n}\n\nfunction MeterTrack({ className, ...props }: MeterPrimitive.Track.Props) {\n  return (\n    <MeterPrimitive.Track\n      className={cn(\"col-span-2 block h-2 overflow-hidden bg-primary/20\", className)}\n      {...props}\n    />\n  );\n}\n\nfunction MeterIndicator({ className, ...props }: MeterPrimitive.Indicator.Props) {\n  return (\n    <MeterPrimitive.Indicator\n      className={cn(\"block rounded-r-xl bg-primary\", className)}\n      {...props}\n    />\n  );\n}\n\nexport { Meter, MeterLabel, MeterValue, MeterTrack, MeterIndicator };\n",
+      "type": "registry:ui"
+    }
+  ]
+}
