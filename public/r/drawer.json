@@ -1,13 +1,8 @@
 {
   "name": "drawer",
   "type": "registry:ui",
-  "dependencies": [
-    "@base-ui/react",
-    "lucide-react"
-  ],
-  "registryDependencies": [
-    "button"
-  ],
+  "dependencies": ["@base-ui/react", "lucide-react"],
+  "registryDependencies": ["button"],
   "files": [
     {
       "path": "drawer.tsx",

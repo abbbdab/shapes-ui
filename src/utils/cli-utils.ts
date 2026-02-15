@@ -44,3 +44,15 @@ export function getMissingDeps(pkg: Record<string, any> | null, deps: string[]) 
   if (!pkg) return deps;
   return deps.filter((dep) => !pkg.dependencies?.[dep] && !pkg.devDependencies?.[dep]);
 }
+
+export async function isViteProject() {
+  const viteConfigTs = path.join(process.cwd(), "vite.config.ts");
+  const viteConfigJs = path.join(process.cwd(), "vite.config.js");
+  const viteConfigMjs = path.join(process.cwd(), "vite.config.mjs");
+
+  return (
+    (await fs.pathExists(viteConfigTs)) ||
+    (await fs.pathExists(viteConfigJs)) ||
+    (await fs.pathExists(viteConfigMjs))
+  );
+}

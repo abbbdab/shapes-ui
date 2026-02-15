@@ -1,5 +1,6 @@
-import { Toggle, ToggleGroup } from "@/components/ui/toggle";
 import { Bold, Italic, Underline } from "lucide-react";
+
+import { Toggle, ToggleGroup } from "@/components/ui/toggle";
 
 export const toggleDemo = () => {
   return (

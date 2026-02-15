@@ -1,1 +1,3 @@
-import { Button } from "@/components/ui/button\";\nimport {\n  Popover,\n  PopoverTrigger,\n  PopoverPopup,\n  PopoverTitle,\n  PopoverDescription,\n} from \"@/components/ui/popover\";\n\nexport default function PopoverDemo() {\n  return (\n    <Popover>\n      <PopoverTrigger asChild>\n        <Button variant=\"outline\">Open Popover</Button>\n      </PopoverTrigger>\n      <PopoverPopup>\n        <PopoverTitle>Welcome</PopoverTitle>\n        <PopoverDescription>\n          This is a popover component that displays additional information.\n        </PopoverDescription>\n      </PopoverPopup>\n    </Popover>\n  );\n}\n
+export default function PopoverDemo() {
+  return <div></div>;
+}

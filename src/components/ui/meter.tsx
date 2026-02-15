@@ -1,7 +1,8 @@
 "use client";
 
-import { cn } from "@/lib/utils";
 import { Meter as MeterPrimitive } from "@base-ui/react/meter";
+
+import { cn } from "@/lib/utils";
 
 function Meter({
   label,
@@ -15,10 +16,7 @@ function Meter({
   label?: string;
 }) {
   return (
-    <MeterPrimitive.Root
-      className={cn("grid w-80 grid-cols-2 gap-1", className)}
-      {...props}
-    >
+    <MeterPrimitive.Root className={cn("grid w-80 grid-cols-2 gap-1", className)} {...props}>
       {showLabel && label && <MeterLabel>{label}</MeterLabel>}
       {showValue && <MeterValue />}
       <MeterTrack>
@@ -28,49 +26,28 @@ function Meter({
   );
 }
 
-function MeterLabel({
-  className,
-  ...props
-}: MeterPrimitive.Label.Props) {
+function MeterLabel({ className, ...props }: MeterPrimitive.Label.Props) {
   return (
-    <MeterPrimitive.Label
-      className={cn("text-xs font-bold text-primary", className)}
-      {...props}
-    />
+    <MeterPrimitive.Label className={cn("text-xs font-bold text-primary", className)} {...props} />
   );
 }
 
-function MeterValue({
-  className,
-  ...props
-}: MeterPrimitive.Value.Props) {
+function MeterValue({ className, ...props }: MeterPrimitive.Value.Props) {
   return (
-    <MeterPrimitive.Value
-      className={cn("text-right text-xs text-primary", className)}
-      {...props}
-    />
+    <MeterPrimitive.Value className={cn("text-right text-xs text-primary", className)} {...props} />
   );
 }
 
-function MeterTrack({
-  className,
-  ...props
-}: MeterPrimitive.Track.Props) {
+function MeterTrack({ className, ...props }: MeterPrimitive.Track.Props) {
   return (
     <MeterPrimitive.Track
-      className={cn(
-        "col-span-2 block h-2 overflow-hidden bg-primary/20",
-        className,
-      )}
+      className={cn("col-span-2 block h-2 overflow-hidden bg-primary/20", className)}
       {...props}
     />
   );
 }
 
-function MeterIndicator({
-  className,
-  ...props
-}: MeterPrimitive.Indicator.Props) {
+function MeterIndicator({ className, ...props }: MeterPrimitive.Indicator.Props) {
   return (
     <MeterPrimitive.Indicator
       className={cn("block rounded-r-xl bg-primary", className)}

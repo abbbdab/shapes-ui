@@ -1,5 +1,6 @@
-import { Toolbar, ToolbarButton, ToolbarGroup, ToolbarSeparator } from "@/components/ui/toolbar";
 import { Bold, Italic, Underline, List, Quote } from "lucide-react";
+
+import { Toolbar, ToolbarButton, ToolbarGroup, ToolbarSeparator } from "@/components/ui/toolbar";
 
 export const toolbarDemo = () => {
   return (

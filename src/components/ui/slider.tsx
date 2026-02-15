@@ -1,7 +1,8 @@
 "use client";
 
-import * as React from "react";
 import { Slider as SliderPrimitive } from "@base-ui/react/slider";
+import * as React from "react";
+
 import { cn } from "@/lib/utils";
 
 function Slider({
@@ -13,21 +14,13 @@ function Slider({
   ...props
 }: SliderPrimitive.Root.Props) {
   const _values = React.useMemo(
-    () =>
-      Array.isArray(value)
-        ? value
-        : Array.isArray(defaultValue)
-          ? defaultValue
-          : [min, max],
+    () => (Array.isArray(value) ? value : Array.isArray(defaultValue) ? defaultValue : [min, max]),
     [value, defaultValue, min, max],
   );
 
   return (
     <SliderPrimitive.Root
-      className={cn(
-        "data-horizontal:w-full data-vertical:h-full",
-        className,
-      )}
+      className={cn("data-horizontal:w-full data-vertical:h-full", className)}
       data-slot="slider"
       defaultValue={defaultValue}
       value={value}

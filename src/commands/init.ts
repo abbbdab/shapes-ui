@@ -2,13 +2,17 @@ import path from "node:path";
 
 import { confirm, intro, note, outro, select, text, spinner } from "@clack/prompts";
 import { execa } from "execa";
+import figlet from "figlet";
 import fs from "fs-extra";
+import gradient from "gradient-string";
+import pc from "picocolors";
 
 import { pickComponents, installComponent } from "@/commands/add";
 import {
   exitIfCancelled,
   getMissingDeps,
   isTailwindV4Installed,
+  isViteProject,
   readPackageJson,
 } from "@/utils/cli-utils";
 import { getInstallCommand } from "@/utils/package-manager";
@@ -22,18 +26,17 @@ const BASE_DEPS = [
   "tailwind-merge",
   "tw-animate-css",
 ];
-const TAILWIND_DEV_DEPS = ["tailwindcss", "@tailwindcss/vite"];
 
 async function installDeps(deps: string[], dev = false) {
   if (!deps.length) return;
   const spin = spinner();
-  const label = dev ? "Installing Tailwind v4" : "Installing base dependencies";
+  const label = dev ? "Installing dev dependencies" : "Installing dependencies";
   spin.start(label);
 
   const [command, ...args] = await getInstallCommand(deps, dev);
   await execa(command, args);
 
-  spin.stop("Dependencies installed");
+  spin.stop(pc.green("Dependencies installed"));
 }
 
 async function ensureTailwindStyles(cssPath: string) {
@@ -51,8 +54,15 @@ async function ensureTailwindStyles(cssPath: string) {
   await fs.writeFile(absPath, template);
 }
 
+function renderTitle() {
+  const text = figlet.textSync("Shapes UI", { font: "Standard" });
+  console.log(gradient.pastel.multiline(text));
+}
+
 export async function initCommand() {
-  intro("Shapes UI");
+  console.clear();
+  renderTitle();
+  intro(pc.bgCyan(pc.black(" Welcome to Shapes UI ")));
 
   const configPath = path.join(process.cwd(), "shapes.json");
   if (await fs.pathExists(configPath)) {
@@ -60,7 +70,7 @@ export async function initCommand() {
       await confirm({ message: "shapes.json already exists. Overwrite it?" }),
     );
     if (!overwrite) {
-      outro("Init cancelled.");
+      outro(pc.yellow("Init cancelled."));
       return;
     }
   }
@@ -84,6 +94,7 @@ export async function initCommand() {
 
   const pkg = await readPackageJson();
   const hasTailwindV4 = isTailwindV4Installed(pkg);
+  const isVite = await isViteProject();
 
   const hasExistingCss = exitIfCancelled(
     await confirm({ message: "Do you already have a CSS file?" }),
@@ -99,7 +110,11 @@ export async function initCommand() {
     : "src/styles/globals.css";
 
   if (!hasTailwindV4) {
-    await installDeps(TAILWIND_DEV_DEPS, true);
+    const tailwindDeps = ["tailwindcss"];
+    if (isVite) {
+      tailwindDeps.push("@tailwindcss/vite");
+    }
+    await installDeps(tailwindDeps, true);
   }
 
   const missingBaseDeps = getMissingDeps(pkg, BASE_DEPS);
@@ -114,15 +129,17 @@ export async function initCommand() {
   };
 
   await fs.writeJSON("shapes.json", config, { spaces: 2 });
-  note("Created shapes.json");
+  note("Created shapes.json", "Configuration");
 
   const addNow = exitIfCancelled(await confirm({ message: "Add components now?" }));
   if (addNow) {
     const selected = await pickComponents();
-    for (const name of selected) {
-      await installComponent(name, config);
+    if (selected.length > 0) {
+      for (const name of selected) {
+        await installComponent(name, config);
+      }
     }
   }
 
-  outro("Shapes UI is ready.");
+  outro(pc.green("Shapes UI is ready."));
 }

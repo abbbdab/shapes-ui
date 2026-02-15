@@ -1,9 +1,11 @@
 "use client";
 
-import * as React from "react";
 import { Autocomplete as AutocompletePrimitive } from "@base-ui/react/autocomplete";
 import { XIcon } from "lucide-react";
+import * as React from "react";
+
 import { cn } from "@/lib/utils";
+
 import { Input } from "./input";
 
 function Autocomplete({
@@ -32,10 +34,7 @@ function AutocompleteValue(props: AutocompletePrimitive.Value.Props) {
   return <AutocompletePrimitive.Value {...props} />;
 }
 
-function AutocompleteInput({
-  className,
-  ...props
-}: AutocompletePrimitive.Input.Props) {
+function AutocompleteInput({ className, ...props }: AutocompletePrimitive.Input.Props) {
   return (
     <AutocompletePrimitive.Input
       className={cn(className)}
@@ -45,22 +44,11 @@ function AutocompleteInput({
   );
 }
 
-function AutocompleteTrigger({
-  className,
-  ...props
-}: AutocompletePrimitive.Trigger.Props) {
-  return (
-    <AutocompletePrimitive.Trigger
-      className={cn("w-full", className)}
-      {...props}
-    />
-  );
+function AutocompleteTrigger({ className, ...props }: AutocompletePrimitive.Trigger.Props) {
+  return <AutocompletePrimitive.Trigger className={cn("w-full", className)} {...props} />;
 }
 
-function AutocompleteClear({
-  className,
-  ...props
-}: AutocompletePrimitive.Clear.Props) {
+function AutocompleteClear({ className, ...props }: AutocompletePrimitive.Clear.Props) {
   return (
     <AutocompletePrimitive.Clear
       className={cn(
@@ -83,10 +71,7 @@ function AutocompletePopup({
   alignOffset,
   ...props
 }: AutocompletePrimitive.Popup.Props &
-  Pick<
-    AutocompletePrimitive.Positioner.Props,
-    "align" | "side" | "sideOffset" | "alignOffset"
-  >) {
+  Pick<AutocompletePrimitive.Positioner.Props, "align" | "side" | "sideOffset" | "alignOffset">) {
   return (
     <AutocompletePrimitive.Portal>
       <AutocompletePrimitive.Positioner
@@ -96,10 +81,7 @@ function AutocompletePopup({
         alignOffset={alignOffset}
       >
         <AutocompletePrimitive.Popup
-          className={cn(
-            "w-full rounded-md border bg-popup text-popup-foreground",
-            className,
-          )}
+          className={cn("w-full rounded-md border bg-popup text-popup-foreground", className)}
           {...props}
         />
       </AutocompletePrimitive.Positioner>
@@ -107,10 +89,7 @@ function AutocompletePopup({
   );
 }
 
-function AutocompleteItem({
-  className,
-  ...props
-}: AutocompletePrimitive.Item.Props) {
+function AutocompleteItem({ className, ...props }: AutocompletePrimitive.Item.Props) {
   return (
     <AutocompletePrimitive.Item
       className={cn(
@@ -122,11 +101,7 @@ function AutocompleteItem({
   );
 }
 
-function AutocompleteEmpty({
-  className,
-  children,
-  ...props
-}: AutocompletePrimitive.Empty.Props) {
+function AutocompleteEmpty({ className, children, ...props }: AutocompletePrimitive.Empty.Props) {
   return (
     <AutocompletePrimitive.Empty
       className={cn("text-center text-sm text-muted-foreground", className)}
@@ -137,10 +112,7 @@ function AutocompleteEmpty({
   );
 }
 
-function AutocompleteList({
-  className,
-  ...props
-}: AutocompletePrimitive.List.Props) {
+function AutocompleteList({ className, ...props }: AutocompletePrimitive.List.Props) {
   return (
     <AutocompletePrimitive.List
       className={cn("max-h-60 overflow-x-hidden overflow-y-auto p-1", className)}
@@ -149,37 +121,22 @@ function AutocompleteList({
   );
 }
 
-function AutocompleteGroup({
-  className,
-  ...props
-}: AutocompletePrimitive.Group.Props) {
+function AutocompleteGroup({ className, ...props }: AutocompletePrimitive.Group.Props) {
   return (
-    <AutocompletePrimitive.Group
-      className={cn("overflow-hidden p-1", className)}
-      {...props}
-    />
+    <AutocompletePrimitive.Group className={cn("overflow-hidden p-1", className)} {...props} />
   );
 }
 
-function AutocompleteGroupLabel({
-  className,
-  ...props
-}: AutocompletePrimitive.GroupLabel.Props) {
+function AutocompleteGroupLabel({ className, ...props }: AutocompletePrimitive.GroupLabel.Props) {
   return (
     <AutocompletePrimitive.GroupLabel
-      className={cn(
-        "px-3 py-1.5 text-xs font-semibold text-muted-foreground",
-        className,
-      )}
+      className={cn("px-3 py-1.5 text-xs font-semibold text-muted-foreground", className)}
       {...props}
     />
   );
 }
 
-function AutocompleteSeparator({
-  className,
-  ...props
-}: AutocompletePrimitive.Separator.Props) {
+function AutocompleteSeparator({ className, ...props }: AutocompletePrimitive.Separator.Props) {
   return (
     <AutocompletePrimitive.Separator
       className={cn("-mx-1 my-1 h-px bg-muted", className)}

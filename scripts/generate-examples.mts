@@ -1,3 +1,5 @@
+/// <reference types="node" />
+import { Dirent } from "node:fs";
 import fs from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
@@ -20,8 +22,19 @@ function toTitle(input: string) {
 
 const dirEntries = await fs.readdir(examplesDir, { withFileTypes: true });
 const exampleFiles = dirEntries
-  .filter((entry: fs.Dirent) => entry.isFile() && entry.name.endsWith(".tsx") && entry.name !== "__index.tsx")
-  .map((entry: fs.Dirent) => entry.name);
+  .filter(
+    (entry: Dirent) =>
+      entry.isFile() && entry.name.endsWith(".tsx") && entry.name !== "__index.tsx",
+  )
+  .map((entry: Dirent) => entry.name);
+
+// Get list of known components to verify names against
+const uiEntries = await fs.readdir(uiDir, { withFileTypes: true });
+const knownComponents = new Set(
+  uiEntries
+    .filter((entry: Dirent) => entry.isFile() && entry.name.endsWith(".tsx"))
+    .map((entry: Dirent) => entry.name.replace(/\.tsx$/, "")),
+);
 
 const registry = new Map<
   string,
@@ -33,14 +46,27 @@ const registry = new Map<
 
 for (const fileName of exampleFiles) {
   const baseName = fileName.replace(/\.tsx$/, "");
-  const dashIndex = baseName.indexOf("-");
-  if (dashIndex === -1) {
-    console.warn(`Skipping ${fileName}: expected component-variant naming format.`);
-    continue;
+
+  const matchingComponent: string | undefined = (Array.from(knownComponents) as string[])
+    .filter((comp) => baseName.startsWith(`${comp}-`))
+    .sort((a: string, b: string) => b.length - a.length)[0];
+
+  let component = "";
+  let variant = "";
+
+  if (matchingComponent) {
+    component = matchingComponent;
+    variant = baseName.slice(component.length + 1);
+  } else {
+    const dashIndex = baseName.indexOf("-");
+    if (dashIndex === -1) {
+      console.warn(`Skipping ${fileName}: expected component-variant naming format.`);
+      continue;
+    }
+    component = baseName.slice(0, dashIndex);
+    variant = baseName.slice(dashIndex + 1);
   }
 
-  const component = baseName.slice(0, dashIndex);
-  const variant = baseName.slice(dashIndex + 1);
   if (!variant) {
     console.warn(`Skipping ${fileName}: variant name is missing.`);
     continue;
@@ -93,10 +119,10 @@ for (const [component, data] of sortedComponents) {
   const primaryImport = hasRoot ? rootImport : `./${sortedExamples[0].baseName}`;
   const componentName = toTitle(component).replace(/\s/g, "");
 
-  lines.push(`  ${component}: {`);
+  lines.push(`  "${component}": {`);
   lines.push(`    title: "${data.title}",`);
   lines.push(
-    `    code: lazy(() => import("${primaryImport}").then(m => ({ default: m.${componentName} || m.default }))),`,
+    `    code: lazy(() => import("${primaryImport}").then(m => ({ default: m.${componentName} }))),`,
   );
   lines.push("    examples: [");
 

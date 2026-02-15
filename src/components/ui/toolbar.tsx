@@ -1,15 +1,13 @@
 "use client";
 
-import { cn } from "@/lib/utils";
 import { Toolbar as ToolbarPrimitive } from "@base-ui/react";
+
+import { cn } from "@/lib/utils";
 
 function Toolbar({ className, ...props }: ToolbarPrimitive.Root.Props) {
   return (
     <ToolbarPrimitive.Root
-      className={cn(
-        "flex h-9 justify-evenly items-center gap-1  border bg-muted p-1",
-        className,
-      )}
+      className={cn("flex h-9 items-center justify-evenly gap-1  border bg-muted p-1", className)}
       {...props}
     />
   );
@@ -31,10 +29,7 @@ function ToolbarGroup({ className, ...props }: ToolbarPrimitive.Group.Props) {
   return <ToolbarPrimitive.Group className={cn(className)} {...props} />;
 }
 
-function ToolbarSeparator({
-  className,
-  ...props
-}: ToolbarPrimitive.Separator.Props) {
+function ToolbarSeparator({ className, ...props }: ToolbarPrimitive.Separator.Props) {
   return (
     <ToolbarPrimitive.Separator
       className={cn(
@@ -46,11 +41,4 @@ function ToolbarSeparator({
   );
 }
 
-export {
-  Toolbar,
-  ToolbarButton,
-  ToolbarLink,
-  ToolbarInput,
-  ToolbarGroup,
-  ToolbarSeparator,
-};
+export { Toolbar, ToolbarButton, ToolbarLink, ToolbarInput, ToolbarGroup, ToolbarSeparator };

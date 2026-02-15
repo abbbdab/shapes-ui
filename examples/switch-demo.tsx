@@ -1,1 +1,3 @@
-import { useState } from \"react\";\nimport { Switch } from \"@/components/ui/switch\";\n\nexport default function SwitchDemo() {\n  const [enabled, setEnabled] = useState(false);\n\n  return (\n    <div className=\"space-y-4\">\n      <label className=\"flex items-center gap-2\">\n        <Switch\n          id=\"switch-default\"\n          checked={enabled}\n          onCheckedChange={setEnabled}\n        />\n        <span>Enable notifications</span>\n      </label>\n      <label className=\"flex items-center gap-2\">\n        <Switch\n          id=\"switch-sm\"\n          size=\"sm\"\n          defaultChecked\n        />\n        <span>Small switch</span>\n      </label>\n      <p className=\"text-sm text-muted-foreground\">\n        Notifications are {enabled ? \"enabled\" : \"disabled\"}\n      </p>\n    </div>\n  );\n}\n
+export default function SwitchDemo() {
+  return <div></div>;
+}
