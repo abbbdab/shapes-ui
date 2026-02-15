@@ -1,8 +1,9 @@
 "use client";
 
-import { cn } from "@/lib/utils";
 import { Menu as MenuPrimitive } from "@base-ui/react/menu";
 import { ChevronRightIcon, CheckIcon } from "lucide-react";
+
+import { cn } from "@/lib/utils";
 
 function Menu(props: MenuPrimitive.Root.Props) {
   return <MenuPrimitive.Root {...props} />;
@@ -20,10 +21,7 @@ function MenuPopup({
   sideOffset = 8,
   ...props
 }: MenuPrimitive.Popup.Props &
-  Pick<
-    MenuPrimitive.Positioner.Props,
-    "align" | "sideOffset" | "side" | "alignOffset"
-  >) {
+  Pick<MenuPrimitive.Positioner.Props, "align" | "sideOffset" | "side" | "alignOffset">) {
   return (
     <MenuPrimitive.Portal>
       <MenuPrimitive.Positioner
@@ -149,11 +147,7 @@ function MenuRadioGroup({ ...props }: MenuPrimitive.RadioGroup.Props) {
   return <MenuPrimitive.RadioGroup data-slot="-menu-radio-group" {...props} />;
 }
 
-function MenuRadioItem({
-  className,
-  children,
-  ...props
-}: MenuPrimitive.RadioItem.Props) {
+function MenuRadioItem({ className, children, ...props }: MenuPrimitive.RadioItem.Props) {
   return (
     <MenuPrimitive.RadioItem
       data-slot="-menu-radio-item"
@@ -173,10 +167,7 @@ function MenuRadioItem({
   );
 }
 
-function MenuSeparator({
-  className,
-  ...props
-}: MenuPrimitive.Separator.Props) {
+function MenuSeparator({ className, ...props }: MenuPrimitive.Separator.Props) {
   return (
     <MenuPrimitive.Separator
       data-slot="-menu-separator"

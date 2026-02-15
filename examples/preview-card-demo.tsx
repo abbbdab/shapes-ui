@@ -1,1 +1,3 @@
-import {\n  PreviewCard,\n  PreviewCardTrigger,\n  PreviewCardPopup,\n} from \"@/components/ui/preview-card\";\n\nexport default function PreviewCardDemo() {\n  return (\n    <PreviewCard>\n      <PreviewCardTrigger href=\"#\">Hover over this link</PreviewCardTrigger>\n      <PreviewCardPopup>\n        <div className=\"w-64\">\n          <img\n            src=\"https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400&h=300&fit=crop\"\n            alt=\"Preview\"\n            className=\"w-full h-auto rounded\"\n          />\n          <div className=\"mt-2\">\n            <h3 className=\"font-semibold\">Preview Card</h3>\n            <p className=\"text-sm text-muted-foreground\">This is a preview that appears on hover.</p>\n          </div>\n        </div>\n      </PreviewCardPopup>\n    </PreviewCard>\n  );\n}\n
+export default function PreviewCardDemo() {
+  return <div></div>;
+}

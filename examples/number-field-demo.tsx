@@ -1,1 +1,3 @@
-import { NumberField } from "@/components/ui/number-field\";\n\nexport default function NumberFieldDemo() {\n  return (\n    <div className=\"space-y-6\">\n      <div>\n        <NumberField label=\"Quantity\" defaultValue={1} min={1} max={100} />\n      </div>\n      <div>\n        <NumberField label=\"Price\" defaultValue={99.99} step={0.01} />\n      </div>\n      <div>\n        <NumberField label=\"Temperature\" defaultValue={72} hasScrubber />\n      </div>\n    </div>\n  );\n}\n
+export default function NumberFieldDemo() {
+  return <div></div>;
+}

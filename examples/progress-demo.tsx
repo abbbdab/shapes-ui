@@ -1,1 +1,3 @@
-import { useState } from "react";\nimport { Progress } from \"@/components/ui/progress\";\n\nexport default function ProgressDemo() {\n  const [value, setValue] = useState(60);\n\n  return (\n    <div className=\"space-y-6\">\n      <div>\n        <Progress value={value} label=\"Download\" showValue />\n        <input\n          type=\"range\"\n          min=\"0\"\n          max=\"100\"\n          value={value}\n          onChange={(e) => setValue(Number(e.target.value))}\n          className=\"mt-4 w-64\"\n        />\n      </div>\n      <div>\n        <Progress value={45} label=\"Upload\" showValue />\n      </div>\n      <div>\n        <Progress value={90} />\n      </div>\n    </div>\n  );\n}\n
+export default function ProgressDemo() {
+  return <div></div>;
+}

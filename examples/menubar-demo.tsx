@@ -1,4 +1,5 @@
 import { useState } from "react";
+
 import {
   Menubar,
   Menu,
@@ -37,10 +38,7 @@ export default function MenubarDemo() {
       <Menu>
         <MenuTrigger>View</MenuTrigger>
         <MenuPopup>
-          <MenuCheckboxItem
-            checked={autosave}
-            onCheckedChange={setAutosave}
-          >
+          <MenuCheckboxItem checked={autosave} onCheckedChange={setAutosave}>
             Auto Save
           </MenuCheckboxItem>
           <MenuItem>Full Screen</MenuItem>

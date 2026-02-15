@@ -1,9 +1,7 @@
 {
   "name": "badge",
   "type": "registry:ui",
-  "dependencies": [
-    "class-variance-authority"
-  ],
+  "dependencies": ["class-variance-authority"],
   "registryDependencies": [],
   "files": [
     {

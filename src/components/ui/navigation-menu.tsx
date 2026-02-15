@@ -1,11 +1,10 @@
 "use client";
 
-import { cn } from "@/lib/utils";
-import {
-  NavigationMenu as NavigationMenuPrimitive,
-} from "@base-ui/react/navigation-menu";
-import type React from "react";
+import { NavigationMenu as NavigationMenuPrimitive } from "@base-ui/react/navigation-menu";
 import { ChevronDownIcon } from "lucide-react";
+import type React from "react";
+
+import { cn } from "@/lib/utils";
 
 function NavigationMenu(props: NavigationMenuPrimitive.Root.Props) {
   return <NavigationMenuPrimitive.Root {...props} />;
@@ -27,12 +26,7 @@ function NavigationMenuItem({
   className,
   ...props
 }: React.ComponentProps<typeof NavigationMenuPrimitive.Item>) {
-  return (
-    <NavigationMenuPrimitive.Item
-      className={cn(className)}
-      {...props}
-    />
-  );
+  return <NavigationMenuPrimitive.Item className={cn(className)} {...props} />;
 }
 
 function NavigationMenuTrigger({
@@ -42,10 +36,7 @@ function NavigationMenuTrigger({
 }: NavigationMenuPrimitive.Trigger.Props) {
   return (
     <NavigationMenuPrimitive.Trigger
-      className={cn(
-        "group h-full px-3 py-1.5 text-sm font-medium hover:bg-accent/60",
-        className,
-      )}
+      className={cn("group h-full px-3 py-1.5 text-sm font-medium hover:bg-accent/60", className)}
       {...props}
     >
       {children}
@@ -54,9 +45,7 @@ function NavigationMenuTrigger({
   );
 }
 
-function NavigationMenuContent(
-  props: NavigationMenuPrimitive.Content.Props
-) {
+function NavigationMenuContent(props: NavigationMenuPrimitive.Content.Props) {
   return <NavigationMenuPrimitive.Content {...props} />;
 }
 
@@ -89,10 +78,7 @@ function NavigationMenuPopup({
         sideOffset={sideOffset}
       >
         <NavigationMenuPrimitive.Popup
-          className={cn(
-            "bg-popup p-2 shadow outline outline-border",
-            className,
-          )}
+          className={cn("bg-popup p-2 shadow outline outline-border", className)}
           {...props}
         >
           {children}
@@ -103,9 +89,7 @@ function NavigationMenuPopup({
   );
 }
 
-function NavigationMenuViewPort(
-  props: NavigationMenuPrimitive.Viewport.Props
-) {
+function NavigationMenuViewPort(props: NavigationMenuPrimitive.Viewport.Props) {
   return <NavigationMenuPrimitive.Viewport {...props} />;
 }
 
