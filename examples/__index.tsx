@@ -574,6 +574,11 @@ export const examples: ExampleRegistry = {
         title: "Demo",
         code: lazy(() => import("./menubar-demo")),
       },
+      {
+        name: "menubar-advanced",
+        title: "Advanced",
+        code: lazy(() => import("./menubar-advanced")),
+      },
     ],
   },
   "meter": {
