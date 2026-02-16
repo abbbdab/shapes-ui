@@ -1,8 +1,14 @@
 {
   "name": "combobox",
   "type": "registry:ui",
-  "dependencies": ["@base-ui/react", "lucide-react"],
-  "registryDependencies": ["button", "input-group"],
+  "dependencies": [
+    "@base-ui/react",
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "button",
+    "input-group"
+  ],
   "files": [
     {
       "path": "combobox.tsx",

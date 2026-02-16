@@ -1,44 +1,11 @@
 "use client";
 
 import { NumberField as NumberFieldPrimitive } from "@base-ui/react/number-field";
-import { ChevronsLeftRightEllipsis, MinusIcon, PlusIcon } from "lucide-react";
+import { MinusIcon, PlusIcon } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 
-function NumberField({
-  label,
-  hasScrubber = false,
-  className,
-  ...props
-}: NumberFieldPrimitive.Root.Props & {
-  label?: string;
-  hasScrubber?: boolean;
-}) {
-  return (
-    <NumberFieldPrimitive.Root
-      className={cn("flex w-fit flex-col bg-transparent text-foreground", className)}
-      {...props}
-    >
-      {hasScrubber && (
-        <NumberFieldScrubArea>
-          {label && (
-            <label htmlFor={props.id} className="text-sm font-medium">
-              {label}
-            </label>
-          )}
-          <NumberFieldScrubAreaCursor>
-            <ChevronsLeftRightEllipsis className="size-4" />
-          </NumberFieldScrubAreaCursor>
-        </NumberFieldScrubArea>
-      )}
-      <NumberFieldGroup>
-        <NumberFieldDecrement />
-        <NumberFieldInput />
-        <NumberFieldIncrement />
-      </NumberFieldGroup>
-    </NumberFieldPrimitive.Root>
-  );
-}
+import { Input } from "./input";
 
 function NumberFieldScrubArea({ className, ...props }: NumberFieldPrimitive.ScrubArea.Props) {
   return <NumberFieldPrimitive.ScrubArea className={cn("", className)} {...props} />;
@@ -53,36 +20,66 @@ function NumberFieldScrubAreaCursor({
   );
 }
 
-function NumberFieldGroup({ className, ...props }: NumberFieldPrimitive.Group.Props) {
+function NumberField({ className, ...props }: NumberFieldPrimitive.Root.Props) {
   return (
-    <NumberFieldPrimitive.Group
-      className={cn("flex overflow-hidden border bg-transparent", className)}
+    <NumberFieldPrimitive.Root
+      data-slot="number-field"
+      className={cn("group/number-field flex flex-col gap-1.5", className)}
       {...props}
     />
   );
 }
 
-function NumberFieldDecrement({ className, ...props }: NumberFieldPrimitive.Decrement.Props) {
+function NumberFieldGroup({ className, ...props }: NumberFieldPrimitive.Group.Props) {
+  return (
+    <NumberFieldPrimitive.Group
+      data-slot="number-field-group"
+      className={cn(
+        "relative inline-flex h-9 w-full items-stretch overflow-hidden rounded-lg border border-input focus-within:border-border focus-within:ring-1 focus-within:ring-ring has-[>[data-slot=number-field-decrement]]:*:data-[slot=number-field-input]:rounded-none has-[>[data-slot=number-field-decrement]]:*:data-[slot=number-field-input]:border-0 has-[>[data-slot=number-field-decrement]]:*:data-[slot=number-field-input]:outline-none has-[>[data-slot=number-field-decrement]]:*:data-[slot=number-field-input]:focus:ring-0 has-[>[data-slot=number-field-decrement]]:*:data-[slot=number-field-input]:focus:outline-none",
+        "has-[>[data-slot=number-field-decrement][data-align=end]]:*:data-[slot=number-field-decrement]:border-l has-[>[data-slot=number-field-decrement][data-align=start]]:*:data-[slot=number-field-decrement]:border-r has-[>[data-slot=number-field-increment][data-align=end]]:*:data-[slot=number-field-increment]:border-l ",
+        className,
+      )}
+      {...props}
+    />
+  );
+}
+
+function NumberFieldDecrement({
+  className,
+  align,
+  ...props
+}: NumberFieldPrimitive.Decrement.Props & { align?: "start" | "end" }) {
   return (
     <NumberFieldPrimitive.Decrement
+      data-slot="number-field-decrement"
+      data-align={align}
       className={cn(
-        "flex size-9 items-center justify-center rounded-l-lg border-r hover:bg-accent",
+        "px-2.5 transition-colors hover:bg-muted active:bg-accent disabled:opacity-50",
         className,
       )}
       {...props}
     >
-      <MinusIcon className="inline-flex size-4" />
+      <MinusIcon className="size-4" />
     </NumberFieldPrimitive.Decrement>
   );
 }
 
-function NumberFieldIncrement({ className, ...props }: NumberFieldPrimitive.Increment.Props) {
+function NumberFieldIncrement({
+  className,
+  align,
+  ...props
+}: NumberFieldPrimitive.Increment.Props & { align?: "start" | "end" }) {
   return (
     <NumberFieldPrimitive.Increment
-      className={cn("flex size-9 items-center justify-center border-l hover:bg-accent", className)}
+      data-slot="number-field-increment"
+      data-align={align}
+      className={cn(
+        "px-2.5 transition-colors hover:bg-muted active:bg-accent disabled:opacity-50",
+        className,
+      )}
       {...props}
     >
-      <PlusIcon className="inline-flex size-4" />
+      <PlusIcon className="size-4" />
     </NumberFieldPrimitive.Increment>
   );
 }
@@ -90,10 +87,9 @@ function NumberFieldIncrement({ className, ...props }: NumberFieldPrimitive.Incr
 function NumberFieldInput({ className, ...props }: NumberFieldPrimitive.Input.Props) {
   return (
     <NumberFieldPrimitive.Input
-      className={cn(
-        "h-9 rounded-none text-center text-sm ring-accent outline-0 data-scrubbing:border-0 data-scrubbing:outline-0",
-        className,
-      )}
+      data-slot="number-field-input"
+      className={cn("text-center", className)}
+      render={<Input />}
       {...props}
     />
   );
