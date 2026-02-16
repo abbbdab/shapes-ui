@@ -26,9 +26,10 @@ function PreviewCardPopup({
   side = "bottom",
   sideOffset = 6,
   alignOffset,
+  anchor,
   ...props
 }: PreviewCardPrimitive.Popup.Props &
-  Pick<PreviewCardPrimitive.Positioner.Props, "align" | "sideOffset" | "side" | "alignOffset">) {
+  Pick<PreviewCardPrimitive.Positioner.Props, "align" | "sideOffset" | "side" | "alignOffset" | "anchor">) {
   return (
     <PreviewCardPrimitive.Portal>
       <PreviewCardPrimitive.Positioner
@@ -36,10 +37,11 @@ function PreviewCardPopup({
         sideOffset={sideOffset}
         side={side}
         alignOffset={alignOffset}
+        anchor={anchor}
       >
         <PreviewCardPrimitive.Popup
           className={cn(
-            "text-popover-foreground overflow-hidden border bg-popup p-1 text-sm outline-hidden duration-25 data-closed:animate-out data-closed:fade-out-0 data-closed:zoom-out-95 data-open:animate-in data-open:fade-in-0 data-open:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=inline-end]:slide-in-from-left-2 data-[side=inline-start]:slide-in-from-right-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2",
+            "text-popover-foreground overflow-hidden rounded-xl border bg-popup p-1 text-sm outline-hidden duration-25 data-closed:animate-out data-closed:fade-out-0 data-closed:zoom-out-95 data-open:animate-in data-open:fade-in-0 data-open:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=inline-end]:slide-in-from-left-2 data-[side=inline-start]:slide-in-from-right-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2",
             className,
           )}
           {...props}

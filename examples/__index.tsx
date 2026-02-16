@@ -665,6 +665,11 @@ export const examples: ExampleRegistry = {
     code: lazy(() => import("../src/components/ui/preview-card").then(m => ({ default: m.PreviewCard }))),
     examples: [
       {
+        name: "preview-card-links",
+        title: "Links",
+        code: lazy(() => import("./preview-card-links")),
+      },
+      {
         name: "preview-card-demo",
         title: "Demo",
         code: lazy(() => import("./preview-card-demo")),
