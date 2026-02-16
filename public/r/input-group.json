@@ -1,8 +1,14 @@
 {
   "name": "input-group",
   "type": "registry:ui",
-  "dependencies": ["class-variance-authority"],
-  "registryDependencies": ["button", "input", "textarea"],
+  "dependencies": [
+    "class-variance-authority"
+  ],
+  "registryDependencies": [
+    "button",
+    "input",
+    "textarea"
+  ],
   "files": [
     {
       "path": "input-group.tsx",

@@ -1,7 +1,10 @@
 {
   "name": "checkbox",
   "type": "registry:ui",
-  "dependencies": ["@base-ui/react", "lucide-react"],
+  "dependencies": [
+    "@base-ui/react",
+    "lucide-react"
+  ],
   "registryDependencies": [],
   "files": [
     {

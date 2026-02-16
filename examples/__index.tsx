@@ -647,9 +647,19 @@ export const examples: ExampleRegistry = {
     ),
     examples: [
       {
+        name: "number-field-scrub",
+        title: "Scrub",
+        code: lazy(() => import("./number-field-scrub")),
+      },
+      {
         name: "number-field-demo",
         title: "Demo",
         code: lazy(() => import("./number-field-demo")),
+      },
+      {
+        name: "number-field-buttons-end",
+        title: "Buttons End",
+        code: lazy(() => import("./number-field-buttons-end")),
       },
     ],
   },
