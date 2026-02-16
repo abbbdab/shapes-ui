@@ -1,3 +1,4 @@
+import { FolderIcon, FileTextIcon, FileCode2Icon } from "lucide-react";
 import { useState } from "react";
 
 import {
@@ -13,7 +14,6 @@ import {
   MenuSubPopup,
   MenuSubTrigger,
 } from "@/components/ui/menubar";
-import { FolderIcon, FileTextIcon, FileCode2Icon } from "lucide-react";
 
 export default function MenubarDemo() {
   const [autosave, setAutosave] = useState(true);
@@ -23,21 +23,37 @@ export default function MenubarDemo() {
       <Menu>
         <MenuTrigger>File</MenuTrigger>
         <MenuPopup>
-          <MenuItem>New <MenuShortcut>⌘N</MenuShortcut></MenuItem>
-          <MenuItem>Open <MenuShortcut>⌘O</MenuShortcut> </MenuItem>
+          <MenuItem>
+            New <MenuShortcut>⌘N</MenuShortcut>
+          </MenuItem>
+          <MenuItem>
+            Open <MenuShortcut>⌘O</MenuShortcut>{" "}
+          </MenuItem>
           <MenuSeparator />
-          <MenuItem>Exit <MenuShortcut>⌘Q</MenuShortcut></MenuItem>
+          <MenuItem>
+            Exit <MenuShortcut>⌘Q</MenuShortcut>
+          </MenuItem>
         </MenuPopup>
       </Menu>
       <Menu>
         <MenuTrigger>Edit</MenuTrigger>
         <MenuPopup>
-          <MenuItem>Undo <MenuShortcut>⌘N</MenuShortcut></MenuItem>
-          <MenuItem>Redo <MenuShortcut>⇧⌘R</MenuShortcut></MenuItem>
+          <MenuItem>
+            Undo <MenuShortcut>⌘N</MenuShortcut>
+          </MenuItem>
+          <MenuItem>
+            Redo <MenuShortcut>⇧⌘R</MenuShortcut>
+          </MenuItem>
           <MenuSeparator />
-          <MenuItem>Cut <MenuShortcut>⌘X</MenuShortcut></MenuItem>
-          <MenuItem>Copy <MenuShortcut>⌘C</MenuShortcut></MenuItem>
-          <MenuItem>Paste <MenuShortcut>⌘V</MenuShortcut></MenuItem>
+          <MenuItem>
+            Cut <MenuShortcut>⌘X</MenuShortcut>
+          </MenuItem>
+          <MenuItem>
+            Copy <MenuShortcut>⌘C</MenuShortcut>
+          </MenuItem>
+          <MenuItem>
+            Paste <MenuShortcut>⌘V</MenuShortcut>
+          </MenuItem>
           <MenuSeparator />
           <MenuSub>
             <MenuSubTrigger>

@@ -3,15 +3,15 @@
 import { Menu as MenuPrimitive } from "@base-ui/react/menu";
 import { Menubar as MenubarPrimitive } from "@base-ui/react/menubar";
 import { ChevronRightIcon, CheckIcon } from "lucide-react";
+import { ComponentProps } from "react";
 
 import { cn } from "@/lib/utils";
-import { ComponentProps } from "react";
 
 function Menubar({ className, ...props }: MenubarPrimitive.Props) {
   return (
     <MenubarPrimitive
       data-slot="menubar"
-      className={cn("flex h-8 rounded-lg items-center gap-0.5 border bg-background p-1", className)}
+      className={cn("flex h-8 items-center gap-0.5 rounded-lg border bg-background p-1", className)}
       {...props}
     />
   );
@@ -24,7 +24,7 @@ function Menu(props: MenuPrimitive.Root.Props) {
 function MenuTrigger({ className, ...props }: MenuPrimitive.Trigger.Props) {
   return (
     <MenuPrimitive.Trigger
-      className={cn("h-full px-4 rounded text-sm hover:bg-accent", className)}
+      className={cn("h-full rounded px-4 text-sm hover:bg-accent", className)}
       {...props}
     />
   );
@@ -218,10 +218,9 @@ function MenuSeparator({ className, ...props }: MenuPrimitive.Separator.Props) {
   );
 }
 
-
-function MenuShortcut({ className, ...props }: ComponentProps<'span'>) {
+function MenuShortcut({ className, ...props }: ComponentProps<"span">) {
   return (
-    <span className={cn("ml-auto text-xs text-muted-foreground font-thin", className)} {...props} />
+    <span className={cn("ml-auto text-xs font-thin text-muted-foreground", className)} {...props} />
   );
 }
 
