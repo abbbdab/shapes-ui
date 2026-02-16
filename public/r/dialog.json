@@ -1,13 +1,8 @@
 {
   "name": "dialog",
   "type": "registry:ui",
-  "dependencies": [
-    "@base-ui/react",
-    "lucide-react"
-  ],
-  "registryDependencies": [
-    "button"
-  ],
+  "dependencies": ["@base-ui/react", "lucide-react"],
+  "registryDependencies": ["button"],
   "files": [
     {
       "path": "dialog.tsx",
