@@ -1,9 +1,7 @@
 {
   "name": "fieldset",
   "type": "registry:ui",
-  "dependencies": [
-    "@base-ui/react"
-  ],
+  "dependencies": ["@base-ui/react"],
   "registryDependencies": [],
   "files": [
     {

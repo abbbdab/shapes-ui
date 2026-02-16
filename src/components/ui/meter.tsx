@@ -16,9 +16,11 @@ function Meter({
   label?: string;
 }) {
   return (
-    <MeterPrimitive.Root className={cn("grid w-80 grid-cols-2 gap-1", className)} {...props}>
-      {showLabel && label && <MeterLabel>{label}</MeterLabel>}
-      {showValue && <MeterValue />}
+    <MeterPrimitive.Root className={cn("flex flex-col gap-1", className)} {...props}>
+      <div className="flex items-center justify-between">
+        {showLabel && label && <MeterLabel>{label}</MeterLabel>}
+        {showValue && <MeterValue />}
+      </div>
       <MeterTrack>
         <MeterIndicator />
       </MeterTrack>
@@ -41,7 +43,7 @@ function MeterValue({ className, ...props }: MeterPrimitive.Value.Props) {
 function MeterTrack({ className, ...props }: MeterPrimitive.Track.Props) {
   return (
     <MeterPrimitive.Track
-      className={cn("col-span-2 block h-2 overflow-hidden bg-primary/20", className)}
+      className={cn("h-2 w-full overflow-hidden rounded-full bg-primary/20", className)}
       {...props}
     />
   );
@@ -50,7 +52,7 @@ function MeterTrack({ className, ...props }: MeterPrimitive.Track.Props) {
 function MeterIndicator({ className, ...props }: MeterPrimitive.Indicator.Props) {
   return (
     <MeterPrimitive.Indicator
-      className={cn("block rounded-r-xl bg-primary", className)}
+      className={cn("block rounded-full rounded-r-xl bg-primary", className)}
       {...props}
     />
   );
