@@ -22,7 +22,7 @@ export default function PreviewCardLinks() {
           <Meter value={72} className={"w-full"} />
           <div className={'flex flex-col'}>
             <CardDescription>
-              72 out of 100 requests used this <PreviewCardTrigger>month.</PreviewCardTrigger>.
+              72 out of 100 requests used this <PreviewCardTrigger>month</PreviewCardTrigger>.
             </CardDescription>
           </div>
         </CardContent>
