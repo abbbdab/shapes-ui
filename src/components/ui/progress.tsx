@@ -4,23 +4,12 @@ import { Progress as ProgressPrimitive } from "@base-ui/react/progress";
 
 import { cn } from "@/lib/utils";
 
-function Progress({
-  label,
-  showValue,
-  className,
-  ...props
-}: ProgressPrimitive.Root.Props & {
-  label?: string;
-  showValue?: boolean;
-}) {
+function Progress({ className, ...props }: ProgressPrimitive.Root.Props) {
   return (
-    <ProgressPrimitive.Root className={cn("grid grid-cols-2 gap-2", className)} {...props}>
-      {label && <ProgressLabel>{label}</ProgressLabel>}
-      {showValue && <ProgressValue />}
-      <ProgressTrack>
-        <ProgressIndicator />
-      </ProgressTrack>
-    </ProgressPrimitive.Root>
+    <ProgressPrimitive.Root
+      className={cn("grid grid-cols-2 gap-1", className)}
+      {...props}
+    />
   );
 }
 
@@ -45,14 +34,14 @@ function ProgressValue({ className, ...props }: ProgressPrimitive.Value.Props) {
 function ProgressTrack({ className, ...props }: ProgressPrimitive.Track.Props) {
   return (
     <ProgressPrimitive.Track
-      className={cn("col-span-2 block h-2 overflow-hidden bg-muted", className)}
+      className={cn("col-span-2 block h-2 overflow-hidden rounded-full bg-muted", className)}
       {...props}
     />
   );
 }
 
 function ProgressIndicator({ className, ...props }: ProgressPrimitive.Indicator.Props) {
-  return <ProgressPrimitive.Indicator className={cn("h-2 bg-primary", className)} {...props} />;
+  return <ProgressPrimitive.Indicator className={cn("h-2 bg-primary rounded-full", className)} {...props} />;
 }
 
 export { Progress, ProgressLabel, ProgressValue, ProgressTrack, ProgressIndicator };
