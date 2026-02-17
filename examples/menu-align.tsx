@@ -9,22 +9,25 @@ export default function MenuDemo() {
 
   return (
     <Menu>
-      <MenuTrigger>
-        <ButtonGroup>
-          <Button variant="outline" onClick={() => setSide("bottom")}>
-            Bottom
-          </Button>
-          <Button variant="outline" onClick={() => setSide("top")}>
-            Top
-          </Button>
-          <Button variant="outline" onClick={() => setSide("left")}>
-            Left
-          </Button>
-          <Button variant="outline" onClick={() => setSide("right")}>
-            Right
-          </Button>
-        </ButtonGroup>
-      </MenuTrigger>
+      <MenuTrigger
+        nativeButton={false}
+        render={
+          <ButtonGroup>
+            <Button variant="outline" onClick={() => setSide("bottom")}>
+              Bottom
+            </Button>
+            <Button variant="outline" onClick={() => setSide("top")}>
+              Top
+            </Button>
+            <Button variant="outline" onClick={() => setSide("left")}>
+              Left
+            </Button>
+            <Button variant="outline" onClick={() => setSide("right")}>
+              Right
+            </Button>
+          </ButtonGroup>
+        }
+      ></MenuTrigger>
       <MenuPopup side={side}>
         <MenuItem>{side.charAt(0).toUpperCase() + side.slice(1)}</MenuItem>
       </MenuPopup>

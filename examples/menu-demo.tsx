@@ -16,9 +16,7 @@ import {
 export default function MenuDemo() {
   return (
     <Menu>
-      <MenuTrigger>
-        <Button variant="outline">Open Menu</Button>
-      </MenuTrigger>
+      <MenuTrigger render={<Button variant="outline">Open Menu</Button>} />
       <MenuPopup>
         <div className="flex items-center justify-between gap-2 p-3">
           <Avatar size="sm">

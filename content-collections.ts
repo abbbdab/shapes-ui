@@ -63,5 +63,5 @@ const components = defineCollection({
 });
 
 export default defineConfig({
-  collections: [components],
+  content: [components],
 });

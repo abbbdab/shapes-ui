@@ -35,7 +35,7 @@ function NumberFieldGroup({ className, ...props }: NumberFieldPrimitive.Group.Pr
     <NumberFieldPrimitive.Group
       data-slot="number-field-group"
       className={cn(
-        "relative inline-flex h-9 w-full items-stretch overflow-hidden rounded-lg border border-input focus-within:border-border focus-within:ring-1 focus-within:ring-ring has-[>[data-slot=number-field-decrement]]:*:data-[slot=number-field-input]:rounded-none has-[>[data-slot=number-field-decrement]]:*:data-[slot=number-field-input]:border-0 has-[>[data-slot=number-field-decrement]]:*:data-[slot=number-field-input]:outline-none has-[>[data-slot=number-field-decrement]]:*:data-[slot=number-field-input]:focus:ring-0 has-[>[data-slot=number-field-decrement]]:*:data-[slot=number-field-input]:focus:outline-none",
+        "relative inline-flex h-9 w-full items-stretch overflow-hidden rounded-lg border border-input focus-within:border-ring focus-within:ring-3 focus-within:ring-ring/50 has-[>[data-slot=number-field-decrement]]:*:data-[slot=number-field-input]:rounded-none has-[>[data-slot=number-field-decrement]]:*:data-[slot=number-field-input]:border-0 has-[>[data-slot=number-field-decrement]]:*:data-[slot=number-field-input]:outline-none has-[>[data-slot=number-field-decrement]]:*:data-[slot=number-field-input]:focus:ring-0 has-[>[data-slot=number-field-decrement]]:*:data-[slot=number-field-input]:focus:outline-none",
         "has-[>[data-slot=number-field-decrement][data-align=end]]:*:data-[slot=number-field-decrement]:border-l has-[>[data-slot=number-field-decrement][data-align=start]]:*:data-[slot=number-field-decrement]:border-r has-[>[data-slot=number-field-increment][data-align=end]]:*:data-[slot=number-field-increment]:border-l ",
         className,
       )}
