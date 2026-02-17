@@ -1,20 +1,20 @@
 import { Field, FieldLabel } from "@/components/ui/field";
 import { Radio, RadioGroup } from "@/components/ui/radio";
 
-export default function RadioDemo() {
+export default function RadioOrientationDemo() {
   return (
-    <RadioGroup>
+    <RadioGroup orientation="horizontal">
       <Field orientation={"horizontal"}>
-        <Radio value={"default"} />
-        <FieldLabel>Default</FieldLabel>
+        <Radio value={"left"} />
+        <FieldLabel>Left</FieldLabel>
       </Field>
       <Field orientation={"horizontal"}>
-        <Radio value={"spacious"} />
-        <FieldLabel>Spacious</FieldLabel>
+        <Radio value={"middle"} />
+        <FieldLabel>Middle</FieldLabel>
       </Field>
       <Field orientation={"horizontal"}>
-        <Radio value={"compact"} />
-        <FieldLabel>Compact</FieldLabel>
+        <Radio value={"right"} />
+        <FieldLabel>Right</FieldLabel>
       </Field>
     </RadioGroup>
   );

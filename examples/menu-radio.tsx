@@ -8,9 +8,7 @@ export default function MenuRadioDemo() {
 
   return (
     <Menu>
-      <MenuTrigger>
-        <Button variant="outline">Radio items</Button>
-      </MenuTrigger>
+      <MenuTrigger render={<Button variant="outline">Radio items</Button>} />
       <MenuPopup>
         <MenuRadioGroup value={view} onValueChange={(v) => setView(v as any)}>
           <MenuRadioItem value="list">List view</MenuRadioItem>

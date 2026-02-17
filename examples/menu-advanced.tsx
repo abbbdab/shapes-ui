@@ -35,9 +35,7 @@ export default function MenuAdvancedDemo() {
 
   return (
     <Menu>
-      <MenuTrigger>
-        <Button variant="outline">Advanced menu</Button>
-      </MenuTrigger>
+      <MenuTrigger render={<Button variant="outline">Advanced menu</Button>} />
 
       <MenuPopup>
         <div className="flex items-center gap-2 p-3">

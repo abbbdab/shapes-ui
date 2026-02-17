@@ -40,13 +40,13 @@ export const Route = createRootRoute({
 
 function RootDocument({ children }: { children: React.ReactNode }) {
   return (
-    <Suspense fallback={<SuspenseFallback className=" h-dvh" />}>
+    <Suspense fallback={<SuspenseFallback className="" />}>
       <ThemeProvider>
         <html lang="en">
           <head>
             <HeadContent />
           </head>
-          <body className="flex h-dvh flex-col">
+          <body className="flex h-dvh flex-col overflow-hidden">
             <Header />
             <main className=" container mx-auto flex flex-1 overflow-hidden border-x">
               {children}

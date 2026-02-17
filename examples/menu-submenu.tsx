@@ -14,9 +14,8 @@ import {
 export default function MenuSubmenuDemo() {
   return (
     <Menu>
-      <MenuTrigger>
-        <Button variant="outline">Submenu</Button>
-      </MenuTrigger>
+      <MenuTrigger render={<Button variant="outline">Submenu</Button>} />
+
       <MenuPopup>
         <MenuItem>New file</MenuItem>
         <MenuItem>Open…</MenuItem>

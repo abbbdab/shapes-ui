@@ -692,9 +692,24 @@ export const examples: ExampleRegistry = {
     code: lazy(() => import("../src/components/ui/radio").then(m => ({ default: m.Radio }))),
     examples: [
       {
+        name: "radio-orientation",
+        title: "Orientation",
+        code: lazy(() => import("./radio-orientation")),
+      },
+      {
+        name: "radio-description",
+        title: "Description",
+        code: lazy(() => import("./radio-description")),
+      },
+      {
         name: "radio-demo",
         title: "Demo",
         code: lazy(() => import("./radio-demo")),
+      },
+      {
+        name: "radio-card",
+        title: "Card",
+        code: lazy(() => import("./radio-card")),
       },
     ],
   },

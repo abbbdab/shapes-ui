@@ -14,9 +14,7 @@ import {
 export default function MenuGroupDemo() {
   return (
     <Menu>
-      <MenuTrigger>
-        <Button variant="outline">Group menu</Button>
-      </MenuTrigger>
+      <MenuTrigger render={<Button variant="outline">Group menu</Button>} />
       <MenuPopup>
         <MenuGroup>
           <MenuLabel>Account</MenuLabel>

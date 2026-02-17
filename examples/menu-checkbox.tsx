@@ -9,9 +9,8 @@ export default function MenuCheckboxDemo() {
 
   return (
     <Menu>
-      <MenuTrigger>
-        <Button variant="outline">Checkbox items</Button>
-      </MenuTrigger>
+      <MenuTrigger render={<Button variant="outline">Checkbox items</Button>} />
+
       <MenuPopup>
         <MenuCheckboxItem
           checked={showHidden}
