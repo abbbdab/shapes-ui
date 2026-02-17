@@ -1,5 +1,17 @@
 # shapes-ui
 
+## 0.4.2
+
+### Patch Changes
+
+- 476148c: Updated menubar docs and stylings.
+- 60ac79e: Updated meter examples and stylings
+- a591c64: Added examples for preview card
+- 7f642b5: Updated number field component and examples
+- 30ebfe7: UPdated progress styles and example
+- c2be2cd: Updated popover component and examples
+- 2d38dfc: Updated navihation menu styles and demo
+
 ## 0.4.1
 
 ### Patch Changes
