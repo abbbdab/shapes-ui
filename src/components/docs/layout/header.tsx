@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
-import { MenuIcon, SunMoonIcon } from "lucide-react";
-import { useState } from "react";
+import {  SunMoonIcon } from "lucide-react";
+
 
 import { DocsButton } from "@/components/docs/docs-button";
 import { useTheme } from "@/components/docs/theme-provider";
@@ -9,7 +9,7 @@ import { MobileMenu } from "./mobile-menu";
 
 export function Header() {
   const { toggleTheme, theme } = useTheme();
-  const [showMobileMenu, setShowMobileMenu] = useState(false);
+
 
   return (
     <header className=" sticky top-0 z-10 h-12 border-b bg-background">
@@ -31,19 +31,9 @@ export function Header() {
         <DocsButton onClick={toggleTheme} variant={"ghost"} className={"hidden lg:inline-flex"}>
           <SunMoonIcon className=" size-4" />
         </DocsButton>
-
-        <DocsButton
-          onClick={() => setShowMobileMenu(!showMobileMenu)}
-          variant={"ghost"}
-          size={"sm"}
-          className={"lg:hidden"}
-        >
-          <MenuIcon data-icon="start" />
-          Navigation
-        </DocsButton>
+      <MobileMenu  />
       </div>
 
-      <MobileMenu open={showMobileMenu} onClose={() => setShowMobileMenu(false)} />
     </header>
   );
 }
