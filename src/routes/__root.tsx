@@ -46,9 +46,9 @@ function RootDocument({ children }: { children: React.ReactNode }) {
           <head>
             <HeadContent />
           </head>
-          <body className="flex h-dvh flex-col overflow-hidden">
+          <body className="flex h-dvh flex-col">
             <Header />
-            <main className=" container mx-auto flex flex-1 overflow-hidden border-x">
+            <main className=" container mx-auto flex flex-1 border-x">
               {children}
             </main>
             <Footer />
