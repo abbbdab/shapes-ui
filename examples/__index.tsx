@@ -729,9 +729,34 @@ export const examples: ExampleRegistry = {
     code: lazy(() => import("../src/components/ui/select").then(m => ({ default: m.Select }))),
     examples: [
       {
+        name: "select-scrollable",
+        title: "Scrollable",
+        code: lazy(() => import("./select-scrollable")),
+      },
+      {
+        name: "select-invalid",
+        title: "Invalid",
+        code: lazy(() => import("./select-invalid")),
+      },
+      {
+        name: "select-groups",
+        title: "Groups",
+        code: lazy(() => import("./select-groups")),
+      },
+      {
+        name: "select-disabled",
+        title: "Disabled",
+        code: lazy(() => import("./select-disabled")),
+      },
+      {
         name: "select-demo",
         title: "Demo",
         code: lazy(() => import("./select-demo")),
+      },
+      {
+        name: "select-alignment",
+        title: "Alignment",
+        code: lazy(() => import("./select-alignment")),
       },
     ],
   },

@@ -128,7 +128,7 @@ function FieldItem({ className, ...props }: FieldPrimitive.Item.Props) {
   return (
     <FieldPrimitive.Item
       data-slot="field-item"
-      className={cn("flex items-center gap-2", className)}
+      className={cn("flex flex-col gap-1", className)}
       {...props}
     />
   );

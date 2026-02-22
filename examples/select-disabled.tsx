@@ -17,9 +17,9 @@ const items = [
   { label: "Oracle Cloud", value: "oracle-cloud" },
 ];
 
-export default function SelectDemo() {
+export default function SelectDisabled() {
   return (
-    <Select items={items}>
+    <Select items={items} disabled>
       <SelectTrigger className="w-full max-w-48">
         <SelectValue />
       </SelectTrigger>
