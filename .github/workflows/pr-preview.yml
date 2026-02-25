@@ -1,0 +1,68 @@
+name: PR Preview
+
+on:
+    pull_request:
+        types:
+            - opened
+            - reopened
+            - synchronize
+            - closed
+
+concurrency:
+    group: pr-preview-${{ github.event.pull_request.number }}
+    cancel-in-progress: true
+
+jobs:
+    deploy-preview:
+        name: Deploy Preview
+        if: github.event.action != 'closed'
+        runs-on: ubuntu-latest
+        permissions:
+            contents: read
+            pull-requests: write
+        steps:
+            - name: Checkout Repo
+              uses: actions/checkout@v4
+
+            - name: Setup Node.js 24
+              uses: actions/setup-node@v4
+              with:
+                  node-version: 24
+
+            - name: Install pnpm
+              uses: pnpm/action-setup@v3
+              with:
+                  version: 9
+
+            - name: Install Dependencies
+              run: pnpm install --frozen-lockfile
+
+            - name: Deploy Preview Worker
+              uses: cloudflare/wrangler-action@v3
+              with:
+                  apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+                  accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+                  command: "deploy --name shapes-ui-pr-${{ github.event.pull_request.number }}"
+
+            - name: Comment Preview URL
+              uses: marocchino/sticky-pull-request-comment@v2
+              with:
+                  header: preview-url
+                  message: |
+                      Preview deployed
+
+                      https://shapes-ui-pr-${{ github.event.pull_request.number }}.workers.dev
+
+    cleanup-preview:
+        name: Cleanup Preview
+        if: github.event.action == 'closed'
+        runs-on: ubuntu-latest
+        permissions:
+            contents: read
+        steps:
+            - name: Delete Preview Worker
+              uses: cloudflare/wrangler-action@v3
+              with:
+                  apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+                  accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+                  command: "delete shapes-ui-pr-${{ github.event.pull_request.number }} --force"

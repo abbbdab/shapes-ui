@@ -1,0 +1,31 @@
+name: Feature request
+description: Propose an improvement or new component
+title: "[Feature]: "
+labels:
+  - enhancement
+body:
+  - type: input
+    id: problem
+    attributes:
+      label: Problem to solve
+      description: What problem are you trying to solve?
+      placeholder: I need a compact tooltip pattern for dense UIs
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed solution
+      description: Describe the API/UX you expect
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+      description: Any alternatives or workarounds you tried?
+  - type: textarea
+    id: additional
+    attributes:
+      label: Additional context
+      description: Links, mockups, examples, prior art
