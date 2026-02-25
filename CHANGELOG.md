@@ -1,5 +1,24 @@
 # shapes-ui
 
+## 0.5.0
+
+### Minor Changes
+
+- 7d13a9b: Added tooltip and examples
+- 798be1a: Updated component examples and styles
+
+### Patch Changes
+
+- 357a7eb: Switch style and exmaple updates
+- 43bfe67: Updated toolbar and examples
+- bc2c06c: UPdated select and select examples
+- 84e7508: Updated toggle and toggle group styles and examples
+- 1c68cea: Updated slider component and examples
+- 46d5f5d: Updated mobile nav to use drawer cmpoennt
+- 8fc90b8: Updated toast ui and examples
+- 33459d3: Updated examples and dependencies
+- 8ce682c: Updated tabs styles and examples
+
 ## 0.4.2
 
 ### Patch Changes
