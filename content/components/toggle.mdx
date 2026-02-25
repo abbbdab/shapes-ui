@@ -4,8 +4,40 @@ slug: toggle
 description: A button that can be toggled between two states.
 ---
 
-<RenderPreview example="toggle-demo" />
+<RenderPreview name="toggle-demo" />
 
 ## Installation
 
-<InstallationBlock component="toggle" />
+<InstallationBlock name="toggle" />
+
+## Examples
+
+### Toggle
+
+Use `Toggle` for a single on/off state.
+
+<RenderPreview name="toggle-demo" />
+
+### Controlled Toggle
+
+Control the pressed state externally with `pressed` and `onPressedChange`.
+
+<RenderPreview name="toggle-controlled" />
+
+### Icon Fill on Press
+
+Add `data-slot="fill"` to a child icon to fill it when the toggle is pressed.
+
+<RenderPreview name="toggle-icon-fill" />
+
+### Toggle Group (Single)
+
+Use `ToggleGroup` with `value` on each `Toggle` to create an exclusive selection.
+
+<RenderPreview name="toggle-group-demo" />
+
+### Toggle Group (Multiple)
+
+Set `multiple` on `ToggleGroup` to allow more than one pressed toggle.
+
+<RenderPreview name="toggle-group-multiple" />
