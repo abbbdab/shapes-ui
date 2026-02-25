@@ -956,4 +956,20 @@ export const examples: ExampleRegistry = {
       },
     ],
   },
+  "tooltip": {
+    title: "Tooltip",
+    code: lazy(() => import("../src/components/ui/tooltip").then(m => ({ default: m.Tooltip }))),
+    examples: [
+      {
+        name: "tooltip-positions",
+        title: "Positions",
+        code: lazy(() => import("./tooltip-positions")),
+      },
+      {
+        name: "tooltip-demo",
+        title: "Demo",
+        code: lazy(() => import("./tooltip-demo")),
+      },
+    ],
+  },
 };
