@@ -6,7 +6,7 @@ import { Field, FieldDescription, FieldLabel } from "@/components/ui/field";
 export default function CheckboxFormDemo() {
   return (
     <form className="max-w-md space-y-4">
-      <Field name="marketing" orientation="horizontal">
+      <Field name="marketing">
         <FieldLabel>
           <Checkbox />
           <span className="text-sm">Marketing emails</span>
@@ -14,7 +14,7 @@ export default function CheckboxFormDemo() {
         <FieldDescription>Receive emails about new products and features.</FieldDescription>
       </Field>
 
-      <Field name="newsletter" orientation="horizontal">
+      <Field name="newsletter">
         <FieldLabel>
           <Checkbox />
           <span className="text-sm">Newsletter</span>
@@ -22,7 +22,7 @@ export default function CheckboxFormDemo() {
         <FieldDescription>Get our weekly newsletter with tips and updates.</FieldDescription>
       </Field>
 
-      <Field name="security" orientation="horizontal">
+      <Field name="security">
         <FieldLabel>
           <Checkbox defaultChecked />
           <span className="text-sm">Security alerts</span>

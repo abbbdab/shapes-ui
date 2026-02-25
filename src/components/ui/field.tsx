@@ -1,36 +1,18 @@
 "use client";
 
 import { Field as FieldPrimitive } from "@base-ui/react/field";
-import { cva, VariantProps } from "class-variance-authority";
 import { useMemo } from "react";
 
 import { cn } from "@/lib/utils";
 
-const fieldVariants = cva("group/field flex gap-2 data-[invalid=true]:text-destructive", {
-  variants: {
-    orientation: {
-      vertical: "flex-col *:w-full [&>.sr-only]:w-auto",
-      horizontal:
-        "flex-row items-center has-[>[data-slot=field-content]]:items-start *:data-[slot=field-label]:flex-auto has-[>[data-slot=field-content]]:[&>[role=checkbox],[role=radio]]:mt-px",
-      responsive:
-        "flex-col *:w-full @md/field-group:flex-row @md/field-group:items-center @md/field-group:*:w-auto @md/field-group:has-[>[data-slot=field-content]]:items-start @md/field-group:*:data-[slot=field-label]:flex-auto [&>.sr-only]:w-auto @md/field-group:has-[>[data-slot=field-content]]:[&>[role=checkbox],[role=radio]]:mt-px",
-    },
-  },
-  defaultVariants: {
-    orientation: "vertical",
-  },
-});
-
-function Field({
-  className,
-  orientation = "vertical",
-  ...props
-}: FieldPrimitive.Root.Props & VariantProps<typeof fieldVariants>) {
+function Field({ className, ...props }: FieldPrimitive.Root.Props) {
   return (
     <FieldPrimitive.Root
       data-slot="field-root"
-      data-orientation={orientation}
-      className={cn(fieldVariants({ orientation }), className)}
+      className={cn(
+        "group/field flex flex-col gap-2 *:w-full data-invalid:text-destructive [&>.sr-only]:w-auto",
+        className,
+      )}
       {...props}
     />
   );
@@ -41,8 +23,7 @@ function FieldLabel({ className, ...props }: FieldPrimitive.Label.Props) {
     <FieldPrimitive.Label
       data-slot="field-label"
       className={cn(
-        "group/field-label peer/field-label flex w-fit gap-1 text-sm leading-snug group-data-[disabled=true]/field:opacity-50 has-data-checked:border-primary/30 has-data-checked:bg-primary/5 has-[>[data-slot=field]]:rounded-lg has-[>[data-slot=field]]:border *:data-[slot=field]:p-2.5 dark:has-data-checked:border-primary/20 dark:has-data-checked:bg-primary/10",
-        "has-[>[data-slot=field]]:w-full has-[>[data-slot=field]]:flex-col",
+        "group/field-label peer/field-label flex w-fit gap-1 text-sm leading-snug group-data-disabled/field:opacity-50 has-data-checked:border-primary/30 has-data-checked:bg-primary/5 dark:has-data-checked:border-primary/20 dark:has-data-checked:bg-primary/10",
         className,
       )}
       {...props}
@@ -72,7 +53,7 @@ function FieldDescription({ className, ...props }: FieldPrimitive.Description.Pr
     <FieldPrimitive.Description
       data-slot="field-description"
       className={cn(
-        "text-left text-sm leading-normal font-normal text-muted-foreground group-has-data-horizontal/field:text-balance [[data-variant=legend]+&]:-mt-1.5",
+        "text-left text-xs leading-normal font-normal text-muted-foreground [[data-variant=legend]+&]:-mt-1.5",
         "last:mt-0 nth-last-2:-mt-1",
         "[&>a]:underline [&>a]:underline-offset-4 [&>a:hover]:text-primary",
         className,
@@ -116,7 +97,7 @@ function FieldError({
     <FieldPrimitive.Error
       role="alert"
       data-slot="field-error"
-      className={cn("text-sm font-normal text-destructive", className)}
+      className={cn("text-xs font-normal text-destructive", className)}
       {...props}
     >
       {content}

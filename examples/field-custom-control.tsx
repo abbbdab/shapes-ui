@@ -1,17 +1,41 @@
 import { Field, FieldLabel, FieldDescription } from "@/components/ui/field";
+import {
+  Select,
+  SelectGroup,
+  SelectItem,
+  SelectLabel,
+  SelectPopup,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 
 export default function FieldCustomControl() {
   return (
     <Field name="color" className="max-w-md">
-      <FieldLabel>Favorite Color</FieldLabel>
-      <select className="flex h-9 w-full rounded-lg border border-input bg-background px-3 py-2 text-sm transition-colors focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 focus-visible:outline-none">
-        <option value="">Select a color</option>
-        <option value="red">Red</option>
-        <option value="blue">Blue</option>
-        <option value="green">Green</option>
-        <option value="yellow">Yellow</option>
-      </select>
-      <FieldDescription>Select your favorite color from the dropdown.</FieldDescription>
+      <FieldLabel>Favourite Color</FieldLabel>
+      <Select items={colors}>
+        <SelectTrigger className="w-full max-w-48">
+          <SelectValue />
+        </SelectTrigger>
+        <SelectPopup>
+          <SelectGroup>
+            <SelectLabel>Colors</SelectLabel>
+            {colors.map((color) => (
+              <SelectItem key={color.value} value={color.value}>
+                {color.label}
+              </SelectItem>
+            ))}
+          </SelectGroup>
+        </SelectPopup>
+      </Select>
+      <FieldDescription>Select your favourite color from the dropdown.</FieldDescription>
     </Field>
   );
 }
+
+const colors = [
+  { value: "red", label: "Red" },
+  { value: "blue", label: "Blue" },
+  { value: "green", label: "Green" },
+  { value: "yellow", label: "Yellow" },
+];
