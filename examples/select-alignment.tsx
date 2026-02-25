@@ -26,7 +26,7 @@ export default function SelectAlignItem() {
 
   return (
     <Fieldset className="w-full max-w-xs">
-      <Field name="alignment-trigger" orientation="horizontal">
+      <Field name="alignment-trigger" className="flex-row items-center *:w-auto">
         <Checkbox checked={alignItemWithTrigger} onCheckedChange={setAlignItemWithTrigger} />
         <FieldLabel>Toggle to align the item with the trigger.</FieldLabel>
       </Field>
