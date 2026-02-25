@@ -832,6 +832,21 @@ export const examples: ExampleRegistry = {
     code: lazy(() => import("../src/components/ui/tabs").then(m => ({ default: m.Tabs }))),
     examples: [
       {
+        name: "tabs-vertical",
+        title: "Vertical",
+        code: lazy(() => import("./tabs-vertical")),
+      },
+      {
+        name: "tabs-line",
+        title: "Line",
+        code: lazy(() => import("./tabs-line")),
+      },
+      {
+        name: "tabs-disabled",
+        title: "Disabled",
+        code: lazy(() => import("./tabs-disabled")),
+      },
+      {
         name: "tabs-demo",
         title: "Demo",
         code: lazy(() => import("./tabs-demo")),
