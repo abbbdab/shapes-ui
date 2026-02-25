@@ -1,0 +1,15 @@
+{
+  "name": "tooltip",
+  "type": "registry:ui",
+  "dependencies": [
+    "@base-ui/react"
+  ],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "tooltip.tsx",
+      "content": "\"use client\";\n\nimport { Tooltip as TooltipPrimitive } from \"@base-ui/react/tooltip\";\n\nimport { cn } from \"@/lib/utils\";\n\nfunction TooltipProvider({ ...props }: TooltipPrimitive.Provider.Props) {\n  return <TooltipPrimitive.Provider {...props} />;\n}\n\nfunction Tooltip({ ...props }: TooltipPrimitive.Root.Props) {\n  return <TooltipPrimitive.Root {...props} />;\n}\n\nfunction TooltipTrigger({ ...props }: TooltipPrimitive.Trigger.Props) {\n  return <TooltipPrimitive.Trigger {...props} />;\n}\n\nfunction TooltipContent({\n  className,\n  children,\n  side = \"top\",\n  sideOffset = 6,\n  align = \"center\",\n  alignOffset = 0,\n  ...props\n}: TooltipPrimitive.Popup.Props &\n  Pick<TooltipPrimitive.Positioner.Props, \"align\" | \"alignOffset\" | \"side\" | \"sideOffset\">) {\n  return (\n    <TooltipPrimitive.Portal>\n      <TooltipPrimitive.Positioner\n        side={side}\n        sideOffset={sideOffset}\n        align={align}\n        alignOffset={alignOffset}\n        className=\"z-50\"\n      >\n        <TooltipPrimitive.Popup\n          className={cn(\n            \"origin-(--transform-origin) rounded-md bg-popup px-2 py-1 text-xs text-popup-foreground shadow-md ring-1 ring-foreground/10 duration-100 data-closed:animate-out data-closed:fade-out-0 data-closed:zoom-out-95 data-open:animate-in data-open:fade-in-0 data-open:zoom-in-95\",\n            className,\n          )}\n          {...props}\n        >\n          {children}\n          <TooltipPrimitive.Arrow className=\"data-[side=bottom]:-top-0.5 data-[side=left]:-right-0.5 data-[side=right]:-left-0.5 data-[side=top]:-bottom-0.5\" />\n        </TooltipPrimitive.Popup>\n      </TooltipPrimitive.Positioner>\n    </TooltipPrimitive.Portal>\n  );\n}\n\nexport { Tooltip, TooltipProvider, TooltipTrigger, TooltipContent };",
+      "type": "registry:ui"
+    }
+  ]
+}
