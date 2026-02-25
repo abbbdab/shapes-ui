@@ -939,6 +939,26 @@ export const examples: ExampleRegistry = {
     code: lazy(() => import("../src/components/ui/toggle").then((m) => ({ default: m.Toggle }))),
     examples: [
       {
+        name: "toggle-icon-fill",
+        title: "Icon Fill",
+        code: lazy(() => import("./toggle-icon-fill")),
+      },
+      {
+        name: "toggle-group-multiple",
+        title: "Toggle Group Multiple",
+        code: lazy(() => import("./toggle-group-multiple")),
+      },
+      {
+        name: "toggle-group-demo",
+        title: "Toggle Group",
+        code: lazy(() => import("./toggle-group-demo")),
+      },
+      {
+        name: "toggle-controlled",
+        title: "Controlled",
+        code: lazy(() => import("./toggle-controlled")),
+      },
+      {
         name: "toggle-demo",
         title: "Demo",
         code: lazy(() => import("./toggle-demo")),
