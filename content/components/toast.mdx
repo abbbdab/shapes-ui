@@ -3,3 +3,63 @@ title: Toast
 slug: toast
 description: A brief message that appears temporarily to inform users of an action or event.
 ---
+
+<RenderPreview name="toast-demo" />
+
+## Installation
+
+<InstallationBlock name="toast" />
+
+## Examples
+
+### Positions
+
+Set `position` on `Toast` to choose where toasts appear in the viewport.
+
+<RenderPreview name="toast-positions" />
+
+### Stacking
+
+Toasts now stack with collapsed and expanded behavior based on Base UI's stack attributes.
+
+<RenderPreview name="toast-stacked" />
+
+### Anchored
+
+Pass `positionerProps` to `useToast().add` to anchor a toast to another element.
+
+<RenderPreview name="toast-anchored" />
+
+### Variants
+
+Use toast `type` to style default, success, and error notifications.
+
+<RenderPreview name="toast-variants" />
+
+### Action
+
+Use `actionProps` to render an inline action button like Undo.
+
+<RenderPreview name="toast-action" />
+
+### Promise
+
+Show loading, success, and error states around async work with `useToast().promise`.
+
+<RenderPreview name="toast-promise" />
+
+### Update Existing Toast
+
+Create a toast and then update it as the action progresses.
+
+<RenderPreview name="toast-update" />
+
+### Custom Timeout
+
+Control auto-dismiss timing with the `timeout` option.
+
+<RenderPreview name="toast-timeout" />
+
+### Default
+
+<RenderPreview name="toast-demo" />
