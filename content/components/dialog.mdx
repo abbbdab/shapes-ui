@@ -9,3 +9,36 @@ description: Modal overlay for confirmations and forms.
 ## Installation
 
 <InstallationBlock name="dialog" />
+
+## Usage
+
+<UsageSection
+  from="@/components/ui/dialog"
+  imports={[
+    "Dialog",
+    "DialogClose",
+    "DialogPopup",
+    "DialogDescription",
+    "DialogFooter",
+    "DialogHeader",
+    "DialogBackdrop",
+    "DialogPortal",
+    "DialogTitle",
+    "DialogTrigger",
+  ]}
+  anatomy={`<Dialog>
+	<DialogTrigger />
+	<DialogPortal>
+		<DialogBackdrop />
+		<DialogPopup>
+			<DialogHeader>
+				<DialogTitle />
+				<DialogDescription />
+			</DialogHeader>
+			<DialogFooter>
+				<DialogClose />
+			</DialogFooter>
+		</DialogPopup>
+	</DialogPortal>
+</Dialog>;`}
+/>

@@ -10,6 +10,44 @@ description: A slide-out panel from the edge of the screen.
 
 <InstallationBlock name="drawer" />
 
+## Usage
+
+<UsageSection
+  from="@/components/ui/drawer"
+  imports={[
+    "DrawerProvider",
+    "DrawerIndentBackground",
+    "DrawerIndent",
+    "Drawer",
+    "DrawerTrigger",
+    "DrawerPortal",
+    "DrawerClose",
+    "DrawerBackdrop",
+    "DrawerPopup",
+    "DrawerHeader",
+    "DrawerFooter",
+    "DrawerTitle",
+    "DrawerDescription",
+  ]}
+  anatomy={`<DrawerProvider>
+	<Drawer>
+		<DrawerTrigger />
+		<DrawerPortal>
+			<DrawerBackdrop />
+			<DrawerPopup>
+				<DrawerHeader>
+					<DrawerTitle />
+					<DrawerDescription />
+				</DrawerHeader>
+				<DrawerFooter>
+					<DrawerClose />
+				</DrawerFooter>
+			</DrawerPopup>
+		</DrawerPortal>
+	</Drawer>
+</DrawerProvider>;`}
+/>
+
 ## Examples
 
 ### Default

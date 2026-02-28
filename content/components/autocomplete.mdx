@@ -10,7 +10,69 @@ description: Input field with autocomplete functionality and dropdown list of fi
 
 <InstallationBlock name="autocomplete" />
 
+## Usage
+
+<UsageSection
+	from="@/components/ui/autocomplete"
+	imports={[
+		"Autocomplete",
+		"AutocompleteValue",
+		"AutocompleteInput",
+		"AutocompleteTrigger",
+		"AutocompleteClear",
+		"AutocompletePopup",
+		"AutocompleteItem",
+		"AutocompleteEmpty",
+		"AutocompleteList",
+		"AutocompleteGroup",
+		"AutocompleteGroupLabel",
+		"AutocompleteSeparator",
+	]}
+	anatomy={`<Autocomplete>
+	<AutocompleteInput />
+	<AutocompleteTrigger />
+	<AutocompleteClear />
+	<AutocompleteValue />
+
+    <AutocompletePopup>
+    	<AutocompleteEmpty />
+    	<AutocompleteList>
+    		<AutocompleteGroup>
+    			<AutocompleteGroupLabel />
+    			<AutocompleteItem />
+    		</AutocompleteGroup>
+    		<AutocompleteSeparator />
+    	</AutocompleteList>
+    </AutocompletePopup>
+
+</Autocomplete>;`}
+/>
+
 ## Examples
+
+### Groups
+
+Use grouped sections with labels and separators for larger lists.
+
+<RenderPreview name="autocomplete-groups" />
+
+### No Clear Button
+
+Set `showClearButton={false}` to hide the clear action.
+
+<RenderPreview name="autocomplete-no-clear" />
+
+### Popup Alignment
+
+Control popup position with `align`, `side`, and offset props.
+
+<RenderPreview name="autocomplete-align" />
+
+### Controlled Value
+
+Use `value` and `onValueChange` to manage the selected value externally.
+
+<RenderPreview name="autocomplete-controlled" />
 
 ### Demo
 

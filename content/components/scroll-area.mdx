@@ -9,3 +9,26 @@ description: A scroll area component that provides a customizable and accessible
 ## Installation
 
 <InstallationBlock name="scroll-area" />
+
+## Usage
+
+<UsageSection
+  from="@/components/ui/scroll-area"
+  imports={[
+    "ScrollArea",
+    "ScrollAreaViewPort",
+    "ScrollAreaContent",
+    "ScrollAreaScrollbar",
+    "ScrollAreaThumb",
+    "ScrollAreaCorner",
+  ]}
+  anatomy={`<ScrollArea>
+	<ScrollAreaViewPort>
+		<ScrollAreaContent />
+	</ScrollAreaViewPort>
+	<ScrollAreaScrollbar>
+		<ScrollAreaThumb />
+	</ScrollAreaScrollbar>
+	<ScrollAreaCorner />
+</ScrollArea>;`}
+/>

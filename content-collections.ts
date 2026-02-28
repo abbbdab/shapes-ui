@@ -13,6 +13,7 @@ const components = defineCollection({
     slug: z.string(),
     description: z.string().optional(),
     content: z.string(),
+    referenceLink: z.string().optional(),
   }),
   transform: async (document, context) => {
     const mdx = await compileMDX(context, document, {

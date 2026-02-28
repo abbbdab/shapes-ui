@@ -4,4 +4,18 @@ slug: progress
 description: Progress bar component for displaying the status of a task.
 ---
 
-<RenderPreview name={'progress-demo'} />
+<RenderPreview name={"progress-demo"} />
+
+## Usage
+
+<UsageSection
+  from="@/components/ui/progress"
+  imports={["Progress", "ProgressLabel", "ProgressValue", "ProgressTrack", "ProgressIndicator"]}
+  anatomy={`<Progress>
+	<ProgressLabel />
+	<ProgressValue />
+	<ProgressTrack>
+		<ProgressIndicator />
+	</ProgressTrack>
+</Progress>;`}
+/>
