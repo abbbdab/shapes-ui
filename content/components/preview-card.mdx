@@ -4,13 +4,25 @@ slug: preview-card
 description: Component that displays a preview of linked content when hovered.
 ---
 
-<RenderPreview name={'preview-card-demo'} />
-
+<RenderPreview name={"preview-card-demo"} />
 
 ## Installation
+
 <InstallationBlock name="preview-card" />
+
+## Usage
+
+<UsageSection
+  from="@/components/ui/preview-card"
+  imports={["PreviewCard", "PreviewCardTrigger", "PreviewCardPopup"]}
+  anatomy={`<PreviewCard>
+	<PreviewCardTrigger />
+	<PreviewCardPopup />
+</PreviewCard>;`}
+/>
 
 ## Examples
 
 ### Composed as CTA
+
 <RenderPreview name="preview-card-links" />

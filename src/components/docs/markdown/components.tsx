@@ -1,3 +1,4 @@
+import { CopyIcon } from "lucide-react";
 import React from "react";
 import type { ComponentProps } from "react";
 
@@ -11,7 +12,17 @@ function getIconForLanguageExtension(_ext: string) {
   return null;
 }
 
-function CopyButton({ value }: { value: string }) {
+function CopyButton({
+  value,
+  className,
+  children = "Copy",
+  ariaLabel = "Copy",
+}: {
+  value: string;
+  className?: string;
+  children?: React.ReactNode;
+  ariaLabel?: string;
+}) {
   const handleCopy = async () => {
     if (typeof navigator === "undefined" || !navigator.clipboard?.writeText) return;
     try {
@@ -25,10 +36,13 @@ function CopyButton({ value }: { value: string }) {
     <button
       onClick={handleCopy}
       type="button"
-      aria-label="Copy"
-      className="ml-2 inline-flex items-center rounded-md bg-muted/30 px-2 py-1 text-sm"
+      aria-label={ariaLabel}
+      className={cn(
+        "ml-2 inline-flex items-center rounded-md bg-muted/30 px-2 py-1 text-sm",
+        className,
+      )}
     >
-      Copy
+      {children}
     </button>
   );
 }
@@ -64,6 +78,114 @@ function CodeBlockCommand({
           <CopyButton value={cmd} />
         </div>
       ))}
+    </div>
+  );
+}
+
+function UsageCodeBlock({ value, lang = "tsx" }: { value: string; lang?: "tsx" | "typescript" }) {
+  const [highlighted, setHighlighted] = React.useState<string | null>(null);
+
+  React.useEffect(() => {
+    let isActive = true;
+
+    async function highlight() {
+      try {
+        const { codeToHtml } = await import("shiki");
+        const html = await codeToHtml(value, {
+          lang,
+          themes: {
+            light: "github-light",
+            dark: "github-dark",
+          },
+          defaultColor: false,
+          transformers: [
+            {
+              name: "line-numbers",
+              pre(node: any) {
+                node.properties["data-line-numbers"] = "";
+              },
+              line(node: any, line: number) {
+                node.properties.className = ["line"];
+                node.children.unshift({
+                  type: "element",
+                  tagName: "span",
+                  properties: {
+                    className: ["line-number"],
+                  },
+                  children: [{ type: "text", value: String(line) }],
+                });
+              },
+            },
+          ],
+        });
+
+        if (isActive) {
+          setHighlighted(html);
+        }
+      } catch {
+        if (isActive) {
+          setHighlighted(null);
+        }
+      }
+    }
+
+    highlight();
+
+    return () => {
+      isActive = false;
+    };
+  }, [value, lang]);
+
+  const lines = value.trim().split("\n");
+
+  return (
+    <div className="not-prose overflow-hidden rounded-xl border bg-muted/40">
+      <div className="relative">
+        <CopyButton
+          value={value}
+          ariaLabel="Copy code"
+          className="absolute top-2 right-2 z-10 ml-0 h-7 w-7 justify-center bg-background/60 px-0 py-0 backdrop-blur"
+        >
+          <CopyIcon className="size-4" />
+        </CopyButton>
+        <div className="no-scrollbar max-h-112 min-w-0 overflow-auto px-4 py-3.5 font-mono text-xs">
+          {highlighted ? (
+            <div className="shiki-wrapper" dangerouslySetInnerHTML={{ __html: highlighted }} />
+          ) : (
+            <pre className="min-w-0 overflow-x-auto">
+              {lines.map((line, index) => (
+                <div key={`${index}-${line}`} className="grid grid-cols-[1.75rem_1fr] gap-4">
+                  <span className="text-right text-muted-foreground/50 select-none">
+                    {index + 1}
+                  </span>
+                  <code className="text-code-foreground block font-mono whitespace-pre">
+                    {line || " "}
+                  </code>
+                </div>
+              ))}
+            </pre>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function UsageSection({
+  from,
+  imports,
+  anatomy,
+}: {
+  from: string;
+  imports: string[];
+  anatomy: string;
+}) {
+  const importCode = `import {\n${imports.map((item) => `  ${item},`).join("\n")}\n} from "${from}"`;
+
+  return (
+    <div className="my-6 space-y-5">
+      <UsageCodeBlock value={importCode} lang="typescript" />
+      <UsageCodeBlock value={anatomy} lang="tsx" />
     </div>
   );
 }
@@ -298,6 +420,7 @@ const Code = ({
 
 export const mdxComponents = {
   InstallationBlock,
+  UsageSection,
   h1: H1,
   h2: H2,
   h3: H3,

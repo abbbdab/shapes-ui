@@ -10,6 +10,31 @@ description: An input field component specifically designed for numeric input, w
 
 <InstallationBlock name="number-field" />
 
+## Usage
+
+<UsageSection
+  from="@/components/ui/number-field"
+  imports={[
+    "NumberField",
+    "NumberFieldScrubArea",
+    "NumberFieldScrubAreaCursor",
+    "NumberFieldGroup",
+    "NumberFieldDecrement",
+    "NumberFieldIncrement",
+    "NumberFieldInput",
+  ]}
+  anatomy={`<NumberField>
+	<NumberFieldScrubArea>
+		<NumberFieldScrubAreaCursor />
+	</NumberFieldScrubArea>
+	<NumberFieldGroup>
+		<NumberFieldDecrement />
+		<NumberFieldInput />
+		<NumberFieldIncrement />
+	</NumberFieldGroup>
+</NumberField>;`}
+/>
+
 ## Examples
 
 ### Basic

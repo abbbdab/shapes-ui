@@ -104,7 +104,7 @@ export function RenderPreview({ name }: { name: string }) {
   const ExampleComponent = example.code;
 
   return (
-    <Tabs.Root className={"my-2 flex flex-col gap-2"}>
+    <Tabs.Root className={"my-2 flex max-w-sm flex-col gap-2 md:max-w-full"}>
       <Tabs.List className={"flex gap-2"}>
         <Tabs.Tab
           value="preview"

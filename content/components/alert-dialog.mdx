@@ -10,6 +10,40 @@ description: A modal dialog that interrupts the user with important content and 
 
 <InstallationBlock name="alert-dialog" />
 
+## Usage
+
+<UsageSection
+  from="@/components/ui/alert-dialog"
+  imports={[
+    "AlertDialog",
+    "AlertDialogAction",
+    "AlertDialogCancel",
+    "AlertDialogPopup",
+    "AlertDialogDescription",
+    "AlertDialogFooter",
+    "AlertDialogHeader",
+    "AlertDialogMedia",
+    "AlertDialogOverlay",
+    "AlertDialogPortal",
+    "AlertDialogTitle",
+    "AlertDialogTrigger",
+  ]}
+  anatomy={`<AlertDialog>
+	<AlertDialogTrigger />
+	<AlertDialogPopup>
+		<AlertDialogHeader>
+			<AlertDialogMedia />
+			<AlertDialogTitle />
+			<AlertDialogDescription />
+		</AlertDialogHeader>
+		<AlertDialogFooter>
+			<AlertDialogCancel />
+			<AlertDialogAction />
+		</AlertDialogFooter>
+	</AlertDialogPopup>
+</AlertDialog>;`}
+/>
+
 ## Examples
 
 ### Default

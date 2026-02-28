@@ -1,23 +1,39 @@
+import { IconMarkdown } from "@tabler/icons-react";
+import { ChevronDownIcon } from "lucide-react";
 import { ComponentProps } from "react";
 
+import BaseUI from "@/assets/base-ui.svg?url";
+import { Button } from "@/components/ui/button";
+import { ButtonGroup, ButtonGroupSeparator } from "@/components/ui/button-group";
+import { Menu, MenuItem, MenuPopup, MenuTrigger } from "@/components/ui/menu";
 import { cn } from "@/lib/utils";
-
-import CircuitBoard from "./circuit-board";
 
 export function PageHeader({
   title,
   subtitle,
   children,
+  baseUILink,
+  markdownLink,
   className,
   ...props
 }: ComponentProps<"div"> & {
   title: string;
   subtitle?: string;
+  baseUILink?: string;
+  markdownLink?: string;
 }) {
+  const handleOpenMarkdown = () => {
+    if (!markdownLink) {
+      return;
+    }
+
+    window.open(markdownLink, "_blank", "noopener,noreferrer");
+  };
+
   return (
     <div
       className={cn(
-        "flex h-32 items-center overflow-hidden border-b bg-background md:h-60",
+        "flex items-center justify-between overflow-hidden bg-background px-8",
         className,
       )}
       {...props}
@@ -27,7 +43,34 @@ export function PageHeader({
         {subtitle && <p className="text-xs text-muted-foreground md:text-sm">{subtitle}</p>}
         {children}
       </div>
-      <CircuitBoard className="mask-rtl ml-auto h-full max-w-70 text-foreground/40" />
+
+      <div className="flex flex-col">
+        <ButtonGroup>
+          <Button variant={"secondary"}>View</Button>
+          <ButtonGroupSeparator />
+          <Menu>
+            <MenuTrigger
+              render={
+                <Button variant={"secondary"} size={"icon"}>
+                  <ChevronDownIcon />
+                </Button>
+              }
+            />
+            <MenuPopup align="end">
+              <MenuItem onClick={handleOpenMarkdown} disabled={!markdownLink}>
+                <IconMarkdown />
+                Markdown
+              </MenuItem>
+              {baseUILink && (
+                <MenuItem>
+                  <img className="size-4" alt="Base UI" src={BaseUI} />
+                  Base UI
+                </MenuItem>
+              )}
+            </MenuPopup>
+          </Menu>
+        </ButtonGroup>
+      </div>
     </div>
   );
 }

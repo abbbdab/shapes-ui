@@ -9,3 +9,31 @@ description: Navigation menu component for displaying a collection of links and 
 ## Installation
 
 <InstallationBlock name="navigation-menu" />
+
+## Usage
+
+<UsageSection
+  from="@/components/ui/navigation-menu"
+  imports={[
+    "NavigationMenu",
+    "NavigationMenuList",
+    "NavigationMenuItem",
+    "NavigationMenuTrigger",
+    "NavigationMenuContent",
+    "NavigationMenuLink",
+    "NavigationMenuPopup",
+    "NavigationMenuViewport",
+    "NavigationMenuArrow",
+  ]}
+  anatomy={`<NavigationMenu>
+	<NavigationMenuList>
+		<NavigationMenuItem>
+			<NavigationMenuTrigger />
+			<NavigationMenuContent />
+		</NavigationMenuItem>
+	</NavigationMenuList>
+	<NavigationMenuViewport>
+		<NavigationMenuArrow />
+	</NavigationMenuViewport>
+</NavigationMenu>;`}
+/>

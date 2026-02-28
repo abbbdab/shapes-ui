@@ -9,3 +9,36 @@ description: A searchable input with a list of predefined options.
 # Installation
 
 <InstallationBlock name="combobox" />
+
+## Usage
+
+<UsageSection
+  from="@/components/ui/combobox"
+  imports={[
+    "Combobox",
+    "ComboboxInput",
+    "ComboboxPopup",
+    "ComboboxList",
+    "ComboboxItem",
+    "ComboboxGroup",
+    "ComboboxLabel",
+    "ComboboxCollection",
+    "ComboboxEmpty",
+    "ComboboxSeparator",
+    "ComboboxChips",
+    "ComboboxChip",
+    "ComboboxChipsInput",
+    "ComboboxTrigger",
+    "ComboboxValue",
+    "useComboboxAnchor",
+  ]}
+  anatomy={`<Combobox>
+	<ComboboxInput />
+	<ComboboxTrigger />
+	<ComboboxPopup>
+		<ComboboxList>
+			<ComboboxItem />
+		</ComboboxList>
+	</ComboboxPopup>
+</Combobox>;`}
+/>

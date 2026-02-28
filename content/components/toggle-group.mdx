@@ -1,0 +1,37 @@
+---
+title: Toggle Group
+slug: toggle-group
+description: A grouped set of toggles for single or multiple selection.
+---
+
+<RenderPreview name="toggle-group-demo" />
+
+## Installation
+
+<InstallationBlock name="toggle" />
+
+## Usage
+
+<UsageSection
+  from="@/components/ui/toggle"
+  imports={["Toggle", "ToggleGroup", "toggleVariants"]}
+  anatomy={`<ToggleGroup>
+	<Toggle value="left" />
+	<Toggle value="center" />
+	<Toggle value="right" />
+</ToggleGroup>;`}
+/>
+
+## Examples
+
+### Single
+
+Use `ToggleGroup` for an exclusive selection.
+
+<RenderPreview name="toggle-group-demo" />
+
+### Multiple
+
+Set `multiple` on `ToggleGroup` to allow selecting more than one option.
+
+<RenderPreview name="toggle-group-multiple" />

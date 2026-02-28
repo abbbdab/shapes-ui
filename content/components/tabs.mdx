@@ -10,6 +10,21 @@ description: Tabs component for toggling between related panels on the same page
 
 <InstallationBlock name="tabs" />
 
+## Usage
+
+<UsageSection
+  from="@/components/ui/tabs"
+  imports={["Tabs", "TabsList", "TabsTrigger", "TabsPanel", "tabsListVariants"]}
+  anatomy={`<Tabs defaultValue="tab-1">
+	<TabsList>
+		<TabsTrigger value="tab-1" />
+		<TabsTrigger value="tab-2" />
+	</TabsList>
+	<TabsPanel value="tab-1" />
+	<TabsPanel value="tab-2" />
+</Tabs>;`}
+/>
+
 ## Examples
 
 ### Default

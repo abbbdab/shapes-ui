@@ -10,6 +10,37 @@ description: Menu bar providing commands and options for your application with d
 
 <InstallationBlock name="menubar" />
 
+## Usage
+
+<UsageSection
+  from="@/components/ui/menubar"
+  imports={[
+    "Menubar",
+    "Menu",
+    "MenuTrigger",
+    "MenuPopup",
+    "MenuGroup",
+    "MenuLabel",
+    "MenuItem",
+    "MenuSub",
+    "MenuSubPopup",
+    "MenuSubTrigger",
+    "MenuCheckboxItem",
+    "MenuRadioGroup",
+    "MenuRadioItem",
+    "MenuSeparator",
+    "MenuShortcut",
+  ]}
+  anatomy={`<Menubar>
+	<Menu>
+		<MenuTrigger />
+		<MenuPopup>
+			<MenuItem />
+		</MenuPopup>
+	</Menu>
+</Menubar>;`}
+/>
+
 Menubar relies on `Menu` component, but for the ease of use, it also provides a set of components that are built on top of `Menu` component with same styling and APIs.
 
 ## Examples

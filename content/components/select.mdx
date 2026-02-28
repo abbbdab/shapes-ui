@@ -12,6 +12,33 @@ description: Select component for choosing a predefined value in a dropdown menu
 
 ## Usage
 
+<UsageSection
+  from="@/components/ui/select"
+  imports={[
+    "Select",
+    "SelectPopup",
+    "SelectGroup",
+    "SelectItem",
+    "SelectLabel",
+    "SelectScrollDownButton",
+    "SelectScrollUpButton",
+    "SelectSeparator",
+    "SelectTrigger",
+    "SelectValue",
+  ]}
+  anatomy={`<Select>
+	<SelectTrigger>
+		<SelectValue />
+	</SelectTrigger>
+	<SelectPopup>
+		<SelectGroup>
+			<SelectLabel />
+			<SelectItem />
+		</SelectGroup>
+	</SelectPopup>
+</Select>;`}
+/>
+
 ## Examples
 
 ### Alignment

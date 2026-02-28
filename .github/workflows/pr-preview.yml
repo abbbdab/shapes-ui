@@ -6,6 +6,8 @@ on:
             - opened
             - reopened
             - synchronize
+    pull_request_target:
+        types:
             - closed
 
 concurrency:
@@ -15,7 +17,7 @@ concurrency:
 jobs:
     deploy-preview:
         name: Deploy Preview
-        if: github.event.action != 'closed'
+        if: github.event_name == 'pull_request' && github.event.action != 'closed' && github.event.pull_request.head.repo.full_name == github.repository
         runs-on: ubuntu-latest
         permissions:
             contents: read
@@ -40,6 +42,7 @@ jobs:
             - name: Deploy Preview Worker
               uses: cloudflare/wrangler-action@v3
               with:
+                  wranglerVersion: "4"
                   apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
                   accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
                   command: "deploy --name shapes-ui-pr-${{ github.event.pull_request.number }}"
@@ -55,14 +58,18 @@ jobs:
 
     cleanup-preview:
         name: Cleanup Preview
-        if: github.event.action == 'closed'
+        if: github.event_name == 'pull_request_target' && github.event.action == 'closed'
         runs-on: ubuntu-latest
         permissions:
             contents: read
         steps:
             - name: Delete Preview Worker
               uses: cloudflare/wrangler-action@v3
+              env:
+                  CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+                  CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
               with:
+                  wranglerVersion: "4"
                   apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
                   accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
                   command: "delete shapes-ui-pr-${{ github.event.pull_request.number }} --force"

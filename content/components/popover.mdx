@@ -10,6 +10,28 @@ description: Popover component that displays content anchored to a trigger eleme
 
 <InstallationBlock name="popover" />
 
+## Usage
+
+<UsageSection
+  from="@/components/ui/popover"
+  imports={[
+    "Popover",
+    "PopoverPopup",
+    "PopoverDescription",
+    "PopoverClose",
+    "PopoverTitle",
+    "PopoverTrigger",
+  ]}
+  anatomy={`<Popover>
+	<PopoverTrigger />
+	<PopoverPopup>
+		<PopoverTitle />
+		<PopoverDescription />
+		<PopoverClose />
+	</PopoverPopup>
+</Popover>;`}
+/>
+
 ## Examples
 
 ### Basic

@@ -9,3 +9,32 @@ description: Displays a context menu that appears at the pointer on right click 
 # Installation
 
 <InstallationBlock name="context-menu" />
+
+## Usage
+
+<UsageSection
+  from="@/components/ui/context-menu"
+  imports={[
+    "ContextMenu",
+    "ContextMenuTrigger",
+    "ContextMenuPopup",
+    "ContextMenuItem",
+    "ContextMenuCheckboxItem",
+    "ContextMenuRadioItem",
+    "ContextMenuLabel",
+    "ContextMenuSeparator",
+    "ContextMenuShortcut",
+    "ContextMenuGroup",
+    "ContextMenuPortal",
+    "ContextMenuSub",
+    "ContextMenuSubPopup",
+    "ContextMenuSubTrigger",
+    "ContextMenuRadioGroup",
+  ]}
+  anatomy={`<ContextMenu>
+	<ContextMenuTrigger />
+	<ContextMenuPopup>
+		<ContextMenuItem />
+	</ContextMenuPopup>
+</ContextMenu>;`}
+/>
