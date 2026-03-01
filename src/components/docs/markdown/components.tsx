@@ -202,7 +202,7 @@ function getHeadingId(id: string | undefined, children: React.ReactNode) {
 const H1 = ({ className, ...props }: ComponentProps<"h1">) => (
   <h1
     id={getHeadingId(props.id, props.children)}
-    className={cn("mt-2 scroll-m-28 font-heading text-3xl font-bold tracking-tight", className)}
+    className={cn("mt-2 scroll-m-28 font-heading text-2xl font-bold tracking-tight", className)}
     {...props}
   />
 );

@@ -13,7 +13,6 @@ export function MobileMenu() {
   return <Drawer open={open} onOpenChange={setOpen} >
     <DrawerTrigger className={'flex md:hidden'} render={<Button size={'xs'} variant={'secondary'} >
       <MenuIcon  />
-      Navigation
     </Button>} />
     <DrawerPopup position="bottom">
       <nav className="mt-4 flex flex-col gap-2">

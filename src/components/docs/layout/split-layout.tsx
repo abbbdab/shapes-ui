@@ -12,7 +12,7 @@ export function SplitLayout({ children, className, ...props }: ComponentProps<"d
   return (
     <div className={cn("flex h-full min-h-0 w-full border", className)} {...props}>
       <NavSidebar />
-      <main className="min-w-0 flex-1 ">
+      <main className="min-w-0 flex-1 bg-card ">
         <ScrollArea viewportRef={setContentViewport} className="h-full">
           <div className="min-h-full">{children}</div>
         </ScrollArea>

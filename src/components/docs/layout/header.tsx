@@ -12,12 +12,13 @@ export function Header() {
   return (
     <header className=" sticky top-0 z-10 h-12">
       <div className=" container mx-auto  flex h-full items-center justify-between px-4">
-        <Link to="/">
+        <Link to="/" className="flex items-center gap-2 font-medium font-heading tracking-wide">
           <img
             src={theme === "dark" ? "/shps_white.svg" : "/shps_black.svg"}
             alt="Shapes UI Logo"
-            className=" size-6"
+            className=" size-5"
           />
+          shapes ui
         </Link>
 
         <div className=" mx-auto hidden gap-4 lg:flex">
