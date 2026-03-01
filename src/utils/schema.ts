@@ -5,6 +5,12 @@ import { zodToJsonSchema } from "zod-to-json-schema";
 export const configSchema = z.object({
   $schema: z.string().optional(),
   style: z.enum(["default", "brutalist", "minimal"]).default("default"),
+  palette: z
+    .object({
+      name: z.string().default("blue"),
+      contrastMode: z.enum(["deterministic", "dynamic"]).default("deterministic"),
+    })
+    .default({ name: "blue", contrastMode: "deterministic" }),
   tailwind: z.object({
     config: z.string().optional(),
     css: z.string().default("src/styles/globals.css"),

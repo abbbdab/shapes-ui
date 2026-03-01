@@ -1,15 +1,15 @@
 import { detect } from "detect-package-manager";
 
-export async function getPackageManager() {
+export async function getPackageManager(cwd = process.cwd()) {
   try {
-    return await detect();
+    return await detect({ cwd });
   } catch {
     return "npm";
   }
 }
 
-export async function getInstallCommand(deps: string[], dev = false) {
-  const pm = await getPackageManager();
+export async function getInstallCommand(deps: string[], dev = false, cwd = process.cwd()) {
+  const pm = await getPackageManager(cwd);
 
   if (pm === "yarn") {
     return ["yarn", "add", ...(dev ? ["-D"] : []), ...deps];

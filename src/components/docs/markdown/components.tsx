@@ -1,50 +1,16 @@
-import { CopyIcon } from "lucide-react";
 import React from "react";
 import type { ComponentProps } from "react";
 
+import { slugifyHeading } from "@/lib/docs-headings";
 import { cn } from "@/lib/utils";
 
+import { CopyButton } from "./copy-button";
 import { InstallationBlock } from "./installation-block";
 
 // Lightweight helpers used by the markdown components.
 function getIconForLanguageExtension(_ext: string) {
   // Intentionally minimal: return null so the UI can opt-in later.
   return null;
-}
-
-function CopyButton({
-  value,
-  className,
-  children = "Copy",
-  ariaLabel = "Copy",
-}: {
-  value: string;
-  className?: string;
-  children?: React.ReactNode;
-  ariaLabel?: string;
-}) {
-  const handleCopy = async () => {
-    if (typeof navigator === "undefined" || !navigator.clipboard?.writeText) return;
-    try {
-      await navigator.clipboard.writeText(value);
-    } catch {
-      /* no-op */
-    }
-  };
-
-  return (
-    <button
-      onClick={handleCopy}
-      type="button"
-      aria-label={ariaLabel}
-      className={cn(
-        "ml-2 inline-flex items-center rounded-md bg-muted/30 px-2 py-1 text-sm",
-        className,
-      )}
-    >
-      {children}
-    </button>
-  );
 }
 
 function CodeBlockCommand({
@@ -139,15 +105,14 @@ function UsageCodeBlock({ value, lang = "tsx" }: { value: string; lang?: "tsx" |
   const lines = value.trim().split("\n");
 
   return (
-    <div className="not-prose overflow-hidden rounded-xl border bg-muted/40">
+    <div className="not-prose overflow-hidden  border ">
       <div className="relative">
         <CopyButton
           value={value}
           ariaLabel="Copy code"
-          className="absolute top-2 right-2 z-10 ml-0 h-7 w-7 justify-center bg-background/60 px-0 py-0 backdrop-blur"
-        >
-          <CopyIcon className="size-4" />
-        </CopyButton>
+          className="absolute top-2 right-2 z-10 ml-0"
+        />
+
         <div className="no-scrollbar max-h-112 min-w-0 overflow-auto px-4 py-3.5 font-mono text-xs">
           {highlighted ? (
             <div className="shiki-wrapper" dangerouslySetInnerHTML={{ __html: highlighted }} />
@@ -210,8 +175,33 @@ type TableRowProps = ComponentProps<"tr">;
 type TableHeaderProps = ComponentProps<"th">;
 type TableCellProps = ComponentProps<"td">;
 
+function getNodeText(node: React.ReactNode): string {
+  if (typeof node === "string" || typeof node === "number") {
+    return String(node);
+  }
+
+  if (Array.isArray(node)) {
+    return node.map(getNodeText).join("");
+  }
+
+  if (React.isValidElement(node)) {
+    return getNodeText(node.props.children);
+  }
+
+  return "";
+}
+
+function getHeadingId(id: string | undefined, children: React.ReactNode) {
+  if (id) {
+    return id;
+  }
+
+  return slugifyHeading(getNodeText(children));
+}
+
 const H1 = ({ className, ...props }: ComponentProps<"h1">) => (
   <h1
+    id={getHeadingId(props.id, props.children)}
     className={cn("mt-2 scroll-m-28 font-heading text-3xl font-bold tracking-tight", className)}
     {...props}
   />
@@ -220,12 +210,7 @@ const H1 = ({ className, ...props }: ComponentProps<"h1">) => (
 const H2 = ({ className, ...props }: ComponentProps<"h2">) => {
   return (
     <h2
-      id={props.children
-        ?.toString()
-        .replace(/ /g, "-")
-        .replace(/'/g, "")
-        .replace(/\?/g, "")
-        .toLowerCase()}
+      id={getHeadingId(props.id, props.children)}
       className={cn(
         "[&+]*:[code]:text-xl mt-10 scroll-m-28 font-heading text-xl font-medium tracking-tight first:mt-0 lg:mt-12 [&+.steps]:!mt-0 [&+.steps>h3]:!mt-4 [&+h3]:!mt-6 [&+p]:!mt-4",
         className,
@@ -237,6 +222,7 @@ const H2 = ({ className, ...props }: ComponentProps<"h2">) => {
 
 const H3 = ({ className, ...props }: ComponentProps<"h3">) => (
   <h3
+    id={getHeadingId(props.id, props.children)}
     className={cn(
       "mt-12 scroll-m-28 font-heading text-lg font-medium tracking-tight [&+p]:!mt-4 *:[code]:text-xl",
       className,
@@ -247,6 +233,7 @@ const H3 = ({ className, ...props }: ComponentProps<"h3">) => (
 
 const H4 = ({ className, ...props }: ComponentProps<"h4">) => (
   <h4
+    id={getHeadingId(props.id, props.children)}
     className={cn("mt-8 scroll-m-28 font-heading text-base font-medium tracking-tight", className)}
     {...props}
   />
@@ -254,6 +241,7 @@ const H4 = ({ className, ...props }: ComponentProps<"h4">) => (
 
 const H5 = ({ className, ...props }: ComponentProps<"h5">) => (
   <h5
+    id={getHeadingId(props.id, props.children)}
     className={cn("mt-8 scroll-m-28 text-base font-medium tracking-tight", className)}
     {...props}
   />
@@ -261,6 +249,7 @@ const H5 = ({ className, ...props }: ComponentProps<"h5">) => (
 
 const H6 = ({ className, ...props }: ComponentProps<"h6">) => (
   <h6
+    id={getHeadingId(props.id, props.children)}
     className={cn("mt-8 scroll-m-28 text-base font-medium tracking-tight", className)}
     {...props}
   />
@@ -419,6 +408,7 @@ const Code = ({
 };
 
 export const mdxComponents = {
+  CopyButton,
   InstallationBlock,
   UsageSection,
   h1: H1,

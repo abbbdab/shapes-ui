@@ -46,9 +46,9 @@ function RootDocument({ children }: { children: React.ReactNode }) {
           <head>
             <HeadContent />
           </head>
-          <body className="flex h-dvh flex-col overflow-hidden">
+          <body className="flex h-dvh flex-col overflow-hidden bg-muted">
             <Header />
-            <main className=" container mx-auto flex min-h-0 flex-1 border-x">{children}</main>
+            <main className=" container mx-auto flex min-h-0 flex-1 bg-card ">{children}</main>
             <Footer />
             <TanStackDevtools
               config={{

@@ -1,10 +1,12 @@
 "use client";
 
 import { Tabs } from "@base-ui/react/tabs";
-import { TerminalIcon, CheckIcon, CopyIcon } from "lucide-react";
+import { TerminalIcon } from "lucide-react";
 import * as React from "react";
 
 import { cn } from "@/lib/utils";
+
+import { CopyButton } from "./copy-button";
 
 interface InstallationBlockProps {
   name: string;
@@ -18,7 +20,6 @@ const PACKAGE_MANAGERS = [
 ];
 
 export function InstallationBlock({ name }: InstallationBlockProps) {
-  const [copied, setCopied] = React.useState(false);
   const [activeTab, setActiveTab] = React.useState("npx");
   const [highlighted, setHighlighted] = React.useState<string | null>(null);
 
@@ -75,18 +76,8 @@ export function InstallationBlock({ name }: InstallationBlockProps) {
     };
   }, [currentCommand]);
 
-  const copyToClipboard = async () => {
-    try {
-      await navigator.clipboard.writeText(currentCommand);
-      setCopied(true);
-      setTimeout(() => setCopied(false), 2000);
-    } catch (err) {
-      console.error("Failed to copy!", err);
-    }
-  };
-
   return (
-    <div className="not-prose my-6 w-full overflow-hidden rounded-xl border bg-background">
+    <div className="not-prose my-6 w-full overflow-hidden border bg-background">
       <Tabs.Root value={activeTab} onValueChange={setActiveTab}>
         <div className="flex h-10 items-center justify-between border-b px-3">
           <div className="flex items-center gap-3">
@@ -109,17 +100,7 @@ export function InstallationBlock({ name }: InstallationBlockProps) {
               ))}
             </Tabs.List>
           </div>
-          <button
-            onClick={copyToClipboard}
-            className="flex h-7 w-7 items-center justify-center rounded-md text-muted-foreground transition-colors hover:bg-muted/80 hover:text-foreground"
-            aria-label="Copy command"
-          >
-            {copied ? (
-              <CheckIcon className="h-3.5 w-3.5 text-success" />
-            ) : (
-              <CopyIcon className="h-3.5 w-3.5" />
-            )}
-          </button>
+          <CopyButton value={currentCommand} ariaLabel="Copy command" />
         </div>
 
         {PACKAGE_MANAGERS.map((pm) => (

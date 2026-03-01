@@ -1,18 +1,17 @@
 import path from "node:path";
 
 import { cancel, multiselect, note, spinner } from "@clack/prompts";
-import { execa } from "execa";
 import fs from "fs-extra";
 
 import type { RegistryItem } from "@/types/registry-item";
 import { exitIfCancelled } from "@/utils/cli-utils";
-import { getInstallCommand } from "@/utils/package-manager";
+import { installDependencies } from "@/utils/dependency-installer";
 import type { Config } from "@/utils/schema";
 
 const REGISTRY_URL = "https://shapes-ui.com/r";
 
-export async function loadRegistryIndex() {
-  const localRegistryDir = path.resolve(process.cwd(), "public/r");
+export async function loadRegistryIndex(cwd = process.cwd()) {
+  const localRegistryDir = path.resolve(cwd, "public/r");
   if (await fs.pathExists(localRegistryDir)) {
     const files = await fs.readdir(localRegistryDir);
     const entries: RegistryItem[] = [];
@@ -47,7 +46,7 @@ export async function loadRegistryIndex() {
 export async function pickComponents() {
   let components: string[] = [];
   try {
-    components = await loadRegistryIndex();
+    components = await loadRegistryIndex(process.cwd());
   } catch (error) {
     cancel(error instanceof Error ? error.message : "Failed to load registry.");
     process.exit(1);
@@ -68,49 +67,90 @@ export async function pickComponents() {
   return selected as string[];
 }
 
-export async function installComponent(name: string, config: Config) {
-  const spin = spinner();
-  spin.start(`Fetching ${name}`);
+type InstallContext = {
+  installing: Set<string>;
+  installed: Set<string>;
+};
 
-  let data: RegistryItem;
+function createInstallContext(): InstallContext {
+  return {
+    installing: new Set<string>(),
+    installed: new Set<string>(),
+  };
+}
 
-  const localFile = path.resolve(process.cwd(), `public/r/${name}.json`);
-  if (await fs.pathExists(localFile)) {
-    data = await fs.readJSON(localFile);
-  } else {
-    const res = await fetch(`${REGISTRY_URL}/${name}.json`);
-    if (!res.ok) {
-      spin.stop("Fetch failed");
-      throw new Error(`Component ${name} not found in registry.`);
-    }
-    data = await res.json();
+export async function installComponent(
+  name: string,
+  config: Config,
+  context = createInstallContext(),
+  cwd = process.cwd(),
+) {
+  if (context.installed.has(name)) return;
+  if (context.installing.has(name)) {
+    note(`Skipped circular dependency while resolving ${name}`);
+    return;
   }
 
-  spin.stop(`Fetched ${name}`);
+  context.installing.add(name);
+  try {
+    const spin = spinner();
+    spin.start(`Fetching ${name}`);
 
-  // 1. Recursive Install of Registry Dependencies
-  if (data.registryDependencies) {
-    for (const dep of data.registryDependencies) {
-      const depPath = path.join(process.cwd(), config.paths.ui, `${dep}.tsx`);
-      if (!fs.existsSync(depPath)) {
-        await installComponent(dep, config);
+    let data: RegistryItem;
+
+    const localFile = path.resolve(cwd, `public/r/${name}.json`);
+    if (await fs.pathExists(localFile)) {
+      data = await fs.readJSON(localFile);
+    } else {
+      const res = await fetch(`${REGISTRY_URL}/${name}.json`);
+      if (!res.ok) {
+        spin.stop("Fetch failed");
+        throw new Error(`Component ${name} not found in registry.`);
+      }
+      data = await res.json();
+    }
+
+    spin.stop(`Fetched ${name}`);
+
+    // 1. Recursive Install of Registry Dependencies
+    if (data.registryDependencies) {
+      for (const dep of data.registryDependencies) {
+        const depPath = path.join(cwd, config.paths.ui, `${dep}.tsx`);
+        if (!fs.existsSync(depPath)) {
+          await installComponent(dep, config, context, cwd);
+        }
       }
     }
-  }
 
-  // 2. Install NPM Dependencies
-  if (data.dependencies?.length) {
-    const [command, ...args] = await getInstallCommand(data.dependencies);
-    await execa(command, args);
-  }
+    // 2. Install NPM Dependencies
+    if (data.dependencies?.length) {
+      await installDependencies(data.dependencies, {
+        label: `Installing dependencies for ${name}`,
+        successMessage: `Dependencies installed for ${name}`,
+        cwd,
+      });
+    }
 
-  // 3. Write Files
-  for (const file of data.files) {
-    const target = path.join(process.cwd(), config.paths.ui, file.path);
-    await fs.ensureDir(path.dirname(target));
-    await fs.writeFile(target, file.content);
+    // 3. Write Files
+    for (const file of data.files) {
+      const target = path.join(cwd, config.paths.ui, file.path);
+      await fs.ensureDir(path.dirname(target));
+      await fs.writeFile(target, file.content);
+    }
+
+    context.installed.add(name);
+    note(`Added ${name}`);
+  } finally {
+    context.installing.delete(name);
   }
-  note(`Added ${name}`);
+}
+
+export async function addAllComponents(config: Config, cwd = process.cwd()) {
+  const all = await loadRegistryIndex(cwd);
+  const context = createInstallContext();
+  for (const name of all) {
+    await installComponent(name, config, context, cwd);
+  }
 }
 
 export async function addCommand(components: string[], config: Config) {
@@ -119,7 +159,8 @@ export async function addCommand(components: string[], config: Config) {
     selections = await pickComponents();
   }
 
+  const context = createInstallContext();
   for (const name of selections) {
-    await installComponent(name, config);
+    await installComponent(name, config, context, process.cwd());
   }
 }
