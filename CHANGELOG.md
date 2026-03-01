@@ -1,5 +1,16 @@
 # shapes-ui
 
+## 0.6.0
+
+### Minor Changes
+
+- dd156b6: UI updates, introduced anatomy and usage component
+- d5f5a73: updated docs components, added table of content, updated scripting
+
+### Patch Changes
+
+- 26c581e: Updated styles
+
 ## 0.5.0
 
 ### Minor Changes
