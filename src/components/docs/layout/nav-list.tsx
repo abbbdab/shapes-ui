@@ -19,7 +19,7 @@ export function NavSidebar({ className, ...props }: ComponentProps<"nav">) {
   return (
     <nav className={cn("hidden h-full min-h-0 w-64 flex-col p-4 lg:flex", className)} {...props}>
       <NavSection title="Components">
-        <ScrollArea className="h-full">
+        <ScrollArea className="h-[98%]">
           <ul>
             {[...allComponents]
               .sort((a, b) => a.title.localeCompare(b.title))

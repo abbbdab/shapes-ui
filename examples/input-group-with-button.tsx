@@ -16,7 +16,7 @@ export default function InputGroupButtonExample() {
   return (
     <div className="grid w-full max-w-sm gap-6">
       <InputGroup>
-        <InputGroupInput placeholder="https://x.com/shadcn" readOnly />
+        <InputGroupInput placeholder="https://shapes-ui.com" readOnly />
         <InputGroupAddon align="inline-end">
           <InputGroupButton aria-label="Copy" title="Copy" size="icon-xs">
             <CopyIcon />

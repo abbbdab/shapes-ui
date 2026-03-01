@@ -13,14 +13,14 @@ export function exitIfCancelled<T>(value: T): Exclude<T, symbol> {
   return value as Exclude<T, symbol>;
 }
 
-export async function getConfig(): Promise<Config | null> {
-  const configPath = path.join(process.cwd(), "shapes.json");
+export async function getConfig(cwd = process.cwd()): Promise<Config | null> {
+  const configPath = path.join(cwd, "shapes.json");
   if (!fs.existsSync(configPath)) return null;
   return configSchema.parse(await fs.readJSON(configPath));
 }
 
-export async function readPackageJson() {
-  const pkgPath = path.join(process.cwd(), "package.json");
+export async function readPackageJson(cwd = process.cwd()) {
+  const pkgPath = path.join(cwd, "package.json");
   if (!(await fs.pathExists(pkgPath))) return null;
   return fs.readJSON(pkgPath);
 }
@@ -45,10 +45,10 @@ export function getMissingDeps(pkg: Record<string, any> | null, deps: string[]) 
   return deps.filter((dep) => !pkg.dependencies?.[dep] && !pkg.devDependencies?.[dep]);
 }
 
-export async function isViteProject() {
-  const viteConfigTs = path.join(process.cwd(), "vite.config.ts");
-  const viteConfigJs = path.join(process.cwd(), "vite.config.js");
-  const viteConfigMjs = path.join(process.cwd(), "vite.config.mjs");
+export async function isViteProject(cwd = process.cwd()) {
+  const viteConfigTs = path.join(cwd, "vite.config.ts");
+  const viteConfigJs = path.join(cwd, "vite.config.js");
+  const viteConfigMjs = path.join(cwd, "vite.config.mjs");
 
   return (
     (await fs.pathExists(viteConfigTs)) ||

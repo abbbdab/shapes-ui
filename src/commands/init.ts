@@ -1,7 +1,6 @@
 import path from "node:path";
 
-import { confirm, intro, note, outro, select, text, spinner } from "@clack/prompts";
-import { execa } from "execa";
+import { confirm, intro, note, outro, select, text } from "@clack/prompts";
 import figlet from "figlet";
 import fs from "fs-extra";
 import gradient from "gradient-string";
@@ -15,7 +14,12 @@ import {
   isViteProject,
   readPackageJson,
 } from "@/utils/cli-utils";
-import { getInstallCommand } from "@/utils/package-manager";
+import { installDependencies } from "@/utils/dependency-installer";
+import {
+  type ContrastMode,
+  getDefaultBrandPaletteOptions,
+  writePaletteTokens,
+} from "@/utils/palette";
 import { type Config } from "@/utils/schema";
 
 const BASE_DEPS = [
@@ -28,15 +32,10 @@ const BASE_DEPS = [
 ];
 
 async function installDeps(deps: string[], dev = false) {
-  if (!deps.length) return;
-  const spin = spinner();
-  const label = dev ? "Installing dev dependencies" : "Installing dependencies";
-  spin.start(label);
-
-  const [command, ...args] = await getInstallCommand(deps, dev);
-  await execa(command, args);
-
-  spin.stop(pc.green("Dependencies installed"));
+  await installDependencies(deps, {
+    dev,
+    successMessage: pc.green("Dependencies installed"),
+  });
 }
 
 async function ensureTailwindStyles(cssPath: string) {
@@ -81,7 +80,30 @@ export async function initCommand() {
       options: [
         { label: "Default", value: "default" },
         { label: "Brutalist", value: "brutalist" },
+        { label: "Minimal", value: "minimal" },
       ],
+    }),
+  );
+
+  const palette = exitIfCancelled(
+    await select({
+      message: "Pick a brand palette",
+      options: getDefaultBrandPaletteOptions().map((name) => ({
+        label: name[0].toUpperCase() + name.slice(1),
+        value: name,
+      })),
+      initialValue: "blue",
+    }),
+  );
+
+  const contrastMode = exitIfCancelled(
+    await select({
+      message: "Choose foreground contrast strategy",
+      options: [
+        { label: "Deterministic shades", value: "deterministic" },
+        { label: "Dynamic contrast", value: "dynamic" },
+      ],
+      initialValue: "deterministic",
     }),
   );
 
@@ -121,9 +143,20 @@ export async function initCommand() {
   await installDeps(missingBaseDeps, false);
   await ensureTailwindStyles(cssPath);
 
+  const paletteResult = await writePaletteTokens({
+    cssPath,
+    paletteName: palette as string,
+    neutralPalette: "zinc",
+    contrastMode: contrastMode as ContrastMode,
+  });
+
   const config: Config = {
     $schema: "https://shapes-ui.com/schema.json",
     style: style as Config["style"],
+    palette: {
+      name: paletteResult.paletteName,
+      contrastMode: paletteResult.contrastMode,
+    },
     tailwind: { css: cssPath as string, baseColor: "zinc" },
     paths: { ui: uiPath as string, lib: "./src/lib" },
   };

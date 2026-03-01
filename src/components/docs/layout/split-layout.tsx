@@ -1,24 +1,23 @@
-import { ComponentProps } from "react";
+import { ComponentProps, useState } from "react";
 
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { cn } from "@/lib/utils";
 
 import { NavSidebar } from "./nav-list";
+import { TableOfContent } from "./table-of-content";
 
-export function SplitLayout({
-  children,
-  className,
+export function SplitLayout({ children, className, ...props }: ComponentProps<"div">) {
+  const [contentViewport, setContentViewport] = useState<HTMLDivElement | null>(null);
 
-  ...props
-}: ComponentProps<"div">) {
   return (
-    <div className={cn("flex h-full min-h-0 w-full", className)} {...props}>
+    <div className={cn("flex h-full min-h-0 w-full border", className)} {...props}>
       <NavSidebar />
-      <main className="min-w-0 flex-1">
-        <ScrollArea className="h-full">
-          <div className="min-h-full lg:border-l">{children}</div>
+      <main className="min-w-0 flex-1 ">
+        <ScrollArea viewportRef={setContentViewport} className="h-full">
+          <div className="min-h-full">{children}</div>
         </ScrollArea>
       </main>
+      <TableOfContent contentViewport={contentViewport} />
     </div>
   );
 }

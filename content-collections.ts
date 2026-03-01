@@ -4,6 +4,8 @@ import rehypePrettyCode from "rehype-pretty-code";
 import remarkGfm from "remark-gfm";
 import { z } from "zod";
 
+import { extractHeadingsFromMarkdown } from "./src/lib/docs-headings";
+
 const components = defineCollection({
   name: "components",
   directory: "content/components",
@@ -59,10 +61,71 @@ const components = defineCollection({
     return {
       ...document,
       mdx,
+      toc: extractHeadingsFromMarkdown(document.content),
+    };
+  },
+});
+
+const docs = defineCollection({
+  name: "docs",
+  directory: "content/docs",
+  include: "*.mdx",
+  schema: z.object({
+    title: z.string(),
+    slug: z.string(),
+    description: z.string().optional(),
+    content: z.string(),
+    referenceLink: z.string().optional(),
+  }),
+  transform: async (document, context) => {
+    const mdx = await compileMDX(context, document, {
+      files: (appender) => {
+        appender.file(
+          "@/components/docs/markdown/render-preview",
+          "./src/components/docs/markdown/render-preview.tsx",
+        );
+      },
+      remarkPlugins: [remarkGfm],
+      rehypePlugins: [
+        [
+          rehypePrettyCode,
+          {
+            theme: {
+              light: "github-light",
+              dark: "github-dark",
+            },
+            keepBackground: false,
+            transformers: [
+              {
+                name: "line-numbers",
+                pre(node: any) {
+                  node.properties["data-line-numbers"] = "";
+                },
+                line(node: any, line: number) {
+                  node.properties.className = ["line"];
+                  node.children.unshift({
+                    type: "element",
+                    tagName: "span",
+                    properties: {
+                      className: ["line-number"],
+                    },
+                    children: [{ type: "text", value: String(line) }],
+                  });
+                },
+              },
+            ],
+          },
+        ],
+      ],
+    });
+    return {
+      ...document,
+      mdx,
+      toc: extractHeadingsFromMarkdown(document.content),
     };
   },
 });
 
 export default defineConfig({
-  content: [components],
+  content: [components, docs],
 });

@@ -1,17 +1,26 @@
 "use client";
 
 import { ScrollArea as ScrollAreaPrimitive } from "@base-ui/react/scroll-area";
+import type { ReactNode, Ref } from "react";
 
 import { cn } from "@/lib/utils";
 
 function ScrollArea({
   className,
   children,
+  viewportRef,
   ...props
-}: ScrollAreaPrimitive.Root.Props & { children?: React.ReactNode }) {
+}: ScrollAreaPrimitive.Root.Props & {
+  children?: ReactNode;
+  viewportRef?: Ref<HTMLDivElement>;
+}) {
   return (
     <ScrollAreaPrimitive.Root className={cn("relative", className)} {...props}>
-      <ScrollAreaPrimitive.Viewport className="h-full w-full">
+      <ScrollAreaPrimitive.Viewport
+        ref={viewportRef}
+        data-scroll-area-viewport
+        className="h-full w-full"
+      >
         <ScrollAreaPrimitive.Content>{children}</ScrollAreaPrimitive.Content>
       </ScrollAreaPrimitive.Viewport>
       <ScrollAreaScrollbar>

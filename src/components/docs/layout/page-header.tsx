@@ -33,12 +33,12 @@ export function PageHeader({
   return (
     <div
       className={cn(
-        "flex items-center justify-between overflow-hidden bg-background px-8",
+        "flex items-center justify-between overflow-hidden bg-background px-4 py-6 md:px-0",
         className,
       )}
       {...props}
     >
-      <div className=" flex flex-col gap-1 p-6">
+      <div className=" flex flex-col gap-1">
         <h1 className="font-heading text-3xl font-bold xl:text-5xl">{title}</h1>
         {subtitle && <p className="text-xs text-muted-foreground md:text-sm">{subtitle}</p>}
         {children}
